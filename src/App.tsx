@@ -1,11 +1,12 @@
 import './App.css'
+import logo from './assets/logo.png'
 
 function App() {
   return (
     <div className="app-container">
       <div className="content">
         <img 
-          src="/logo.png" 
+          src={logo} 
           alt="Forja de Código" 
           className="logo"
         />
