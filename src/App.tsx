@@ -10,7 +10,7 @@ function App() {
           alt="Forja de Código" 
           className="logo"
         />
-        <h1 className="title">Forja de Código</h1>
+        <h1 className="title">FORJA DE CÓDIGO</h1>
         <p className="subtitle">Próximamente</p>
       </div>
     </div>
