@@ -75,4 +75,48 @@
   height: 100%;
   object-fit: contain;
   max-width: none;
-} 
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 768px) {
+  .banner-layer.workbench {
+    height: 200px;
+  }
+  .banner-layer.subject {
+    width: 156px;
+    height: 130px;
+  }
+}
+
+/* Pantallas medianas */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .banner-layer.workbench {
+    height: 300px;
+  }
+  .banner-layer.subject {
+    width: 234px;
+    height: 296px;
+  }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .banner-layer.workbench {
+    height: 350px;
+  }
+  .banner-layer.subject {
+    width: 273px;
+    height: 373px;
+  }
+}
+
+/* Pantallas extra grandes */
+@media (min-width: 1441px) {
+  .banner-layer.workbench {
+    height: 400px;
+  }
+  .banner-layer.subject {
+    width: 312px;
+    height: 454px;
+  }
+}
