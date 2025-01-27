@@ -1,4 +1,4 @@
-import './App.css'
+import './styles/App.css'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import NotFound from './components/NotFound'
 import Banner from './components/Banner'

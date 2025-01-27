@@ -1,4 +1,4 @@
-import './Banner.css'
+import '../styles/Banner.css'
 import workshop from '../assets/workshop.png'
 import subject from '../assets/subject.png'
 import workbench from '../assets/workbench.png'
