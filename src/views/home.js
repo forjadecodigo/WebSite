@@ -66,6 +66,7 @@ const Home = (props) => {
             </span>
           </Fragment>
         }
+        video1Src="/video.mp4"
         video1Poster="/example-1500w.png"
       ></Hero5>
       <Steps1
