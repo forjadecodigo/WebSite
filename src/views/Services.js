@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { Link } from 'react-router-dom'
 import './services.css'
 import { FaCode, FaMobile, FaCloud, FaDesktop, FaChartLine, FaTools } from 'react-icons/fa'
 
@@ -7,27 +8,29 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      title: 'Desarrollo Web',
+      title: 'Página Web Simple',
       icon: <FaCode className="services-icon" />,
-      description: 'Creamos sitios web y aplicaciones web modernas, responsivas y escalables.',
+      description: 'Una solución económica, ideal para pequeños negocios.',
       features: [
-        'Desarrollo Frontend y Backend',
-        'Aplicaciones Web Progresivas (PWA)',
-        'Optimización de rendimiento',
-        'SEO y accesibilidad'
-      ]
+        'Diseño moderno y responsive',
+        'Optimización para móviles',
+        'Formularios de contacto',
+        'Integración con redes sociales'
+      ],
+      link: '/contacto?service=simple'
     },
     {
       id: 2,
-      title: 'Desarrollo Móvil',
-      icon: <FaMobile className="services-icon" />,
-      description: 'Desarrollamos aplicaciones móviles nativas y multiplataforma de alta calidad.',
+      title: 'Desarrollo Web',
+      icon: <FaDesktop className="services-icon" />,
+      description: 'Desarrollamos aplicaciones y sitios web personalizados que impulsan tu negocio.',
       features: [
-        'Apps iOS y Android',
-        'Desarrollo React Native',
-        'Integración con APIs',
-        'Publicación en stores'
-      ]
+        'Desarrollo Frontend y Backend',
+        'Aplicaciones Web Progresivas',
+        'Optimización de rendimiento',
+        'SEO y accesibilidad'
+      ],
+      link: '/contacto?service=web'
     },
     {
       id: 3,
@@ -39,7 +42,8 @@ const Services = () => {
         'CI/CD Pipelines',
         'Containerización',
         'Monitoreo y seguridad'
-      ]
+      ],
+      link: '/contacto?service=cloud'
     },
     {
       id: 4,
@@ -51,7 +55,8 @@ const Services = () => {
         'Sistemas de gestión',
         'Integración de sistemas',
         'Migración de datos'
-      ]
+      ],
+      link: '/contacto?service=enterprise'
     },
     {
       id: 5,
@@ -63,7 +68,8 @@ const Services = () => {
         'Optimización de procesos',
         'Estrategia digital',
         'Auditorías técnicas'
-      ]
+      ],
+      link: '/contacto?service=other'
     },
     {
       id: 6,
@@ -75,7 +81,8 @@ const Services = () => {
         'Actualizaciones',
         'Monitoreo 24/7',
         'Respuesta a incidentes'
-      ]
+      ],
+      link: '/contacto?service=other'
     }
   ]
 
@@ -107,7 +114,9 @@ const Services = () => {
                 </div>
               ))}
             </div>
-            <button className="services-cta">Solicitar Servicio</button>
+            <Link to={service.link} className="services-cta">
+              Solicitar Servicio
+            </Link>
           </div>
         ))}
       </div>

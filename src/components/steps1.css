@@ -82,6 +82,21 @@
   padding: 0 var(--dl-space-space-unit);
 }
 
+.steps1-button {
+  margin-top: var(--dl-space-space-unit);
+  text-decoration: none;
+  background-color: var(--dl-color-theme-accent1);
+  color: var(--dl-color-theme-secondary1);
+  padding: var(--dl-space-space-unit) var(--dl-space-space-twounits);
+  border-radius: var(--dl-radius-radius-radius8);
+  transition: all 0.3s ease;
+}
+
+.steps1-button:hover {
+  transform: translateY(-2px);
+  background-color: var(--dl-color-theme-accent2);
+}
+
 @media(max-width: 991px) {
   .steps1-container2 {
     grid-template-columns: repeat(2, 1fr);

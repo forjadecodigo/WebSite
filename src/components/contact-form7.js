@@ -1,10 +1,42 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
 import './contact-form7.css'
 
 const ContactForm7 = (props) => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const service = params.get('service');
+    if (service) {
+      const selectElement = document.getElementById('contact-form-7-options');
+      if (selectElement) {
+        switch(service) {
+          case 'simple':
+            selectElement.value = 'web-simple';
+            break;
+          case 'web':
+            selectElement.value = 'web';
+            break;
+          case 'cloud':
+            selectElement.value = 'cloud';
+            break;
+          case 'enterprise':
+            selectElement.value = 'enterprise';
+            break;
+          case 'other':
+            selectElement.value = 'other';
+            break;
+          default:
+            break;
+        }
+      }
+    }
+  }, [location]);
+
   return (
     <div className="contact-form7-contact1 thq-section-padding">
       <div className="contact-form7-max-width thq-section-max-width">
@@ -135,8 +167,8 @@ const ContactForm7 = (props) => {
                 className="thq-select"
               >
                 <option value="">Selecciona una opción</option>
-                <option value="web">Desarrollo Web</option>
-                <option value="mobile">Desarrollo Móvil</option>
+                <option value="web-simple">Sitio Web Simple</option>
+                <option value="web">Desarrollo Web Personalizado</option>
                 <option value="cloud">Cloud & DevOps</option>
                 <option value="enterprise">Software Empresarial</option>
                 <option value="other">Otro</option>

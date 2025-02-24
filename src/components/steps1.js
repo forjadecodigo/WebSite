@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react'
-
 import PropTypes from 'prop-types'
-
 import './steps1.css'
 
 const Steps1 = (props) => {
@@ -18,7 +16,7 @@ const Steps1 = (props) => {
             <h2 className="steps1-text10 thq-heading-2">
               {props.step1Title ?? (
                 <Fragment>
-                  <span className="steps1-text21">De lo Local Hasta lo Global</span>
+                  <span className="steps1-text21">Desde lo local hasta lo global</span>
                 </Fragment>
               )}
             </h2>
@@ -41,7 +39,7 @@ const Steps1 = (props) => {
             <h2 className="steps1-text12 thq-heading-2">
               {props.step3Title ?? (
                 <Fragment>
-                  <span className="steps1-text17">Software a la medida</span>
+                  <span className="steps1-text17">Software hecho a la medida</span>
                 </Fragment>
               )}
             </h2>
@@ -82,21 +80,6 @@ const Steps1 = (props) => {
       </div>
     </div>
   )
-}
-
-Steps1.defaultProps = {
-  step2Description: undefined,
-  step1ImageSrc: '/placeholder.png',
-  step3Title: undefined,
-  step1Description: undefined,
-  step1ImageAlt: 'Discover Image',
-  step2Title: undefined,
-  step3ImageAlt: 'Order Image',
-  step2ImageSrc: '/placeholder.png',
-  step2Alt: 'Choose Image',
-  step3Description: undefined,
-  step3ImageSrc: '/placeholder.png',
-  step1Title: undefined,
 }
 
 Steps1.propTypes = {
