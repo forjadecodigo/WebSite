@@ -35,9 +35,10 @@ const Home = (props) => {
             <span className="home-text16">Nuestros Proyectos</span>
           </Fragment>
         }
-        image1Src="/proyecto1-400h.jpg"
-        image2Src="/proyecto2-400h.jpg"
-        image3Src="/proyecto3-400h.jpg"
+        image1Src="/proyecto1.jpg"
+        image2Src="/proyecto2.jpg"
+        image3Src="/proyecto3.jpg"
+        image4Src="/proyecto4.jpg"
         rootClassName="gallery2root-class-name"
       ></Gallery2>
       <Hero5
@@ -85,9 +86,9 @@ const Home = (props) => {
             <span className="home-text22">Software a la medida</span>
           </Fragment>
         }
-        step1ImageSrc="/shop-local_5131611_white%20(1)-1400w.png"
-        step2ImageSrc="/col-1400w.png"
-        step3ImageSrc="/coding_2010990_white%20(1)-1400w.png"
+        step1ImageSrc="/localshop.png"
+        step2ImageSrc="/colombia.png"
+        step3ImageSrc="/coding.png"
         step1Description={
           <Fragment>
             <span className="home-text23">
