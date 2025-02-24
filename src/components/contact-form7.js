@@ -7,40 +7,24 @@ import './contact-form7.css'
 const ContactForm7 = (props) => {
   return (
     <div className="contact-form7-contact1 thq-section-padding">
-      <div className="contact-form7-max-width thq-section-max-width thq-flex-row">
-        <div className="contact-form7-section-title thq-flex-column Content">
-          <span className="contact-form7-text10 thq-body-small">
-            {props.content2 ?? (
+      <div className="contact-form7-max-width thq-section-max-width">
+        <div className="contact-form7-section-title">
+          <h2 className="contact-form7-text11 thq-heading-2">
+            {props.heading1 ?? (
               <Fragment>
-                <span className="contact-form7-text24">
-                  Get in touch with us today!
+                <span className="contact-form7-text20">Contacto</span>
+              </Fragment>
+            )}
+          </h2>
+          <span className="contact-form7-text12 thq-body-large">
+            {props.content1 ?? (
+              <Fragment>
+                <span className="contact-form7-text22">
+                  Estamos aquí para ayudarte. Cuéntanos sobre tu proyecto y te responderemos lo antes posible.
                 </span>
               </Fragment>
             )}
           </span>
-          <div className="contact-form7-content1">
-            <h2 className="contact-form7-text11 thq-heading-2">
-              {props.heading1 ?? (
-                <Fragment>
-                  <span className="contact-form7-text20">Contact us</span>
-                </Fragment>
-              )}
-            </h2>
-            <span className="contact-form7-text12 thq-body-small">
-              {props.content1 ?? (
-                <Fragment>
-                  <span className="contact-form7-text22">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
-                  </span>
-                </Fragment>
-              )}
-            </span>
-          </div>
           <div className="contact-form7-content2">
             <div className="contact-form7-row1">
               <svg
@@ -52,9 +36,7 @@ const ContactForm7 = (props) => {
               <span className="contact-form7-email thq-body-small">
                 {props.email ?? (
                   <Fragment>
-                    <span className="contact-form7-text19">
-                      hello@teleporthq.io
-                    </span>
+                    <span className="contact-form7-text19">forjadecodigo@gmail.com</span>
                   </Fragment>
                 )}
               </span>
@@ -69,9 +51,7 @@ const ContactForm7 = (props) => {
               <span className="contact-form7-phone thq-body-small">
                 {props.phone ?? (
                   <Fragment>
-                    <span className="contact-form7-text23">
-                      +1 (555) 000-0000
-                    </span>
+                    <span className="contact-form7-text23">+57 314 159 2653</span>
                   </Fragment>
                 )}
               </span>
@@ -86,16 +66,14 @@ const ContactForm7 = (props) => {
               <span className="contact-form7-address thq-body-small">
                 {props.address ?? (
                   <Fragment>
-                    <span className="contact-form7-text21">
-                      789 Test St, Bucharest
-                    </span>
+                    <span className="contact-form7-text21">Pereira, Colombia</span>
                   </Fragment>
                 )}
               </span>
             </div>
           </div>
         </div>
-        <form className="contact-form7-form thq-flex-column">
+        <form className="contact-form7-form">
           <div className="contact-form7-container1">
             <div className="contact-form7-input1">
               <label
@@ -107,8 +85,8 @@ const ContactForm7 = (props) => {
               <input
                 type="text"
                 id="contact-form-7-first-name"
-                placeholder="Nombre"
-                className="contact-form7-text-input1 thq-input"
+                placeholder="Tu nombre"
+                className="thq-input"
               />
             </div>
           </div>
@@ -118,13 +96,13 @@ const ContactForm7 = (props) => {
                 htmlFor="contact-form-7-email"
                 className="contact-form7-text14 thq-body-small"
               >
-                Email
+                Email *
               </label>
               <input
                 type="email"
                 id="contact-form-7-email"
-                required="true"
-                placeholder="Email"
+                required
+                placeholder="tu@email.com"
                 className="thq-input"
               />
             </div>
@@ -138,9 +116,7 @@ const ContactForm7 = (props) => {
               <input
                 type="tel"
                 id="contact-form-7-phone"
-                enctype="Numero de teléfono"
-                disabled="Numero de telefono"
-                placeholder="Número"
+                placeholder="+57 300 000 0000"
                 className="thq-input"
               />
             </div>
@@ -151,22 +127,19 @@ const ContactForm7 = (props) => {
                 htmlFor="contact-form-7-options"
                 className="contact-form7-text16 thq-body-small"
               >
-                ¿Cuál será nuestra misión?
+                ¿Qué tipo de proyecto necesitas? *
               </label>
               <select
                 id="contact-form-7-options"
-                placeholder="Select one"
-                className="contact-form7-select thq-select"
+                required
+                className="thq-select"
               >
-                <option value="Option 1">Customer service</option>
-                <option value="Option 1">Option 1</option>
-                <option value="Option 1">Option 1</option>
-                <option value="Option 2">Option 2</option>
-                <option value="Option 2">Finance</option>
-                <option value="Option 2">Option 2</option>
-                <option value="Option 3">Option 3</option>
-                <option value="Option 3">Feature request</option>
-                <option value="Option 3">Option 3</option>
+                <option value="">Selecciona una opción</option>
+                <option value="web">Desarrollo Web</option>
+                <option value="mobile">Desarrollo Móvil</option>
+                <option value="cloud">Cloud & DevOps</option>
+                <option value="enterprise">Software Empresarial</option>
+                <option value="other">Otro</option>
               </select>
             </div>
           </div>
@@ -176,13 +149,14 @@ const ContactForm7 = (props) => {
                 htmlFor="contact-form-7-message"
                 className="contact-form7-text17 thq-body-small"
               >
-                Cuéntanos en qué podemos ayudarte
+                Cuéntanos más sobre tu proyecto *
               </label>
               <textarea
                 id="contact-form-7-message"
-                rows="3"
-                placeholder="Templa tu mensaje aquí..."
-                className="contact-form7-textarea thq-input"
+                required
+                rows="4"
+                placeholder="Describe tu proyecto, objetivos y cualquier detalle importante..."
+                className="thq-input"
               ></textarea>
             </div>
           </div>
@@ -190,28 +164,24 @@ const ContactForm7 = (props) => {
             <input
               type="checkbox"
               id="contact-form-7-check"
-              checked="true"
-              required="true"
+              required
               className="thq-checkbox"
             />
             <label
               htmlFor="contact-form-7-check"
               className="contact-form7-text18 thq-body-small"
             >
-              Acepto las reglas y condiciones del Gremio de Forjadores de
-              Codigo.
+              Acepto los términos y condiciones de Forja de Código
             </label>
           </div>
           <button
             type="submit"
-            className="contact-form7-button thq-button-filled"
+            className="thq-button-filled"
           >
-            <span className="contact-form7-action1 thq-body-small">
+            <span className="thq-body-small">
               {props.action ?? (
                 <Fragment>
-                  <span className="contact-form7-text25">
-                    Comenzar a Forjar
-                  </span>
+                  <span>Enviar Mensaje</span>
                 </Fragment>
               )}
             </span>
@@ -228,7 +198,6 @@ ContactForm7.defaultProps = {
   address: undefined,
   content1: undefined,
   phone: undefined,
-  content2: undefined,
   action: undefined,
 }
 
@@ -238,7 +207,6 @@ ContactForm7.propTypes = {
   address: PropTypes.element,
   content1: PropTypes.element,
   phone: PropTypes.element,
-  content2: PropTypes.element,
   action: PropTypes.element,
 }
 

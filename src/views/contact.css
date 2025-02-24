@@ -1,15 +1,24 @@
-
 .contact-container {
   width: 100%;
   display: flex;
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  padding: var(--dl-space-space-threeunits) 0;
-  background-color: var(--dl-color-theme-primary2);
+  background-color: var(--dl-color-theme-neutral-dark2);
 }
- 
+
+@media(max-width: 991px) {
+  .contact-container {
+    padding: var(--dl-space-space-twounits) 0;
+  }
+}
+
+@media(max-width: 479px) {
+  .contact-container {
+    padding: var(--dl-space-space-unit) 0;
+  }
+}
+
 .contact-text10 {
   color: rgb(222, 222, 222);
   margin: var(--dl-space-space-fiveunits);
