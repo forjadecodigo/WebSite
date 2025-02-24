@@ -16,9 +16,16 @@
 
 .services-title {
   color: var(--dl-color-theme-secondary1);
-  font-size: 3rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
   margin-bottom: var(--dl-space-space-twounits);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.services-header .services-title {
+  font-size: 3rem;
+  margin-bottom: var(--dl-space-space-twounits);
 }
 
 .services-description {
@@ -58,14 +65,6 @@
   color: var(--dl-color-theme-accent1);
   width: 64px;
   height: 64px;
-  margin-bottom: var(--dl-space-space-unit);
-}
-
-.services-title {
-  color: var(--dl-color-theme-secondary1);
-  font-size: 1.5rem;
-  text-align: center;
-  font-weight: bold;
   margin-bottom: var(--dl-space-space-unit);
 }
 

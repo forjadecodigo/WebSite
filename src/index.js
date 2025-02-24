@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 
 import './style.css'
+import Layout from './components/Layout'
 import Home from './views/home'
 import Contact from './views/contact'
 import About from './views/About'
@@ -18,15 +19,17 @@ import NotFound from './views/not-found'
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route component={Home} exact path="/" />
-        <Route component={Contact} exact path="/contacto" />
-        <Route component={About} exact path="/nosotros" />
-        <Route component={Portfolio} exact path="/portafolio" />
-        <Route component={Services} exact path="/servicios" />
-        <Route component={NotFound} path="**" />
-        <Redirect to="**" />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route component={Home} exact path="/" />
+          <Route component={Contact} exact path="/contacto" />
+          <Route component={About} exact path="/nosotros" />
+          <Route component={Portfolio} exact path="/portafolio" />
+          <Route component={Services} exact path="/servicios" />
+          <Route component={NotFound} path="**" />
+          <Redirect to="**" />
+        </Switch>
+      </Layout>
     </Router>
   )
 }

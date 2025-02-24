@@ -1,10 +1,13 @@
+
 .contact-container {
   width: 100%;
   display: flex;
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
-  background-color: #D9D9D9;
+  justify-content: center;
+  padding: var(--dl-space-space-threeunits) 0;
+  background-color: var(--dl-color-theme-primary2);
 }
  
 .contact-text10 {

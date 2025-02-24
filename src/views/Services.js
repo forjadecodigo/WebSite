@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../components/header'
+import { Helmet } from 'react-helmet'
 import './services.css'
 import { FaCode, FaMobile, FaCloud, FaDesktop, FaChartLine, FaTools } from 'react-icons/fa'
 
@@ -81,34 +81,35 @@ const Services = () => {
 
   return (
     <div className="services-container">
-      <Header />
-      <div className="services-content">
-        <div className="services-header">
-          <h2 className="services-title">Nuestros Servicios</h2>
-          <p className="services-description">
-            Ofrecemos una amplia gama de servicios de desarrollo y consultoría tecnológica
-            para ayudar a tu empresa a alcanzar sus objetivos digitales.
-          </p>
-        </div>
-
-        <div className="services-grid">
-          {services.map((service) => (
-            <div key={service.id} className="services-card">
-              {service.icon}
-              <h3 className="services-title">{service.title}</h3>
-              <p className="services-description">{service.description}</p>
-              <div className="services-features">
-                {service.features.map((feature, index) => (
-                  <div key={index} className="services-feature">
-                    <span className="services-feature-icon">•</span>
-                    {feature}
-                  </div>
-                ))}
-              </div>
-              <button className="services-cta">Solicitar Servicio</button>
+      <Helmet>
+        <title>Services - Forja de Código</title>
+        <meta property="og:title" content="Services - Forja de Código" />
+      </Helmet>
+      <div className="services-header">
+        <h1 className="services-title thq-heading-1">Nuestros Servicios</h1>
+        <p className="services-description thq-body-large">
+          Ofrecemos una amplia gama de servicios de desarrollo de software adaptados
+          a las necesidades específicas de cada cliente. Desde aplicaciones web hasta
+          soluciones empresariales completas.
+        </p>
+      </div>
+      <div className="services-grid">
+        {services.map((service) => (
+          <div key={service.id} className="services-card">
+            {service.icon}
+            <h3 className="services-title">{service.title}</h3>
+            <p className="services-description">{service.description}</p>
+            <div className="services-features">
+              {service.features.map((feature, index) => (
+                <div key={index} className="services-feature">
+                  <span className="services-feature-icon">•</span>
+                  {feature}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+            <button className="services-cta">Solicitar Servicio</button>
+          </div>
+        ))}
       </div>
     </div>
   )
