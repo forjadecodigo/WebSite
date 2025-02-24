@@ -16,19 +16,7 @@ const Home = (props) => {
         <title>Forja de Código</title>
         <meta property="og:title" content="Forja de Código" />
       </Helmet>
-      <Header
-        text={
-          <Fragment>
-            <span className="home-text10">
-              <span>Forja</span>
-              <br></br>
-              <span>de</span>
-              <br></br>
-              <span>CÓdigo</span>
-            </span>
-          </Fragment>
-        }
-      ></Header>
+      <Header />
       <Gallery2
         heading1={
           <Fragment>

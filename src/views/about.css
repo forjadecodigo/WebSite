@@ -1,0 +1,102 @@
+.about-container {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--dl-color-theme-neutral-dark);
+  background-image: linear-gradient(135deg, var(--dl-color-theme-neutral-dark) 0%, var(--dl-color-theme-primary2) 100%);
+}
+
+.about-header {
+  width: 100%;
+  padding: var(--dl-space-space-fiveunits);
+  text-align: center;
+}
+
+.about-title {
+  color: var(--dl-color-theme-secondary1);
+  font-size: 3rem;
+  margin-bottom: var(--dl-space-space-twounits);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.about-company {
+  width: 100%;
+  padding: var(--dl-space-space-threeunits);
+  max-width: var(--dl-size-size-maxwidth);
+}
+
+.about-company-description {
+  color: var(--dl-color-theme-secondary2);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: var(--dl-space-space-fourunits);
+}
+
+.about-founders {
+  display: grid;
+  grid-gap: var(--dl-space-space-threeunits);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.about-founder-card {
+  display: flex;
+  padding: var(--dl-space-space-twounits);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  align-items: center;
+  border-radius: var(--dl-radius-radius-cardradius);
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.about-founder-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.about-founder-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: var(--dl-space-space-unit);
+}
+
+.about-founder-name {
+  color: var(--dl-color-theme-secondary1);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: var(--dl-space-space-unit);
+}
+
+.about-founder-role {
+  color: var(--dl-color-theme-accent1);
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: var(--dl-space-space-unit);
+}
+
+.about-founder-description {
+  color: var(--dl-color-theme-secondary2);
+  text-align: center;
+}
+
+.about-social-links {
+  display: flex;
+  gap: var(--dl-space-space-unit);
+  margin-top: var(--dl-space-space-unit);
+}
+
+.about-social-link {
+  color: var(--dl-color-theme-accent1);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.about-social-link:hover {
+  color: var(--dl-color-theme-accent2);
+  transform: translateY(-2px);
+} 

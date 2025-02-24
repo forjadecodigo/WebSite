@@ -35,7 +35,7 @@ const Hero5 = (props) => {
                 </Fragment>
               )}
             </p>
-            <Link to="/contact" className="hero5-button thq-button-filled">
+            <Link to="/contacto" className="hero5-button thq-button-filled">
               <span className="thq-body-small">
                 {props.action1 ?? (
                   <Fragment>

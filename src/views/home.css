@@ -5,11 +5,12 @@
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #2d2d2d;
+  background-color: var(--dl-color-theme-neutral-dark);
+  background-image: linear-gradient(to bottom right, var(--dl-color-theme-neutral-dark), var(--dl-color-theme-primary2));
 }
  
 .home-text10 {
-  color: rgb(222, 222, 222);
+  color: var(--dl-color-theme-secondary1);
   margin: var(--dl-space-space-fiveunits);
   display: inline-block;
   font-size: 2rem;
@@ -18,6 +19,7 @@
   text-align: center;
   font-weight: 700;
   text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
  
 .home-text16 {

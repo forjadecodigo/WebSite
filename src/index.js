@@ -10,9 +10,9 @@ import {
 import './style.css'
 import Home from './views/home'
 import Contact from './views/contact'
-import Nosotros from './views/nosotros'
-import Portafolio from './views/portafolio'
-import Servicios from './views/servicios'
+import About from './views/About'
+import Portfolio from './views/Portfolio'
+import Services from './views/Services'
 import NotFound from './views/not-found'
 
 const App = () => {
@@ -21,9 +21,9 @@ const App = () => {
       <Switch>
         <Route component={Home} exact path="/" />
         <Route component={Contact} exact path="/contacto" />
-        <Route component={Nosotros} exact path="/nosotros" />
-        <Route component={Portafolio} exact path="/portafolio" />
-        <Route component={Servicios} exact path="/servicios" />
+        <Route component={About} exact path="/nosotros" />
+        <Route component={Portfolio} exact path="/portafolio" />
+        <Route component={Services} exact path="/servicios" />
         <Route component={NotFound} path="**" />
         <Redirect to="**" />
       </Switch>

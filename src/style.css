@@ -7,11 +7,11 @@
   --dl-space-space-unit: 16px;
   --dl-size-size-xxlarge: 288px;
   --dl-size-size-maxwidth: 1400px;
-  --dl-color-theme-accent1: #C9E8FF;
-  --dl-color-theme-accent2: #B2D1E6;
+  --dl-color-theme-accent1: #ababc4;
+  --dl-color-theme-accent2: #5c5a7a;
   --dl-radius-radius-round: 50%;
-  --dl-color-theme-primary1: #147487;
-  --dl-color-theme-primary2: #0A3A44;
+  --dl-color-theme-primary1: #38374d;
+  --dl-color-theme-primary2: #3b3b42;
   --dl-space-space-halfunit: 8px;
   --dl-space-space-sixunits: 96px;
   --dl-space-space-twounits: 32px;
@@ -20,12 +20,12 @@
   --dl-radius-radius-radius8: 8px;
   --dl-space-space-fiveunits: 80px;
   --dl-space-space-fourunits: 64px;
-  --dl-color-theme-secondary1: #A9D5DD;
-  --dl-color-theme-secondary2: #F7F7F7;
+  --dl-color-theme-secondary1: #caccd1;
+  --dl-color-theme-secondary2: #f3f6ff;
   --dl-space-space-threeunits: 48px;
-  --dl-color-theme-neutral-dark: #222222;
+  --dl-color-theme-neutral-dark: #302f33;
   --dl-radius-radius-cardradius: 8px;
-  --dl-color-theme-neutral-light: #F5F4F4;
+  --dl-color-theme-neutral-light: #EEF2FF;
   --dl-radius-radius-imageradius: 8px;
   --dl-radius-radius-inputradius: 24px;
   --dl-radius-radius-buttonradius: 24px;
@@ -33,13 +33,19 @@
 }
  
 .button {
-  color: var(--dl-color-theme-neutral-dark);
+  color: var(--dl-color-theme-secondary1);
   display: inline-block;
-  padding: 0.5rem 1rem;
-  border-color: var(--dl-color-theme-neutral-dark);
-  border-width: 1px;
-  border-radius: 4px;
-  background-color: var(--dl-color-theme-neutral-light);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--dl-radius-radius-buttonradius);
+  background-color: var(--dl-color-theme-accent1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+ 
+.button:hover {
+  background-color: var(--dl-color-theme-accent2);
+  transform: translateY(-2px);
 }
  
 .input {
@@ -81,48 +87,41 @@
 }
  
 .thq-input {
-  color: var(--dl-color-theme-neutral-dark);
+  color: var(--dl-color-theme-secondary1);
   cursor: auto;
   outline: none;
-  padding: 0.5rem 1rem;
-  align-self: stretch;
-  text-align: center;
-  border-color: var(--dl-color-theme-neutral-dark);
-  border-width: 1px;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--dl-color-theme-accent1);
   border-radius: var(--dl-radius-radius-inputradius);
-  background-color: var(--dl-color-theme-neutral-light);
+  transition: all 0.3s ease;
 }
  
 .thq-input:focus {
-  outline: 1px solid var(--dl-color-theme-primary1);
+  border-color: var(--dl-color-theme-accent2);
+  box-shadow: 0 0 0 2px var(--dl-color-theme-accent1);
 }
  
 .thq-button-filled {
   gap: var(--dl-space-space-halfunit);
-  fill: var(--dl-color-theme-secondary1);
   color: var(--dl-color-theme-secondary1);
   cursor: pointer;
   display: flex;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   align-items: center;
   font-weight: bold;
-  padding-top: var(--dl-space-space-halfunit);
-  white-space: nowrap;
-  border-color: var(--dl-color-theme-primary1);
-  border-width: 1px;
-  padding-left: var(--dl-space-space-oneandhalfunits);
+  padding: var(--dl-space-space-unit) var(--dl-space-space-twounits);
+  border: none;
   border-radius: var(--dl-radius-radius-buttonradius);
-  padding-right: var(--dl-space-space-oneandhalfunits);
-  padding-bottom: var(--dl-space-space-halfunit);
   justify-content: center;
-  background-color: var(--dl-color-theme-primary1);
+  background-color: var(--dl-color-theme-accent1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
  
 .thq-button-filled:hover {
-  fill: var(--dl-color-theme-secondary2);
   color: var(--dl-color-theme-secondary2);
-  border-color: var(--dl-color-theme-primary2);
-  background-color: var(--dl-color-theme-primary2);
+  background-color: var(--dl-color-theme-accent2);
+  transform: translateY(-2px);
 }
  
 .thq-button-outline {
