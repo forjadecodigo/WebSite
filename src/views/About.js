@@ -9,7 +9,7 @@ const About = () => {
       id: 1,
       name: 'Oscar Bernal',
       role: 'Co-fundador & CTO',
-      image: '/path/to/oscar.jpg',
+      image: '/oscar.jpg',
       description: 'Ingeniero de software con más de 8 años de experiencia en desarrollo web y móvil. Especialista en arquitectura de software y soluciones escalables.',
       social: {
         linkedin: '#',
@@ -21,7 +21,7 @@ const About = () => {
       id: 2,
       name: 'Daniel Hasbon',
       role: 'Co-fundador & CEO',
-      image: '/path/to/daniel.jpg',
+      image: '/daniel.jpg',
       description: 'Experto en gestión de proyectos tecnológicos y desarrollo de negocios. Apasionado por la innovación y las soluciones tecnológicas.',
       social: {
         linkedin: '#',

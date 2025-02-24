@@ -7,7 +7,7 @@
   --dl-space-space-unit: 16px;
   --dl-size-size-xxlarge: 288px;
   --dl-size-size-maxwidth: 1400px;
-  --dl-color-theme-accent1: #ababc4;
+  --dl-color-theme-accent1: #7a7a9c;
   --dl-color-theme-accent2: #5c5a7a;
   --dl-radius-radius-round: 50%;
   --dl-color-theme-primary1: #38374d;
@@ -24,6 +24,7 @@
   --dl-color-theme-secondary2: #f3f6ff;
   --dl-space-space-threeunits: 48px;
   --dl-color-theme-neutral-dark: #302f33;
+  --dl-color-theme-neutral-dark2: #35343a;
   --dl-radius-radius-cardradius: 8px;
   --dl-color-theme-neutral-light: #EEF2FF;
   --dl-radius-radius-imageradius: 8px;

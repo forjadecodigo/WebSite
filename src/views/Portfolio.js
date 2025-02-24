@@ -1,31 +1,25 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import './portfolio.css'
+import React, { useEffect, useState } from 'react';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { db } from '../firebase';
+import './portfolio.css';
+import { Helmet } from 'react-helmet';
 
 const Portfolio = () => {
-  const projects = [
-    {
-      id: 1,
-      title: 'E-commerce Platform',
-      description: 'Plataforma de comercio electrónico completa con carrito de compras, pagos y gestión de inventario.',
-      image: '/path/to/project1.jpg',
-      link: '#'
-    },
-    {
-      id: 2,
-      title: 'Sistema de Gestión',
-      description: 'Sistema integral para la gestión de recursos empresariales y seguimiento de proyectos.',
-      image: '/path/to/project2.jpg',
-      link: '#'
-    },
-    {
-      id: 3,
-      title: 'App Móvil',
-      description: 'Aplicación móvil multiplataforma para servicios de delivery y seguimiento en tiempo real.',
-      image: '/path/to/project3.jpg',
-      link: '#'
-    }
-  ]
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const q = query(collection(db, 'proyectos'), orderBy('fecha', 'desc'));
+      const querySnapshot = await getDocs(q);
+      const projectsData = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setProjects(projectsData);
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <div className="portfolio-container">
@@ -33,32 +27,45 @@ const Portfolio = () => {
         <title>Portfolio - Forja de Código</title>
         <meta property="og:title" content="Portfolio - Forja de Código" />
       </Helmet>
-      <div className="portfolio-header">
-        <h1 className="portfolio-title thq-heading-1">Nuestros Proyectos</h1>
-        <p className="portfolio-description thq-body-large">
-          Descubre algunos de los proyectos más destacados que hemos desarrollado para
-          nuestros clientes. Cada proyecto es único y refleja nuestro compromiso con
-          la calidad y la innovación.
-        </p>
-      </div>
+      <h1 className="portfolio-title">Nuestros Proyectos</h1>
       <div className="portfolio-grid">
-        {projects.map((project) => (
-          <div key={project.id} className="portfolio-project-card">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="portfolio-project-image"
-            />
-            <h3 className="portfolio-project-title">{project.title}</h3>
-            <p className="portfolio-project-description">{project.description}</p>
-            <a href={project.link} className="portfolio-project-link">
-              Ver más →
-            </a>
+        {projects.map(project => (
+          <div key={project.id} id={project.id} className="portfolio-item">
+            <div className="portfolio-image-container">
+              <img 
+                src={`/${project.imagen}`} 
+                alt={project.titulo} 
+                className="portfolio-image"
+              />
+            </div>
+            <div className="portfolio-content">
+              <h2>{project.titulo}</h2>
+              <p>{project.descripcion}</p>
+              <div className="portfolio-tech">
+                <h3>Tecnologías:</h3>
+                <div className="tech-tags">
+                  {project.tecnologias.map((tech, idx) => (
+                    <span key={idx} className="tech-tag">{tech}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="portfolio-features">
+                <h3>Características:</h3>
+                <ul>
+                  {project.caracteristicas.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="portfolio-date">
+                Publicado: {new Date(project.fecha.seconds * 1000).toLocaleDateString()}
+              </div>
+            </div>
           </div>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Portfolio 
+export default Portfolio; 

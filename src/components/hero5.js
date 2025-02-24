@@ -55,7 +55,7 @@ Hero5.defaultProps = {
   content1: undefined,
   action1: undefined,
   heading1: undefined,
-  video1Poster: 'image/video-background.jpg',
+  video1Poster: '/placeholder.png',
   video1Src: '',
 }
 

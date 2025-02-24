@@ -8,12 +8,12 @@ import {
 } from 'react-router-dom'
 
 import './style.css'
-import Layout from './components/Layout'
+import Layout from './components/layout'
 import Home from './views/home'
 import Contact from './views/contact'
-import About from './views/About'
-import Portfolio from './views/Portfolio'
-import Services from './views/Services'
+import About from './views/about'
+import Portfolio from './views/portfolio'
+import Services from './views/services'
 import NotFound from './views/not-found'
 
 const App = () => {
@@ -25,6 +25,7 @@ const App = () => {
           <Route component={Contact} exact path="/contacto" />
           <Route component={About} exact path="/nosotros" />
           <Route component={Portfolio} exact path="/portafolio" />
+          <Route component={Portfolio} exact path="/portafolio/:id" />
           <Route component={Services} exact path="/servicios" />
           <Route component={NotFound} path="**" />
           <Redirect to="**" />

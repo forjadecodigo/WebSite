@@ -12,13 +12,13 @@ const Steps1 = (props) => {
           <div className="steps1-container3 thq-card">
             <img
               alt={props.step1ImageAlt}
-              src={props.step1ImageSrc}
+              src="/localshop.png"
               className="steps1-image1 thq-img-ratio-1-1"
             />
             <h2 className="steps1-text10 thq-heading-2">
               {props.step1Title ?? (
                 <Fragment>
-                  <span className="steps1-text21">Discover</span>
+                  <span className="steps1-text21">De lo Local Hasta lo Global</span>
                 </Fragment>
               )}
             </h2>
@@ -26,7 +26,7 @@ const Steps1 = (props) => {
               {props.step1Description ?? (
                 <Fragment>
                   <span className="steps1-text18">
-                    Explore our wide range of products and services.
+                  Comenzamos creando software a medida para nuestro círculo cercano, ahora ayudamos a empresas de todos los sectores.
                   </span>
                 </Fragment>
               )}
@@ -35,13 +35,13 @@ const Steps1 = (props) => {
           <div className="steps1-container4 thq-card">
             <img
               alt={props.step3ImageAlt}
-              src={props.step3ImageSrc}
+              src="/coding.png"
               className="steps1-image2 thq-img-ratio-1-1"
             />
             <h2 className="steps1-text12 thq-heading-2">
               {props.step3Title ?? (
                 <Fragment>
-                  <span className="steps1-text17">Order</span>
+                  <span className="steps1-text17">Software a la medida</span>
                 </Fragment>
               )}
             </h2>
@@ -49,7 +49,7 @@ const Steps1 = (props) => {
               {props.step3Description ?? (
                 <Fragment>
                   <span className="steps1-text20">
-                    Place your order easily and securely through our platform.
+                  Desarrollamos aplicaciones y sitios web personalizados que impulsan tu negocio.
                   </span>
                 </Fragment>
               )}
@@ -58,13 +58,13 @@ const Steps1 = (props) => {
           <div className="steps1-container5 thq-card">
             <img
               alt={props.step2Alt}
-              src={props.step2ImageSrc}
+              src="/colombia.png"
               className="steps1-image3 thq-img-ratio-1-1"
             />
             <h2 className="steps1-text14 thq-heading-2">
               {props.step2Title ?? (
                 <Fragment>
-                  <span className="steps1-text19">Choose</span>
+                  <span className="steps1-text19">El futuro digital de Colombia</span>
                 </Fragment>
               )}
             </h2>
@@ -72,7 +72,7 @@ const Steps1 = (props) => {
               {props.step2Description ?? (
                 <Fragment>
                   <span className="steps1-text16">
-                    Select the products or services that best fit your needs.
+                  Llevamos tecnología de vanguardia a empresarios que buscan crecer y alcanzar nuevos objetivos.
                   </span>
                 </Fragment>
               )}
@@ -86,16 +86,16 @@ const Steps1 = (props) => {
 
 Steps1.defaultProps = {
   step2Description: undefined,
-  step1ImageSrc: 'https://play.teleporthq.io/static/svg/default-img.svg',
+  step1ImageSrc: '/placeholder.png',
   step3Title: undefined,
   step1Description: undefined,
   step1ImageAlt: 'Discover Image',
   step2Title: undefined,
   step3ImageAlt: 'Order Image',
-  step2ImageSrc: 'https://play.teleporthq.io/static/svg/default-img.svg',
+  step2ImageSrc: '/placeholder.png',
   step2Alt: 'Choose Image',
   step3Description: undefined,
-  step3ImageSrc: 'https://play.teleporthq.io/static/svg/default-img.svg',
+  step3ImageSrc: '/placeholder.png',
   step1Title: undefined,
 }
 

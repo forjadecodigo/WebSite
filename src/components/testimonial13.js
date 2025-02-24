@@ -159,8 +159,7 @@ Testimonial13.defaultProps = {
   author1Name: undefined,
   review2: undefined,
   author2Alt: 'Author Avatar',
-  company1LogoSrc:
-    'https://presentation-website-assets.teleporthq.io/logos/logo.png',
+  company1LogoSrc: '/placeholder.png',
   company2LogoAlt: 'Company Logo',
   author1Position: undefined,
   author1Alt: 'Author Avatar',
@@ -168,13 +167,10 @@ Testimonial13.defaultProps = {
   company1LogoAlt: 'Company Logo',
   author2Name: undefined,
   review1: undefined,
-  author2Src:
-    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fHVzZXJ8ZW58MHx8fHwxNzEwOTQyNjEyfDA&ixlib=rb-4.0.3&w=200',
+  author2Src: '/placeholder.png',
   content1: undefined,
-  author1Src:
-    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fHVzZXJ8ZW58MHx8fHwxNzEwOTQyNjEyfDA&ixlib=rb-4.0.3&w=200',
-  company2LogoSrc:
-    'https://presentation-website-assets.teleporthq.io/logos/logo.png',
+  author1Src: '/placeholder.png',
+  company2LogoSrc: '/placeholder.png',
   author2Position: undefined,
 }
 
