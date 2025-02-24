@@ -1,5 +1,5 @@
 {
-  "name": "spectacular-metallic-grasshopper",
+  "name": "forja-de-cdigo",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -15,8 +15,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test --env=jsdom",
-    "eject": "craco eject",
-    "deploy": "npm run build && firebase deploy"
+    "eject": "craco eject"
   },
   "engines": {
     "node": ">=18.x"

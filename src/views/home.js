@@ -2,33 +2,42 @@ import React, { Fragment } from 'react'
 
 import { Helmet } from 'react-helmet'
 
+import Header from '../components/header'
 import Gallery2 from '../components/gallery2'
 import Hero5 from '../components/hero5'
 import Steps1 from '../components/steps1'
+import Footer3 from '../components/footer3'
 import './home.css'
 
 const Home = (props) => {
   return (
-    <div className="home-container1">
+    <div className="home-container">
       <Helmet>
-        <title>Spectacular Metallic Grasshopper</title>
-        <meta property="og:title" content="Spectacular Metallic Grasshopper" />
+        <title>Forja de Código</title>
+        <meta property="og:title" content="Forja de Código" />
       </Helmet>
-      <div className="home-container2">
-        <span className="home-text10">
-          <span>Forja</span>
-          <br></br>
-          <span>de</span>
-          <br></br>
-          <span>CÓdigo</span>
-        </span>
-      </div>
+      <Header
+        text={
+          <Fragment>
+            <span className="home-text10">
+              <span>Forja</span>
+              <br></br>
+              <span>de</span>
+              <br></br>
+              <span>CÓdigo</span>
+            </span>
+          </Fragment>
+        }
+      ></Header>
       <Gallery2
         heading1={
           <Fragment>
             <span className="home-text16">Nuestros Proyectos</span>
           </Fragment>
         }
+        image1Src="/proyecto1-400h.jpg"
+        image2Src="/proyecto2-400h.jpg"
+        image3Src="/proyecto3-400h.jpg"
         rootClassName="gallery2root-class-name"
       ></Gallery2>
       <Hero5
@@ -62,44 +71,78 @@ const Home = (props) => {
       <Steps1
         step1Title={
           <Fragment>
-            <span className="home-text20">Discover</span>
+            <span className="home-text20">Desde lo Local Hasta lo Global</span>
           </Fragment>
         }
         step2Title={
           <Fragment>
-            <span className="home-text21">Choose</span>
+            <span className="home-text21">El futuro digital de Colombia</span>
           </Fragment>
         }
         step3Title={
           <Fragment>
-            <span className="home-text22">Order</span>
+            <span className="home-text22">Software a la medida</span>
           </Fragment>
         }
+        step1ImageSrc="/shop-local_5131611_white%20(1)-1400w.png"
+        step2ImageSrc="/col-1400w.png"
+        step3ImageSrc="/coding_2010990_white%20(1)-1400w.png"
         step1Description={
           <Fragment>
             <span className="home-text23">
-              Explore our wide range of products and services.
+              Comenzamos creando software a medida para nuestro círculo cercano,
+              ahora ayudamos a empresas de todos los sectores.
             </span>
           </Fragment>
         }
         step2Description={
           <Fragment>
             <span className="home-text24">
-              Select the products or services that best fit your needs.
+              Llevamos tecnología de vanguardia a empresarios que buscan crecer
+              y alcanzar nuevos objetivos.
             </span>
           </Fragment>
         }
         step3Description={
           <Fragment>
             <span className="home-text25">
-              Place your order easily and securely through our platform.
+              Desarrollamos aplicaciones y sitios web personalizados que
+              impulsan tu negocio.
             </span>
           </Fragment>
         }
-        step2ImageSrc="/logo-400w.png"
-        step1ImageSrc="/2ad22892-43a7-4315-9d53-78f480cf3b86-1400w.webp"
-        step3ImageSrc="/2ad22892-43a7-4315-9d53-78f480cf3b86-1400w.webp"
       ></Steps1>
+      <Footer3
+        termsLink={
+          <Fragment>
+            <span className="home-text26">Terminos y Condiciones</span>
+          </Fragment>
+        }
+        termsLink1={
+          <Fragment>
+            <span className="home-text27">Telefono: +57 314 159 2653</span>
+          </Fragment>
+        }
+        privacyLink={
+          <Fragment>
+            <span className="home-text28">
+              <span>Donde la imaginación se transforma en software.</span>
+              <br></br>
+              <span>
+                Desarrollamos soluciones digitales a la medida para impulsar tu
+                negocio.
+              </span>
+              <br></br>
+              <span>Innovamos contigo, crecemos juntos.</span>
+            </span>
+          </Fragment>
+        }
+        termsLink11={
+          <Fragment>
+            <span className="home-text34">Ubicación: Pereira, Colombia</span>
+          </Fragment>
+        }
+      ></Footer3>
     </div>
   )
 }

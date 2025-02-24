@@ -1,4 +1,4 @@
-.home-container1 {
+.home-container {
   width: 100%;
   display: flex;
   min-height: 100vh;
@@ -8,33 +8,15 @@
   background-color: #2d2d2d;
 }
  
-.home-container2 {
-  width: 100%;
-  height: 437px;
-  display: flex;
-  align-items: flex-start;
-  animation-name: pulse;
-  padding-bottom: var(--dl-space-space-unit);
-  animation-delay: 0s;
-  background-size: auto;
-  justify-content: flex-start;
-  background-image: url("/example-1500w.png");
-  animation-duration: 300ms;
-  animation-direction: normal;
-  background-position: center;
-  animation-iteration-count: 1;
-  animation-timing-function: ease;
-}
- 
 .home-text10 {
   color: rgb(222, 222, 222);
+  margin: var(--dl-space-space-fiveunits);
+  display: inline-block;
   font-size: 2rem;
   align-self: flex-start;
   font-style: normal;
-  margin-top: var(--dl-space-space-fiveunits);
   text-align: center;
   font-weight: 700;
-  margin-left: var(--dl-space-space-fiveunits);
   text-transform: uppercase;
 }
  
@@ -44,39 +26,64 @@
 }
  
 .home-text17 {
+  color: var(--dl-color-theme-secondary2);
   display: inline-block;
 }
  
 .home-text18 {
-  color: var(--dl-color-theme-secondary1);
+  color: var(--dl-color-theme-secondary2);
   display: inline-block;
+  font-size: 18px;
 }
  
 .home-text19 {
   color: var(--dl-color-theme-secondary1);
   display: inline-block;
+  font-size: 32px;
 }
  
 .home-text20 {
+  color: var(--dl-color-theme-secondary2);
   display: inline-block;
 }
  
 .home-text21 {
+  color: var(--dl-color-theme-secondary2);
   display: inline-block;
 }
  
 .home-text22 {
+  color: var(--dl-color-theme-secondary2);
   display: inline-block;
 }
  
 .home-text23 {
+  color: var(--dl-color-theme-neutral-light);
   display: inline-block;
 }
  
 .home-text24 {
+  color: var(--dl-color-theme-neutral-light);
   display: inline-block;
 }
  
 .home-text25 {
+  color: var(--dl-color-theme-neutral-light);
+  display: inline-block;
+}
+ 
+.home-text26 {
+  display: inline-block;
+}
+ 
+.home-text27 {
+  display: inline-block;
+}
+ 
+.home-text28 {
+  display: inline-block;
+}
+ 
+.home-text34 {
   display: inline-block;
 }

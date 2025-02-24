@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -34,17 +35,15 @@ const Hero5 = (props) => {
                 </Fragment>
               )}
             </p>
-            <div className="hero5-actions">
-              <button className="thq-button-filled hero5-button">
-                <span className="thq-body-small">
-                  {props.action1 ?? (
-                    <Fragment>
-                      <span className="hero5-text5">Get started</span>
-                    </Fragment>
-                  )}
-                </span>
-              </button>
-            </div>
+            <Link to="/contact" className="hero5-button thq-button-filled">
+              <span className="thq-body-small">
+                {props.action1 ?? (
+                  <Fragment>
+                    <span className="hero5-text5">Get started</span>
+                  </Fragment>
+                )}
+              </span>
+            </Link>
           </div>
         </div>
       </div>

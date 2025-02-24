@@ -9,7 +9,7 @@
 }
  
 .hero5-video {
-  width: 550px;
+  width: 50%;
   height: auto;
 }
  
@@ -38,10 +38,9 @@
   text-align: left;
 }
  
-.hero5-actions {
-  gap: var(--dl-space-space-unit);
-  display: flex;
-  align-items: flex-start;
+.hero5-button {
+  text-decoration: none;
+  background-color: var(--dl-color-theme-primary1);
 }
  
 .hero5-text4 {
@@ -69,17 +68,9 @@
   .hero5-text2 {
     text-align: center;
   }
-  .hero5-actions {
-    align-self: center;
-    justify-content: flex-start;
-  }
 }
  
 @media(max-width: 479px) {
-  .hero5-actions {
-    width: 100%;
-    flex-direction: column;
-  }
   .hero5-button {
     width: 100%;
   }
