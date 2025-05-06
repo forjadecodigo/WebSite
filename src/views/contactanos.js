@@ -19,7 +19,13 @@ const Contactanos = (props) => {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play();
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // Manejar el error silenciosamente
+          console.log('Error al reproducir el video:', error);
+        });
+      }
     }
     // Recuperar el email del localStorage si existe
     const tempEmail = localStorage.getItem('tempEmail');

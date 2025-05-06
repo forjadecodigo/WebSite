@@ -43,7 +43,14 @@ const Inicio = (props) => {
     }
     setSelectedProject(projectToShow);
 
-    if ((location.state && location.state.scrollTo === 'portafolioInicio') || projectToShow) {
+    if (location.state && location.state.scrollTo) {
+      setTimeout(() => {
+        const element = document.getElementById(location.state.scrollTo);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 200);
+    } else if (projectToShow) {
       setTimeout(() => {
         const element = document.getElementById('portafolioInicio');
         if (element) {
@@ -68,7 +75,13 @@ const Inicio = (props) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (videoRef.current) {
-              videoRef.current.play();
+              const playPromise = videoRef.current.play();
+              if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                  // Manejar el error silenciosamente
+                  console.log('Error al reproducir el video:', error);
+                });
+              }
             }
           } else {
             if (videoRef.current) {
