@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay, EffectFade } from 'swiper/modules'
 import 'swiper/css'
@@ -10,7 +10,7 @@ import { proyectos } from '../data/proyectos'
 import './slider-animado.css'
 
 const SliderAnimado = (props) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   // Referencia a la instancia de Swiper
   const swiperRef = useRef(null);
 
@@ -67,7 +67,7 @@ const SliderAnimado = (props) => {
   const handleProjectClick = (projectId) => {
     const proyecto = proyectos[`proyecto${projectId}`];
     localStorage.setItem('selectedProject', JSON.stringify(proyecto));
-    history.push('/', { state: { selectedProject: projectId, scrollTo: 'portafolioInicio' } });
+    navigate('/', { state: { selectedProject: projectId, scrollTo: 'portafolioInicio' } });
   };
 
   return (

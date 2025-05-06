@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {
   BrowserRouter as Router,
+  Routes,
   Route,
-  Switch,
-  Redirect,
+  Navigate,
 } from 'react-router-dom'
 
 import './style.css'
@@ -15,12 +15,12 @@ import NotFound from './views/not-found'
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={Inicio} />
-        <Route exact path="/contactanos" component={Contactanos} />
-        <Route path="/404" component={NotFound} />
-        <Route component={NotFound} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/contactanos" element={<Contactanos />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404" replace />} />
+      </Routes>
     </Router>
   )
 }

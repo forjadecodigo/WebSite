@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -8,14 +8,14 @@ import './pie-de-pagina.css'
 
 const PieDePagina = (props) => {
   const [email, setEmail] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     // Guardar el email en localStorage para recuperarlo en la página de contacto
     localStorage.setItem('tempEmail', email);
-    // Navegar a la página de contacto usando history.push
-    history.push('/contactanos');
+    // Navegar a la página de contacto usando navigate
+    navigate('/contactanos');
   };
 
   return (

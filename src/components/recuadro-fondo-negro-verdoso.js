@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import BotonConResplandor from './boton-con-resplandor'
 import './recuadro-fondo-negro-verdoso.css'
 
 const RecuadroFondoNegroVerdoso = (props) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleContactClick = () => {
-    history.push('/contactanos');
+    navigate('/contactanos');
   };
 
   return (

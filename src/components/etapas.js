@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -9,7 +9,7 @@ import './etapas.css'
 const Etapas = (props) => {
   const [tilt, setTilt] = useState({ x: 0, y: 0, translateX: 0, translateY: 0 });
   const [bombilloEncendido, setBombilloEncendido] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -39,7 +39,7 @@ const Etapas = (props) => {
   };
 
   const handleContactClick = () => {
-    history.push('/contactanos');
+    navigate('/contactanos');
   };
 
   return (

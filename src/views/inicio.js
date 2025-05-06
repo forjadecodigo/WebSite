@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect, useRef } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { proyectos } from '../data/proyectos'
 import Menu from '../components/menu'
@@ -16,7 +16,7 @@ const Inicio = (props) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [tiltCEO, setTiltCEO] = useState({ x: 0, y: 0 });
   const [tiltCTO, setTiltCTO] = useState({ x: 0, y: 0 });
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const proyectosRef = useRef(null);
   const videoRef = useRef(null);
@@ -163,7 +163,7 @@ const Inicio = (props) => {
   };
 
   const handleContactClick = () => {
-    history.push('/contactanos');
+    navigate('/contactanos');
   };
 
   const services = [

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
-import { Link, useLocation, useHistory } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -7,7 +7,7 @@ import './menu.css'
 
 const Menu = (props) => {
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({
@@ -18,14 +18,11 @@ const Menu = (props) => {
 
   const scrollToSection = (sectionId) => {
     if (location.pathname !== '/') {
-      history.push({
-        pathname: '/',
-        state: { scrollTo: sectionId }
-      });
+      navigate('/', { state: { scrollTo: sectionId } });
     } else {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
