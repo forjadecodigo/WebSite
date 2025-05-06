@@ -33,7 +33,7 @@ const Menu = (props) => {
   return (
     <div className={`menu-container1 ${props.rootClassName}`}>
       <div className="menu-logo button-container">
-        <Link to="/" className="menu-navlink1 button glow-btn">
+        <button onClick={() => scrollToSection('inicio-seccion1')} className="menu-navlink1 button glow-btn">
           <span className="menu-text10">
             {props.button ?? (
               <Fragment>
@@ -43,7 +43,7 @@ const Menu = (props) => {
               </Fragment>
             )}
           </span>
-        </Link>
+        </button>
       </div>
       <div className="menu-sub-menu">
         <div className="botonInicio button-container">
