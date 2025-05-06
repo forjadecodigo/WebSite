@@ -9,6 +9,8 @@ import PieDePagina from '../components/pie-de-pagina'
 import Etapas from '../components/etapas'
 import RecuadroFondoNegroVerdoso from '../components/recuadro-fondo-negro-verdoso'
 import Testimonios from '../components/testimonios'
+import { Trefoil } from 'ldrs/react'
+import 'ldrs/react/Trefoil.css'
 import './inicio.css'
 
 const Inicio = (props) => {
@@ -524,7 +526,14 @@ const Inicio = (props) => {
             </button>
             <div className="nosotrosInicio-info-container">
               <div className="nosotrosInicio-loader-container">
-                <div className="nosotrosInicio-loader"></div>
+                <Trefoil
+                  size="40"
+                  stroke="4"
+                  strokeLength="0.15"
+                  bgOpacity="0.1"
+                  speed="1.4"
+                  color="black"
+                />
               </div>
               <div className="nosotrosInicio-descripcion">
                 Desarrollador de software y web, con formación en mercadeo y ventas, y actual CEO de Forja de Código. Su enfoque une la tecnología con la creatividad para crear soluciones funcionales, visualmente atractivas y alineadas con la visión de cada cliente.
@@ -568,7 +577,14 @@ const Inicio = (props) => {
             </button>
             <div className="nosotrosInicio-info-container">
               <div className="nosotrosInicio-loader-container">
-                <div className="nosotrosInicio-loader"></div>
+                <Trefoil
+                  size="40"
+                  stroke="4"
+                  strokeLength="0.15"
+                  bgOpacity="0.1"
+                  speed="1.4"
+                  color="cyan"
+                />
               </div>
               <div className="nosotrosInicio-descripcion">
                 Ingeniero de software con más de 10 años de experiencia en el desarrollo de soluciones web y móviles. Su trayectoria incluye proyectos de alto impacto tanto a nivel nacional como internacional, y una sólida formación adquirida en el exterior, donde amplió su visión tecnológica y estratégica. 
