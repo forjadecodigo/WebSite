@@ -1,0 +1,112 @@
+[debug] [2025-05-06T20:17:55.542Z] ----------------------------------------------------------------------
+[debug] [2025-05-06T20:17:55.544Z] Command:       /home/oz/.nvm/versions/node/v22.14.0/bin/node /home/oz/.nvm/versions/node/v22.14.0/bin/firebase deploy
+[debug] [2025-05-06T20:17:55.544Z] CLI Version:   14.2.2
+[debug] [2025-05-06T20:17:55.544Z] Platform:      linux
+[debug] [2025-05-06T20:17:55.544Z] Node Version:  v22.14.0
+[debug] [2025-05-06T20:17:55.544Z] Time:          Tue May 06 2025 15:17:55 GMT-0500 (Colombia Standard Time)
+[debug] [2025-05-06T20:17:55.544Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-05-06T20:17:55.702Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-05-06T20:17:55.703Z] > authorizing via signed-in user (forjadecodigo@gmail.com)
+[debug] [2025-05-06T20:17:55.703Z] [iam] checking project forjadecodigo-1b72a for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-05-06T20:17:55.704Z] Checked if tokens are valid: false, expires at: 1746562482685
+[debug] [2025-05-06T20:17:55.704Z] Checked if tokens are valid: false, expires at: 1746562482685
+[debug] [2025-05-06T20:17:55.704Z] > refreshing access token with scopes: []
+[debug] [2025-05-06T20:17:55.706Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-05-06T20:17:55.706Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-05-06T20:17:56.136Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-05-06T20:17:56.136Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-05-06T20:17:56.141Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/forjadecodigo-1b72a:testIamPermissions [none]
+[debug] [2025-05-06T20:17:56.141Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/forjadecodigo-1b72a:testIamPermissions x-goog-quota-user=projects/forjadecodigo-1b72a
+[debug] [2025-05-06T20:17:56.141Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/forjadecodigo-1b72a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-05-06T20:17:56.531Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/forjadecodigo-1b72a:testIamPermissions 200
+[debug] [2025-05-06T20:17:56.531Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/forjadecodigo-1b72a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-05-06T20:17:56.531Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:56.532Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:56.532Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/forjadecodigo-1b72a [none]
+[debug] [2025-05-06T20:17:57.152Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/forjadecodigo-1b72a 200
+[debug] [2025-05-06T20:17:57.153Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/forjadecodigo-1b72a {"projectId":"forjadecodigo-1b72a","projectNumber":"524467689467","displayName":"forjadecodigo","name":"projects/forjadecodigo-1b72a","resources":{"hostingSite":"forjadecodigo-1b72a"},"state":"ACTIVE","etag":"1_df84dee3-44bd-4d51-b6c0-4795cf6c51e7"}
+[info] 
+[info] === Deploying to 'forjadecodigo-1b72a'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-05-06T20:17:57.157Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:57.157Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:57.157Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/versions [none]
+[debug] [2025-05-06T20:17:57.158Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-05-06T20:17:58.677Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/versions 200
+[debug] [2025-05-06T20:17:58.677Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/versions {"name":"projects/524467689467/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[forjadecodigo-1b72a]: beginning deploy... 
+[info] i  hosting[forjadecodigo-1b72a]: found 40 files in build 
+[debug] [2025-05-06T20:17:58.686Z] [hosting] uploading with 200 concurrency
+[debug] [2025-05-06T20:17:58.976Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:58.976Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:58.976Z] [hosting] hash cache [YnVpbGQ] stored for 40 files
+[debug] [2025-05-06T20:17:58.976Z] [hosting][hash queue][FINAL] {"max":286,"min":11,"avg":77.825,"active":0,"complete":40,"success":40,"errored":0,"retried":0,"total":40,"elapsed":289}
+[debug] [2025-05-06T20:17:58.977Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/524467689467/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424:populateFiles [none]
+[debug] [2025-05-06T20:17:58.977Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/524467689467/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424:populateFiles {"files":{"/index.html":"3c377789af54983f6a5219de9566b8a3a786f96329d3d9dd2943a75a41e3a80d","/forjalogovector-200h.png":"ffda55e940817b8d8c36c86aa5125a0cd11273d1960cd16a48c2655066d0f8d7","/forjacodigocirculo-200h.png":"c79e49d204077d925e52dd51fa6dce230962cdbcded745bea12aeb9194f6f3bb","/forjalogovector-1500h.png":"11c7bef7a40fa52992bb84919b291b4662d2dbdce23ed25b27a4ede25fc5dc13","/forjacodigocirculo-1500w.png":"5dfbe8f30bc280647fb5d9d8eae6ce930c3d369b82ed03b629138656868a7914","/asset-manifest.json":"e873a28ceb9d3a7f86b43675861d19576275fa12ad03a3bafe33e5aa1633e227","/GanandoMenu.jpg":"0664fa3a3e93e4c7afe4ef26546f8dd33681348e46a315f21023471aeed42930","/static/js/main.2c2ec3de.js.LICENSE.txt":"842bd99108cf6d3303d5359ce61c734f093f6432195afce5e9daa78d48bf4814","/proyecto1.jpg":"106438ae65587f03512ac45ccf5befefc03f156265fe773fa0dc0f188550c345","/logo2.png":"8a6e6dde1be1b432e30377e46adfa1fb7bb5930aabfaee0a2398e558d43816f8","/captura de pantalla 2025-04-09 110746-200w.png":"ba3c3ba2d338bb053bc10cda2186a253cd22989358323ec857fcf502800c7108","/Logo3.png":"5817c16e50ce91571bbff0a929b23c9e70561bdb136aa17b31e49a1d67c37025","/static/css/main.4704e66d.css":"e77cddcc8d98218637b935479564207f27fda45b25f9c4fe49143aa197c6a032","/logo.png":"a2bf5793f15bbef08aaff1022fc6cf5ec0ffd195972842a7dd0426834a51459a","/bombilloapp-600h.png":"5bcaa1bed3b766db5e9796c989db5416d30feb8f412a273eae9cc8ebe0dbe08e","/static/css/main.4704e66d.css.map":"b4122cbc72bdb9a14655fc77ce53221a7f9ab4e38ba0f00a5326f1eb84d30ef6","/proyecto2.jpg":"8156b8804f8a8fcbddcf11fc80445c19b281c290f9b199dc27d3ff72e1923e86","/proyecto3.jpg":"afb83ee772d1f7ad2b90b55db884b1b2e379c927be43365710f89a20f12a1f51","/hb3d3.0-700h.png":"48ec0c3429afb73dc0a27e94cd3e40fc019f77f000ae5e646ddf787163362b09","/hb3d3.0-1500w.png":"48ec0c3429afb73dc0a27e94cd3e40fc019f77f000ae5e646ddf787163362b09","/static/js/main.2c2ec3de.js":"62dca0ab99d67224c214d9b9e692c3ecca53c7f43884e950a81fd0e551f1ecf5","/proyecto6.jpg":"b69c4167744991c14d115c42b77b7d5e6ecc883a37498c482d15eebed357ecf1","/ganando.jpg":"b69c4167744991c14d115c42b77b7d5e6ecc883a37498c482d15eebed357ecf1","/logo1.png":"fa8d76c225d6becc00baab634f17497c834c59651c6f25035d1028c0ba283cad","/robot forja-1500w.png":"7b42b12a2e884acbd5ced3af6bf048c403d8005cc68d9aff50d882aeb0150c90","/fondomatrixazul-700h.png":"57238c1f3bfbf2b68d20a6f551ff138c21743f15e4b95a80fd4ed5b24c95a354","/RobotForja.png":"9fb9199073f03ef57ab20473191cca8ab4f9cccac361f4218761110baa6e033a","/imagencodigo.mp4":"0d3df22085485c76876a497062c06cd7d4df68ef720a86e3bf76049ce8434aa7","/manotomandofuego.mp4":"f9333497d5f42552b85ba2ac4b0dae3e687fc43ee1de38e14aa1d4755505b93a","/herrerosonriente.mp4":"8ee0be3ad1c38410362a39496977895240a2bf550347733b4c851d7fb6b7c616","/fondomatrixazul-1400w.png":"6ace84e0cc724774680bd3adfb3298c5b7c6f58bc8f2c2e16f02962a8d28b70e","/proyecto4.png":"e411d0aa7e60287267955148832a2ce89728e733aeba61fbe18c3f8ea5bae388","/roboforjaazul.mp4":"228b6222bf4d5745f72a26e3e1cb3fecd2d12ecfeab81bb7a9cd4e444807b345","/FotoBernal.png":"20126b8025d28b08b5aa9da7c1bde8b0fd3b6a3f1c583a92eb389fd6c3262cdc","/static/js/main.2c2ec3de.js.map":"5edcaf882608ba3263e1778e6afc3df7017825204199064650238fbdd1bdb1a0","/lineascodigomovi.mp4":"dd7c1d6d0c911c2a7289f811bff9bfc3f7d12109180b54f987b225eb1c817f43","/matrixInico.mp4":"7d898295fab419d0bfab8a43c21e0f544a666ba97e206c688dfb8fdb4dc66c88","/proyecto5.png":"48f912eb045221aed378f2af63b6225726387376405c7c5d4b2695b78113431f","/deanrreWeb.png":"90236455a63ef2af662e44f0823a8c70718da38ded2a27d21cc00873c27d04fb","/FotoHasbon.jpg":"e49284ec505091c02d761c4ac2d01f443e8b99ddf3ea2d9725a28c5b8bd49206"}}
+[debug] [2025-05-06T20:17:59.443Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/524467689467/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424:populateFiles 200
+[debug] [2025-05-06T20:17:59.443Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/524467689467/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424:populateFiles {"uploadRequiredHashes":["842bd99108cf6d3303d5359ce61c734f093f6432195afce5e9daa78d48bf4814","3c377789af54983f6a5219de9566b8a3a786f96329d3d9dd2943a75a41e3a80d","62dca0ab99d67224c214d9b9e692c3ecca53c7f43884e950a81fd0e551f1ecf5","e873a28ceb9d3a7f86b43675861d19576275fa12ad03a3bafe33e5aa1633e227","5edcaf882608ba3263e1778e6afc3df7017825204199064650238fbdd1bdb1a0"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files"}
+[debug] [2025-05-06T20:17:59.443Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.443Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.444Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.444Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.444Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.444Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.444Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.444Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.444Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.444Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:17:59.444Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/842bd99108cf6d3303d5359ce61c734f093f6432195afce5e9daa78d48bf4814 [none]
+[debug] [2025-05-06T20:17:59.444Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/842bd99108cf6d3303d5359ce61c734f093f6432195afce5e9daa78d48bf4814 [stream]
+[debug] [2025-05-06T20:17:59.446Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/3c377789af54983f6a5219de9566b8a3a786f96329d3d9dd2943a75a41e3a80d [none]
+[debug] [2025-05-06T20:17:59.446Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/3c377789af54983f6a5219de9566b8a3a786f96329d3d9dd2943a75a41e3a80d [stream]
+[debug] [2025-05-06T20:17:59.447Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/62dca0ab99d67224c214d9b9e692c3ecca53c7f43884e950a81fd0e551f1ecf5 [none]
+[debug] [2025-05-06T20:17:59.447Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/62dca0ab99d67224c214d9b9e692c3ecca53c7f43884e950a81fd0e551f1ecf5 [stream]
+[debug] [2025-05-06T20:17:59.448Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/e873a28ceb9d3a7f86b43675861d19576275fa12ad03a3bafe33e5aa1633e227 [none]
+[debug] [2025-05-06T20:17:59.448Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/e873a28ceb9d3a7f86b43675861d19576275fa12ad03a3bafe33e5aa1633e227 [stream]
+[debug] [2025-05-06T20:17:59.450Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/5edcaf882608ba3263e1778e6afc3df7017825204199064650238fbdd1bdb1a0 [none]
+[debug] [2025-05-06T20:17:59.450Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/5edcaf882608ba3263e1778e6afc3df7017825204199064650238fbdd1bdb1a0 [stream]
+[debug] [2025-05-06T20:17:59.450Z] [hosting][populate queue][FINAL] {"max":468,"min":468,"avg":468,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":474}
+[debug] [2025-05-06T20:17:59.450Z] [hosting] uploads queued: 5
+[debug] [2025-05-06T20:18:00.511Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/842bd99108cf6d3303d5359ce61c734f093f6432195afce5e9daa78d48bf4814 200
+[debug] [2025-05-06T20:18:00.511Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/842bd99108cf6d3303d5359ce61c734f093f6432195afce5e9daa78d48bf4814 [stream]
+[debug] [2025-05-06T20:18:00.678Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/3c377789af54983f6a5219de9566b8a3a786f96329d3d9dd2943a75a41e3a80d 200
+[debug] [2025-05-06T20:18:00.678Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/3c377789af54983f6a5219de9566b8a3a786f96329d3d9dd2943a75a41e3a80d [stream]
+[debug] [2025-05-06T20:18:00.688Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/62dca0ab99d67224c214d9b9e692c3ecca53c7f43884e950a81fd0e551f1ecf5 200
+[debug] [2025-05-06T20:18:00.688Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/62dca0ab99d67224c214d9b9e692c3ecca53c7f43884e950a81fd0e551f1ecf5 [stream]
+[debug] [2025-05-06T20:18:00.780Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/e873a28ceb9d3a7f86b43675861d19576275fa12ad03a3bafe33e5aa1633e227 200
+[debug] [2025-05-06T20:18:00.780Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/e873a28ceb9d3a7f86b43675861d19576275fa12ad03a3bafe33e5aa1633e227 [stream]
+[debug] [2025-05-06T20:18:00.818Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/5edcaf882608ba3263e1778e6afc3df7017825204199064650238fbdd1bdb1a0 200
+[debug] [2025-05-06T20:18:00.818Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424/files/5edcaf882608ba3263e1778e6afc3df7017825204199064650238fbdd1bdb1a0 [stream]
+[debug] [2025-05-06T20:18:00.818Z] [hosting][upload queue][FINAL] {"max":1374,"min":1068,"avg":1251.2,"active":0,"complete":5,"success":5,"errored":0,"retried":0,"total":5,"elapsed":1375}
+[info] ✔  hosting[forjadecodigo-1b72a]: file upload complete 
+[debug] [2025-05-06T20:18:00.819Z] [hosting] deploy completed after 2141ms
+[debug] [2025-05-06T20:18:00.819Z] [
+  {
+    "config": {
+      "public": "build",
+      "site": "forjadecodigo-1b72a",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    "version": "projects/524467689467/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424"
+  }
+]
+[info] i  hosting[forjadecodigo-1b72a]: finalizing version... 
+[debug] [2025-05-06T20:18:00.820Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:18:00.820Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:18:00.820Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424 updateMask=status%2Cconfig
+[debug] [2025-05-06T20:18:00.821Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424 {"status":"FINALIZED","config":{}}
+[debug] [2025-05-06T20:18:01.556Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424 200
+[debug] [2025-05-06T20:18:01.556Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424 {"name":"projects/524467689467/sites/forjadecodigo-1b72a/versions/2d8d6345b039e424","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-05-06T20:17:57.993572Z","createUser":{"email":"forjadecodigo@gmail.com"},"finalizeTime":"2025-05-06T20:18:01.402409Z","finalizeUser":{"email":"forjadecodigo@gmail.com"}}
+[debug] [2025-05-06T20:18:01.556Z] [hosting] finalized version for forjadecodigo-1b72a:[object Object]
+[info] ✔  hosting[forjadecodigo-1b72a]: version finalized 
+[info] i  hosting[forjadecodigo-1b72a]: releasing new version... 
+[debug] [2025-05-06T20:18:01.556Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:18:01.556Z] Checked if tokens are valid: true, expires at: 1746566275136
+[debug] [2025-05-06T20:18:01.556Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/channels/live/releases versionName=projects%2F524467689467%2Fsites%2Fforjadecodigo-1b72a%2Fversions%2F2d8d6345b039e424
+[debug] [2025-05-06T20:18:01.557Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/forjadecodigo-1b72a/channels/live/releases {}
