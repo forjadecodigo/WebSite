@@ -1387,13 +1387,16 @@
 }
 
 .nosotrosInicio-loader-container {
-  padding: 0px;
+  padding: 10px;
   background: rgba(0, 0, 0, 0.604);
   border-radius: 50px;
   box-shadow: 0 0 15px rgba(51, 255, 88, 0.314);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nosotrosInicio-loader-container:hover {
@@ -1430,103 +1433,6 @@
   width: 100%;
   text-align: justify;
 }
-
-/* Loader CEO - corrección para animación visible */
-.nosotrosInicio-helix-loader {
-  width: 45px;
-  height: 45px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Onda animada */
-.nosotrosInicio-helix-loader::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: rgba(0, 170, 255, 0.3);
-  animation: pulse 1.2s ease-out infinite;
-}
-
-/* Círculo central */
-.nosotrosInicio-helix-loader::before {
-  content: '';
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 170, 255, 0.8);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.8);
-    opacity: 0;
-  }
-}
-/* Fin corrección loader CEO */
-
-/* Loader CTO - corrección para animación visible */
-.nosotrosInicio-trefoil-loader {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  background: transparent;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Anillo exterior girando */
-.nosotrosInicio-trefoil-loader::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 3px solid transparent;
-  border-top-color: rgba(0, 170, 255, 0.8);
-  border-right-color: rgba(0, 170, 255, 0.8);
-  border-radius: 50%;
-  animation: ctoBorderRotate 1.5s linear infinite;
-}
-
-/* Anillo interior girando en sentido contrario */
-.nosotrosInicio-trefoil-loader::after {
-  content: '';
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  left: 15%;
-  top: 15%;
-  border: 3px solid transparent;
-  border-bottom-color: rgba(255, 255, 255, 0.6);
-  border-left-color: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  animation: ctoBorderRotate 1s linear infinite reverse;
-}
-
-@keyframes ctoBorderRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-/* Fin corrección loader CTO */
 
 @media(max-width: 1200px) {
   .nosotrosInicio-contenido {
@@ -1585,5 +1491,23 @@
   .nosotrosInicio-hero p {
     font-size: 0.6rem;
     text-align: left;
+  }
+}
+
+.nosotrosInicio-loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 170, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: rgba(0, 170, 255, 0.8);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

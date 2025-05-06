@@ -524,7 +524,7 @@ const Inicio = (props) => {
             </button>
             <div className="nosotrosInicio-info-container">
               <div className="nosotrosInicio-loader-container">
-                <div className="nosotrosInicio-helix-loader"></div>
+                <div className="nosotrosInicio-loader"></div>
               </div>
               <div className="nosotrosInicio-descripcion">
                 Desarrollador de software y web, con formación en mercadeo y ventas, y actual CEO de Forja de Código. Su enfoque une la tecnología con la creatividad para crear soluciones funcionales, visualmente atractivas y alineadas con la visión de cada cliente.
@@ -568,7 +568,7 @@ const Inicio = (props) => {
             </button>
             <div className="nosotrosInicio-info-container">
               <div className="nosotrosInicio-loader-container">
-                <div className="nosotrosInicio-trefoil-loader"></div>
+                <div className="nosotrosInicio-loader"></div>
               </div>
               <div className="nosotrosInicio-descripcion">
                 Ingeniero de software con más de 10 años de experiencia en el desarrollo de soluciones web y móviles. Su trayectoria incluye proyectos de alto impacto tanto a nivel nacional como internacional, y una sólida formación adquirida en el exterior, donde amplió su visión tecnológica y estratégica. 
