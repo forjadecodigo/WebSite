@@ -1,0 +1,370 @@
+.menu-container1 {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-image: linear-gradient(0deg, rgba(189, 195, 199, 0) 9.00%,rgba(21, 67, 176, 0.82) 70.00%);
+}
+
+.menu-spacer {
+  height: 120px;
+  width: 100%;
+}
+
+.menu-logo, 
+.menu-logo.button-container {
+  width: 105px !important;
+  height: 105px !important;
+  min-width: 105px !important;
+  max-width: 105px !important;
+  min-height: 105px !important;
+  max-height: 105px !important;
+  padding: 0px;
+  margin-top: 40px;
+  margin-right: 40px;
+  border-radius: var(--dl-layout-radius-round);
+  background-color: var(--dl-color-app-blancoffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-navlink1 {
+  fill: transparent;
+  color: transparent;
+  width: 100%;
+  height: 100%;
+  border-width: 0px;
+  background-size: cover;
+  text-decoration: none;
+  background-color: transparent;
+  background-image: url("logo1.png");
+}
+
+.menu-sub-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex: 1;
+  margin: 0 20px;
+}
+
+/* Estilos unificados para los botones */
+.botonInicio,
+.botonServicios,
+.botonPortafolio,
+.botonNosotros {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  height: 100%;
+}
+
+.botonInicio .button,
+.botonServicios .button,
+.botonPortafolio .button,
+.botonNosotros .button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.menu-contactanos,
+.menu-contactanos.button-container {
+  width: 105px !important;
+  height: 105px !important;
+  min-width: 105px !important;
+  max-width: 105px !important;
+  min-height: 105px !important;
+  max-height: 105px !important;
+  padding: 0px;
+  margin-top: 40px;
+  margin-left: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-contactanos .button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu-contactanos .Botones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+
+.menu-navlink2 {
+  text-decoration: none;
+}
+
+.menu-navlink3 {
+  display: contents;
+}
+
+.menu-container3 {
+  text-decoration: none;
+}
+
+.menu-navlink4 {
+  display: contents;
+}
+
+.menu-container4 {
+  text-decoration: none;
+}
+
+.menu-navlink5 {
+  display: contents;
+}
+
+.menu-container5 {
+  text-decoration: none;
+}
+
+.menu-text16 {
+  display: inline-block;
+}
+
+.menu-text17 {
+  display: inline-block;
+}
+
+.menu-text18 {
+  display: inline-block;
+}
+
+.menu-text19 {
+  display: inline-block;
+}
+
+.menu-text20 {
+  display: inline-block;
+}
+
+.menu-text21 {
+  display: inline-block;
+}
+
+.menu-text15 {
+  display: inline-block;
+  text-align: center;
+}
+
+@media(max-width: 1600px) {
+  .menu-container1 {
+    width: 100%;
+    height: 78px;
+  }
+}
+
+@media(max-width: 1200px) {
+  .menu-container1 {
+    width: 100%;
+  }
+}
+
+@media(max-width: 991px) {
+  .menu-container1 {
+    width: 100%;
+  }
+}
+
+@media(max-width: 767px) {
+  .menu-container1 {
+    width: 100%;
+    height: 60px;
+    padding: 0 15px;
+    position: fixed;
+    background-image: linear-gradient(0deg, rgba(189, 195, 199, 0) 0%,rgba(21, 67, 176, 0.95) 70.00%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu-spacer {
+    height: 60px;
+  }
+  .menu-logo,
+  .menu-logo.button-container {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    max-width: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    margin-top: 15px;
+    margin-right: 20px;
+  }
+  .menu-logo .button,
+  .menu-logo .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-sub-menu {
+    gap: 10px;
+    margin: 0 10px;
+  }
+  .botonInicio,
+  .botonServicios,
+  .botonPortafolio,
+  .botonNosotros {
+    padding: 3px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .botonInicio .button,
+  .botonServicios .button,
+  .botonPortafolio .button,
+  .botonNosotros .button {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .botonInicio .Botones,
+  .botonServicios .Botones,
+  .botonPortafolio .Botones,
+  .botonNosotros .Botones {
+    font-size: 16.8px !important;
+  }
+  .menu-contactanos,
+  .menu-contactanos.button-container {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    max-width: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+  .menu-contactanos .button {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .menu-contactanos .Botones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 479px) {
+  .menu-container1 {
+    height: 60px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu-spacer {
+    height: 60px;
+  }
+  .menu-logo,
+  .menu-logo.button-container {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+    max-width: 45px !important;
+    min-height: 45px !important;
+    max-height: 45px !important;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .menu-sub-menu {
+    gap: 5px;
+    margin: 0 5px;
+  }
+  .botonInicio,
+  .botonServicios,
+  .botonPortafolio,
+  .botonNosotros {
+    padding: 1px;
+    height: 30px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .botonInicio .button,
+  .botonServicios .button,
+  .botonPortafolio .button,
+  .botonNosotros .button {
+    padding: 0 10px;
+    height: 30px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .botonInicio .Botones,
+  .botonServicios .Botones,
+  .botonPortafolio .Botones,
+  .botonNosotros .Botones {
+    font-size: 9.6px !important;
+  }
+  .menu-contactanos,
+  .menu-contactanos.button-container {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+    max-width: 45px !important;
+    min-height: 45px !important;
+    max-height: 45px !important;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .menu-contactanos .button {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .menu-contactanos .Botones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 8px;
+  }
+}
