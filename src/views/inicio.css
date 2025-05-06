@@ -606,7 +606,16 @@
   width: 60px;
   height: 60px;
   margin-bottom: 20px;
-  filter: invert(1);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.serviciosInicio-service-card:hover .serviciosInicio-service-icon {
+  transform: scale(1.2);
+  color: #00aaff;
 }
 
 .serviciosInicio-service-title {

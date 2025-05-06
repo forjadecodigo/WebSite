@@ -171,32 +171,27 @@ const Inicio = (props) => {
 
   const services = [
     {
-      icon: '/web-development.svg',
+      icon: <i className="fas fa-code fa-3x"></i>,
       title: 'Desarrollo Web',
       description: 'Creamos sitios web modernos y responsivos que destacan tu marca y mejoran la experiencia de tus usuarios.'
     },
     {
-      icon: '/mobile-app.svg',
-      title: 'Aplicaciones Móviles',
-      description: 'Desarrollamos aplicaciones nativas y multiplataforma que funcionan perfectamente en todos los dispositivos.'
+      icon: <i className="fas fa-qrcode fa-3x"></i>,
+      title: 'QR Personalizados',
+      description: 'Diseñamos códigos QR únicos con tu logo, colores y estilo personalizado para destacar tu marca.'
     },
     {
-      icon: '/software.svg',
+      icon: <i className="fas fa-laptop-code fa-3x"></i>,
       title: 'Software Empresarial',
       description: 'Soluciones personalizadas que optimizan tus procesos y aumentan la eficiencia de tu negocio.'
     },
     {
-      icon: '/ecommerce.svg',
-      title: 'E-Commerce',
-      description: 'Plataformas de comercio electrónico seguras y escalables para hacer crecer tu negocio en línea.'
-    },
-    {
-      icon: '/cloud.svg',
+      icon: <i className="fas fa-cloud fa-3x"></i>,
       title: 'Servicios en la Nube',
       description: 'Implementación y gestión de soluciones cloud que garantizan alta disponibilidad y rendimiento.'
     },
     {
-      icon: '/consulting.svg',
+      icon: <i className="fas fa-headset fa-3x"></i>,
       title: 'Consultoría IT',
       description: 'Asesoramiento experto para ayudarte a tomar las mejores decisiones tecnológicas para tu empresa.'
     }
@@ -396,11 +391,9 @@ const Inicio = (props) => {
         <section className="serviciosInicio-services">
           {services.map((service, index) => (
             <div key={index} className="serviciosInicio-service-card">
-              <img
-                src={service.icon}
-                alt={service.title}
-                className="serviciosInicio-service-icon"
-              />
+              <div className="serviciosInicio-service-icon">
+                {service.icon}
+              </div>
               <h3 className="serviciosInicio-service-title">{service.title}</h3>
               <p className="serviciosInicio-service-description">{service.description}</p>
             </div>
