@@ -5,6 +5,7 @@
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@emailjs/browser": "^4.4.1",
+    "firebase": "^11.6.1",
     "ldrs": "^1.1.7",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
