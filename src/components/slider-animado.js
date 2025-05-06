@@ -77,10 +77,9 @@ const SliderAnimado = (props) => {
     >
       <Swiper
         ref={swiperRef} // Referencia a Swiper
-        modules={[Navigation, Autoplay, EffectFade]}
+        modules={[Autoplay, EffectFade]}
         spaceBetween={10}
         slidesPerView={3}
-        navigation
         speed={autoplaySpeed} // Velocidad controlada por estado
         autoplay={{
           delay: 1,
@@ -123,17 +122,6 @@ const SliderAnimado = (props) => {
             </button>
           </SwiperSlide>
         ))}
-        {/* Botones personalizados para cambiar dirección y velocidad */}
-        <div
-          className="swiper-button-prev"
-          onClick={() => handleNavClick('left')}
-          // Al hacer click, cambia la dirección a izquierda y duplica velocidad si se presiona dos veces
-        />
-        <div
-          className="swiper-button-next"
-          onClick={() => handleNavClick('right')}
-          // Al hacer click, cambia la dirección a derecha y duplica velocidad si se presiona dos veces
-        />
       </Swiper>
     </div>
   )
