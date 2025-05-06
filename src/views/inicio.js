@@ -9,8 +9,9 @@ import PieDePagina from '../components/pie-de-pagina'
 import Etapas from '../components/etapas'
 import RecuadroFondoNegroVerdoso from '../components/recuadro-fondo-negro-verdoso'
 import Testimonios from '../components/testimonios'
-import { Trefoil } from 'ldrs/react'
+import { Trefoil, Quantum } from 'ldrs/react'
 import 'ldrs/react/Trefoil.css'
+import 'ldrs/react/Quantum.css'
 import './inicio.css'
 
 const Inicio = (props) => {
@@ -526,13 +527,10 @@ const Inicio = (props) => {
             </button>
             <div className="nosotrosInicio-info-container">
               <div className="nosotrosInicio-loader-container">
-                <Trefoil
-                  size="40"
-                  stroke="4"
-                  strokeLength="0.15"
-                  bgOpacity="0.1"
-                  speed="1.4"
-                  color="black"
+                <Quantum
+                  size="45"
+                  speed="1.75"
+                  color="cyan"
                 />
               </div>
               <div className="nosotrosInicio-descripcion">
