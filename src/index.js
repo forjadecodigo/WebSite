@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import {
   BrowserRouter as Router,
@@ -11,8 +11,14 @@ import './style.css'
 import Inicio from './views/inicio'
 import Contactanos from './views/contactanos'
 import NotFound from './views/not-found'
+import { initializeProyectos } from './data/proyectos'
 
 const App = () => {
+  useEffect(() => {
+    console.log('Initializing app...');
+    initializeProyectos();
+  }, []);
+
   return (
     <Router>
       <Routes>
