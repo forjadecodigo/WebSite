@@ -22,16 +22,13 @@ const Contactanos = (props) => {
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
         playPromise.catch(error => {
-          // Manejar el error silenciosamente
           console.log('Error al reproducir el video:', error);
         });
       }
     }
-    // Recuperar el email del localStorage si existe
     const tempEmail = localStorage.getItem('tempEmail');
     if (tempEmail && emailInputRef.current) {
       emailInputRef.current.value = tempEmail;
-      // Limpiar el email del localStorage después de usarlo
       localStorage.removeItem('tempEmail');
     }
   }, []);
@@ -46,10 +43,19 @@ const Contactanos = (props) => {
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     if (files.length > 0) {
-      const newImages = [...selectedImages, ...files];
+      // Si ya tenemos 3 imágenes, no permitir más
+      if (selectedImages.length >= 3) {
+        return;
+      }
+
+      // Limitar el número de archivos a subir para no exceder el límite de 3
+      const remainingSlots = 3 - selectedImages.length;
+      const filesToAdd = files.slice(0, remainingSlots);
+
+      const newImages = [...selectedImages, ...filesToAdd];
       setSelectedImages(newImages);
 
-      const newPreviews = files.map(file => {
+      const newPreviews = filesToAdd.map(file => {
         return new Promise((resolve) => {
           const reader = new FileReader();
           reader.onloadend = () => {
@@ -78,31 +84,132 @@ const Contactanos = (props) => {
     fileInputRef.current.click();
   };
 
+  const compressImage = (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (event) => {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+          
+          // Reducir aún más el tamaño máximo
+          const MAX_WIDTH = 400;  // Reducido a 400px
+          const MAX_HEIGHT = 400; // Reducido a 400px
+          
+          if (width > height) {
+            if (width > MAX_WIDTH) {
+              height = Math.round((height * MAX_WIDTH) / width);
+              width = MAX_WIDTH;
+            }
+          } else {
+            if (height > MAX_HEIGHT) {
+              width = Math.round((width * MAX_HEIGHT) / height);
+              height = MAX_HEIGHT;
+            }
+          }
+          
+          canvas.width = width;
+          canvas.height = height;
+          
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          
+          // Reducir la calidad a 0.3 para un archivo más pequeño
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.3);
+          
+          // Verificar el tamaño del string base64
+          const base64Size = Math.ceil((compressedDataUrl.length * 3) / 4);
+          if (base64Size > 45000) { // 45KB para dejar margen
+            // Si aún es muy grande, reducir más la calidad
+            const furtherCompressed = canvas.toDataURL('image/jpeg', 0.2);
+            resolve({
+              name: file.name,
+              data: furtherCompressed
+            });
+          } else {
+            resolve({
+              name: file.name,
+              data: compressedDataUrl
+            });
+          }
+        };
+      };
+    });
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    const formData = new FormData(form.current);
-    selectedImages.forEach((image, index) => {
-      formData.append(`image_${index}`, image);
-    });
+    // Preparar los datos del formulario
+    const prepareFormData = async () => {
+      const formData = new FormData(form.current);
+      
+      // Datos básicos del formulario
+      const templateParams = {
+        user_name: formData.get('user_name')?.trim() || '',
+        user_email: formData.get('user_email')?.trim() || '',
+        user_phone: formData.get('user_phone')?.trim() || '',
+        message: formData.get('message')?.trim() || '',
+        has_images: selectedImages.length > 0 ? 'Sí' : 'No'
+      };
 
-    emailjs.send(
-      process.env.REACT_APP_EMAILJS_SERVICE_ID,
-      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-      formData,
-      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-    )
+      // Procesar imágenes si existen
+      if (selectedImages.length > 0) {
+        const base64Images = await Promise.all(
+          selectedImages.map(file => compressImage(file))
+        );
+        
+        // Asignar cada imagen a su propio campo
+        base64Images.forEach((img, index) => {
+          if (index < 3) { // Máximo 3 imágenes
+            templateParams[`image${index + 1}`] = img.data;
+          }
+        });
+      }
+
+      return templateParams;
+    };
+
+    // Enviar el email
+    prepareFormData()
+      .then(templateParams => {
+        console.log('Enviando email con los siguientes parámetros:', {
+          serviceID: process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          templateID: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+          templateParams: templateParams
+        });
+        
+        return emailjs.send(
+          process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+          templateParams,
+          process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        );
+      })
       .then((result) => {
+        console.log('Email enviado exitosamente:', result);
         setSubmitStatus({ type: 'success', message: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.' });
         form.current.reset();
         setSelectedImages([]);
         setImagePreviews([]);
       })
       .catch((error) => {
-        console.error('Error al enviar el email:', error);
-        setSubmitStatus({ type: 'error', message: 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.' });
+        console.error('Error detallado al enviar el email:', {
+          error: error,
+          message: error.message,
+          text: error.text,
+          status: error.status
+        });
+        setSubmitStatus({ 
+          type: 'error', 
+          message: `Hubo un error al enviar el mensaje: ${error.message || 'Error desconocido'}. Por favor, intenta nuevamente.` 
+        });
       })
       .finally(() => {
         setIsSubmitting(false);
@@ -189,7 +296,7 @@ const Contactanos = (props) => {
           </div>
 
           <div className="form-group">
-            <label className="form-label">Imágenes (opcional)</label>
+            <label className="form-label">Imágenes (máximo 3)</label>
             <div className="image-upload-container">
               <input
                 ref={fileInputRef}
@@ -202,9 +309,12 @@ const Contactanos = (props) => {
                 className="image-input"
                 style={{ display: 'none' }}
               />
-              <div className="image-upload-button" onClick={triggerFileInput}>
+              <div 
+                className={`image-upload-button ${selectedImages.length >= 3 ? 'disabled' : ''}`}
+                onClick={() => selectedImages.length < 3 && triggerFileInput()}
+              >
                 <div className="upload-icon">+</div>
-                <span>Agregar imágenes</span>
+                <span>{selectedImages.length >= 3 ? 'Límite de imágenes alcanzado' : 'Agregar imágenes'}</span>
               </div>
               <div className="image-previews-container">
                 {imagePreviews.map((preview, index) => (
@@ -220,6 +330,11 @@ const Contactanos = (props) => {
                   </div>
                 ))}
               </div>
+              {selectedImages.length > 0 && (
+                <div className="image-count">
+                  {selectedImages.length} de 3 imágenes seleccionadas
+                </div>
+              )}
             </div>
           </div>
 
