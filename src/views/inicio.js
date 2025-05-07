@@ -207,8 +207,19 @@ const Inicio = (props) => {
         src="/roboforjaazul.mp4"
       />
       <Helmet>
-        <title>ForjaDeCodigoWeb</title>
-        <meta property="og:title" content="ForjaDeCodigoWeb" />
+        <title>Forja de Código - Desarrollo de Software y Web a la Medida</title>
+        <meta name="description" content="Transformamos ideas en soluciones digitales innovadoras. Desarrollo de software y web personalizado para tu negocio. ¡Convierte tu visión en realidad!" />
+        <meta name="keywords" content="desarrollo web, software a medida, desarrollo de aplicaciones, diseño web, programación, tecnología, soluciones digitales" />
+        <meta property="og:title" content="Forja de Código - Desarrollo de Software y Web a la Medida" />
+        <meta property="og:description" content="Transformamos ideas en soluciones digitales innovadoras. Desarrollo de software y web personalizado para tu negocio." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://forjadecodigo.com/" />
+        <meta property="og:image" content="https://forjadecodigo.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Forja de Código - Desarrollo de Software y Web a la Medida" />
+        <meta name="twitter:description" content="Transformamos ideas en soluciones digitales innovadoras. Desarrollo de software y web personalizado para tu negocio." />
+        <meta name="twitter:image" content="https://forjadecodigo.com/logo.png" />
+        <link rel="canonical" href="https://forjadecodigo.com/" />
       </Helmet>
       <Menu
         button={

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://forjadecodigo.com/sitemap.xml 

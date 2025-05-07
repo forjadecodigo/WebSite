@@ -228,8 +228,19 @@ const Contactanos = (props) => {
         playsInline
       />
       <Helmet>
-        <title>Contáctanos - Forja de Código</title>
-        <meta property="og:title" content="Contáctanos - Forja de Código" />
+        <title>Contáctanos - Forja de Código | Desarrollo de Software y Web</title>
+        <meta name="description" content="¿Tienes un proyecto en mente? Contáctanos y juntos haremos realidad tu idea. Desarrollo de software y web personalizado para tu negocio." />
+        <meta name="keywords" content="contacto, desarrollo web, software a medida, consultoría IT, desarrollo de aplicaciones" />
+        <meta property="og:title" content="Contáctanos - Forja de Código | Desarrollo de Software y Web" />
+        <meta property="og:description" content="¿Tienes un proyecto en mente? Contáctanos y juntos haremos realidad tu idea. Desarrollo de software y web personalizado para tu negocio." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://forjadecodigo.com/contactanos" />
+        <meta property="og:image" content="https://forjadecodigo.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contáctanos - Forja de Código | Desarrollo de Software y Web" />
+        <meta name="twitter:description" content="¿Tienes un proyecto en mente? Contáctanos y juntos haremos realidad tu idea. Desarrollo de software y web personalizado para tu negocio." />
+        <meta name="twitter:image" content="https://forjadecodigo.com/logo.png" />
+        <link rel="canonical" href="https://forjadecodigo.com/contactanos" />
       </Helmet>
       <Menu 
         rootClassName="menuroot-class-name9"
