@@ -29,6 +29,12 @@ const Inicio = (props) => {
   let scrollTimeout;
 
   useEffect(() => {
+    localStorage.removeItem('selectedProject');
+    setSelectedProject(null);
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     let projectToShow = null;
     if (location.state && location.state.selectedProject) {
       const id = location.state.selectedProject;
@@ -36,17 +42,10 @@ const Inicio = (props) => {
       if (projectToShow) {
         localStorage.setItem('selectedProject', JSON.stringify(projectToShow));
       }
-    } else {
-      const stored = localStorage.getItem('selectedProject');
-      if (stored) {
-        try {
-          projectToShow = JSON.parse(stored);
-        } catch {}
-      }
     }
     setSelectedProject(projectToShow);
 
-    if (location.state && location.state.scrollTo) {
+    if (location.state && location.state.scrollTo && !window.performance.navigation.type) {
       setTimeout(() => {
         const element = document.getElementById(location.state.scrollTo);
         if (element) {

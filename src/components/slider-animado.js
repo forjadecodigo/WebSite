@@ -66,7 +66,6 @@ const SliderAnimado = (props) => {
   // Función para manejar el click en un proyecto
   const handleProjectClick = (projectId) => {
     const proyecto = proyectos[`proyecto${projectId}`];
-    localStorage.setItem('selectedProject', JSON.stringify(proyecto));
     navigate('/', { state: { selectedProject: projectId, scrollTo: 'portafolioInicio' } });
   };
 
