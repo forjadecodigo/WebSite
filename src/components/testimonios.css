@@ -27,6 +27,8 @@
   fill: var(--dl-color-app-blancoffff);
   color: var(--dl-color-app-blancoffff);
   text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
  
 .testimonios-accent2-bg1 {
@@ -63,17 +65,23 @@
 .testimonios-text12 {
   fill: var(--dl-color-app-blancoffff);
   color: var(--dl-color-app-blancoffff);
+  font-size: 1rem;
+  line-height: 1.5;
 }
  
 .testimonios-text13 {
   fill: var(--dl-color-app-blancoffff);
   color: var(--dl-color-app-blancoffff);
+  font-size: 1rem;
+  line-height: 1.5;
 }
  
 .testimonios-text14 {
   fill: var(--dl-color-app-blancoffff);
   color: var(--dl-color-app-blancoffff);
   text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
 }
  
 .testimonios-accent2-bg2 {
@@ -109,6 +117,8 @@
  
 .testimonios-text17 {
   text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
 }
  
 .testimonios-accent2-bg3 {
@@ -144,6 +154,8 @@
  
 .testimonios-text20 {
   text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
 }
  
 .testimonios-accent2-bg4 {
@@ -180,17 +192,23 @@
 .testimonios-text21 {
   fill: var(--dl-color-app-blancoffff);
   color: var(--dl-color-app-blancoffff);
+  font-size: 1rem;
+  line-height: 1.5;
 }
  
 .testimonios-text22 {
   fill: var(--dl-color-app-blancoffff);
   color: var(--dl-color-app-blancoffff);
+  font-size: 1rem;
+  line-height: 1.5;
 }
  
 .testimonios-text23 {
   fill: var(--dl-color-app-blancoffff);
   color: var(--dl-color-app-blancoffff);
   text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
 }
  
 .testimonios-text24 {
@@ -314,6 +332,21 @@
   .testimonios-text10 {
     font-size: 27px;
   }
+  
+  .testimonios-text11 {
+    font-size: 1rem;
+  }
+  
+  .testimonios-text12,
+  .testimonios-text13,
+  .testimonios-text14,
+  .testimonios-text17,
+  .testimonios-text20,
+  .testimonios-text21,
+  .testimonios-text22,
+  .testimonios-text23 {
+    font-size: 0.95rem;
+  }
 }
 
 @media(max-width: 767px) {
@@ -340,14 +373,24 @@
   }
   
   .testimonios-text11 {
+    font-size: 0.95rem;
+  }
+  
+  .testimonios-text12,
+  .testimonios-text13,
+  .testimonios-text14,
+  .testimonios-text17,
+  .testimonios-text20,
+  .testimonios-text21,
+  .testimonios-text22,
+  .testimonios-text23 {
     font-size: 0.9rem;
   }
 }
 
 @media(max-width: 479px) {
   .testimonios-max-width {
-    max-width: 300px;
-    padding: 0 var(--dl-space-space-halfunit);
+    display: none;
   }
   
   .testimonios-container10 {

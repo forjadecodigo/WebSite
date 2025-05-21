@@ -488,10 +488,7 @@ const Inicio = (props) => {
         <div className="nosotrosInicio-hero">
           <h1>Somos Forja de Código</h1>
           <p>
-            La unión perfecta entre la innovación técnica y la sensibilidad creativa.
-            Somos una empresa de desarrollo de software y diseño web que no solo crea soluciones digitales, sino que las moldea a la medida de cada cliente, con precisión técnica, visión estética y un enfoque humano.
-            
-            Nuestroequipo combina más de una década de experiencia en software, arquitectura escalable y formación internacional, con una dirección creativa centrada en entender, conectar y crear experiencias que realmente impactan.
+          La unión perfecta entre la innovación técnica y la sensibilidad creativa. Damos vida a soluciones digitales hechas a medida, con alma, propósito y detalle. Más de diez años de experiencia nos respaldan para crear experiencias que inspiran, conectan y transforman.
           </p>
         </div>
 

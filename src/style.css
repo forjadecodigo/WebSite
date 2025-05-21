@@ -876,4 +876,28 @@
   .thq-heading-1 {
     font-size: 25px;
   }
+  .thq-body-large {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .thq-body-small {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .Content {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .Botones {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .slide-overlay h3 {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .slide-overlay p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
 }
