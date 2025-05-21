@@ -52,14 +52,10 @@
 }
 
 .contactanos-title {
+  font-size: 30px;
+  margin-bottom: 20px;
   color: #ffffff;
-  font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 40px;
-  background: linear-gradient(135deg, #00aaff, #0303ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
 .contactanos-subtitle {
@@ -359,7 +355,7 @@
   }
   
   .contactanos-title {
-    font-size: 2rem;
+    font-size: 27px;
   }
   
   .contactanos-subtitle {
@@ -375,7 +371,7 @@
   }
   
   .contactanos-title {
-    font-size: 1.8rem;
+    font-size: 27px;
   }
   
   .contactanos-subtitle {
@@ -395,7 +391,7 @@
   }
   
   .contactanos-title {
-    font-size: 1.5rem;
+    font-size: 25px;
   }
   
   .contactanos-subtitle {

@@ -18,8 +18,9 @@
 }
  
 .testimonios-text10 {
-  fill: var(--dl-color-app-blancoffff);
-  color: var(--dl-color-app-blancoffff);
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
 }
  
 .testimonios-text11 {
@@ -309,6 +310,10 @@
     grid-template-columns: 1fr;
     gap: var(--dl-layout-space-twounits);
   }
+  
+  .testimonios-text10 {
+    font-size: 27px;
+  }
 }
 
 @media(max-width: 767px) {
@@ -331,7 +336,7 @@
   }
   
   .testimonios-text10 {
-    font-size: 1.8rem;
+    font-size: 27px;
   }
   
   .testimonios-text11 {
@@ -364,7 +369,7 @@
   }
   
   .testimonios-text10 {
-    font-size: 1.5rem;
+    font-size: 25px;
   }
   
   .testimonios-text11 {

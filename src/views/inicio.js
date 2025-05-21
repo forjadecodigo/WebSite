@@ -355,9 +355,9 @@ const Inicio = (props) => {
           className="inicio-video"
         ></video>
         <span className="inicio-text30">
-          <span className="Titulos inicio-text31">
+          <h1 className="Titulos inicio-text31">
             Donde la imaginación se transforma en software
-          </span>
+          </h1>
           <br className="Titulos"></br>
           <br></br>
           <span className="inicio-text34">
