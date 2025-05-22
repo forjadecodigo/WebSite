@@ -355,7 +355,7 @@ const Inicio = (props) => {
           className="inicio-video"
         ></video>
         <span className="inicio-text30">
-          <h1 className="Titulos inicio-text31">
+          <h1 className="Titulos inicio-text31 glow-title-blue-green">
             Donde la imaginación se transforma en software
           </h1>
           <br className="Titulos"></br>
@@ -384,7 +384,7 @@ const Inicio = (props) => {
 
       <div className="serviciosInicio" id="serviciosInicio">
         <section className="serviciosInicio-hero">
-          <h1 className="serviciosInicio-hero-title">Tú lo imaginas, nosotros lo forjamos.</h1>
+          <h1 className="serviciosInicio-hero-title glow-title-blue-green">Tú lo imaginas, nosotros lo forjamos.</h1>
           <p className="serviciosInicio-hero-subtitle">
             Damos vida a tus ideas. ¿Listo para crear algo increíble?
           </p>
@@ -425,7 +425,7 @@ const Inicio = (props) => {
       >
         <div className="portafolioInicio-contenido">
           <div className="portafolioInicio-hero">
-            <h1>Nuestro Portafolio</h1>
+            <h1 className="glow-title-blue-green">Nuestro Portafolio</h1>
             <p>Forjando ideas en soluciones digitales innovadoras</p>
           </div>
 
@@ -486,7 +486,7 @@ const Inicio = (props) => {
 
       <div className="nosotrosInicio" id="nosotrosInicio">
         <div className="nosotrosInicio-hero">
-          <h1>Somos Forja de Código</h1>
+          <h1 className="glow-title-blue-green">Somos Forja de Código</h1>
           <p>
           La unión perfecta entre la innovación técnica y la sensibilidad creativa. Damos vida a soluciones digitales hechas a medida, con alma, propósito y detalle. Más de diez años de experiencia nos respaldan para crear experiencias que inspiran, conectan y transforman.
           </p>

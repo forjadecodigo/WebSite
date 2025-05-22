@@ -343,13 +343,7 @@
   justify-content: center;
 }
  
-.Titulos.inicio-text31 {
-  font-size: 50px;
-  font-family: Inter;
-  font-weight: 600;
-  line-height: 1.15;
-  text-transform: none;
-  text-decoration: none;
+.glow-title {
   background: linear-gradient(135deg, #00aaff, #0303ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -358,11 +352,36 @@
 
 @keyframes titleGlow {
   from {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
   }
   to {
-    text-shadow: 0 0 20px rgba(255, 217, 0, 0.364);
+    text-shadow: 0 0 20px rgba(51, 255, 88, 0.4);
   }
+}
+
+.glow-title-blue-green {
+  background: linear-gradient(135deg, #00aaff, #0303ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGlowBlueGreen 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlowBlueGreen {
+  from {
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(51, 255, 88, 0.4);
+  }
+}
+
+.Titulos.inicio-text31 {
+  font-size: 50px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
 }
 
 @media(max-width: 1600px) {
@@ -652,10 +671,6 @@
 .serviciosInicio-hero-title {
   font-size: 50px;
   margin-bottom: 30px;
-  background: linear-gradient(135deg, #00aaff, #0303ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: titleGlow 2s ease-in-out infinite alternate;
   padding: 60px 40px 40px;
 }
 
@@ -944,10 +959,6 @@
 .portafolioInicio-hero h1 {
   font-size: 50px;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #00aaff, #0303ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
 .portafolioInicio-hero p {
@@ -1351,10 +1362,6 @@
 .nosotrosInicio-hero h1 {
   font-size: 50px;
   margin-bottom: 30px;
-  background: linear-gradient(135deg, #00aaff, #0303ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
 .nosotrosInicio-hero p {
