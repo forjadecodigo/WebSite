@@ -150,4 +150,38 @@ La aplicación es compatible con:
 Este proyecto es privado y su uso está restringido.
 
 ## Contacto
-Para más información, por favor contacta al equipo de desarrollo. 
+Para más información, por favor contacta al equipo de desarrollo.
+
+### Efectos Visuales
+
+#### Títulos con Efecto de Brillo
+Los títulos principales utilizan la clase `glow-title-blue-green` que proporciona un efecto de brillo dinámico:
+
+```css
+.glow-title-blue-green {
+  background: linear-gradient(135deg, #00aaff, #0303ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGlowBlueGreen 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlowBlueGreen {
+  from {
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(51, 255, 88, 0.4);
+  }
+}
+```
+
+Este efecto se aplica a:
+- Título principal: "Donde la imaginación se transforma en software"
+- Título de servicios: "Tú lo imaginas, nosotros lo forjamos"
+- Título del portafolio: "Nuestro Portafolio"
+- Título de nosotros: "Somos Forja de Código"
+
+Para personalizar el efecto:
+- Ajusta los colores del gradiente en `background: linear-gradient()`
+- Modifica la intensidad del brillo en `text-shadow`
+- Cambia la velocidad de la animación en `animation: titleGlowBlueGreen 2s` 
