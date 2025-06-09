@@ -363,17 +363,8 @@
   background: linear-gradient(135deg, #00aaff, #0303ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: titleGlowBlueGreen 2s ease-in-out infinite alternate;
-}
+ }
 
-@keyframes titleGlowBlueGreen {
-  from {
-    text-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
-  }
-  to {
-    text-shadow: 0 0 20px rgba(51, 255, 88, 0.4);
-  }
-}
 
 .Titulos.inicio-text31 {
   font-size: 50px;
