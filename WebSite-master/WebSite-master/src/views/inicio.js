@@ -634,7 +634,7 @@ const Inicio = (props) => {
               </div>
               <div className="nosotrosInicio-descripcion">
                 Desarrollador de software junior con formación en desarrollo de software. Su enfoque une tecnología y creatividad para desarrollar soluciones funcionales y visualmente atractivas.
-                Apasionado por la innovación y el aprendizaje continuo, su capacidad para adaptarse a nuevas tecnologías lo hace un valioso miembro del equipo.
+                Interesado por la innovación y el aprendizaje continuo, su capacidad para adaptarse a nuevas tecnologías lo hace un valioso miembro del equipo.
               </div>
             </div>
           </div>
