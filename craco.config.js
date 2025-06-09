@@ -8,5 +8,10 @@ module.exports = {
         };
       },
     },
+    postcss: {
+      loaderOptions: (postcssLoaderOptions) => {
+        return postcssLoaderOptions;
+      },
+    },
   },
 };
