@@ -9,10 +9,11 @@ import PieDePagina from '../components/pie-de-pagina'
 import Etapas from '../components/etapas'
 import RecuadroFondoNegroVerdoso from '../components/recuadro-fondo-negro-verdoso'
 import Testimonios from '../components/testimonios'
-import { Trefoil, Quantum, Helix } from 'ldrs/react'
+import { Trefoil, Quantum, Helix, Miyagi } from 'ldrs/react'
 import 'ldrs/react/Trefoil.css'
 import 'ldrs/react/Quantum.css'
 import 'ldrs/react/Helix.css'
+import 'ldrs/react/Miyagi.css'
 import './inicio.css'
 
 const Inicio = (props) => {
@@ -21,6 +22,7 @@ const Inicio = (props) => {
   const [tiltCEO, setTiltCEO] = useState({ x: 0, y: 0 });
   const [tiltCTO, setTiltCTO] = useState({ x: 0, y: 0 });
   const [tiltCMO, setTiltCMO] = useState({ x: 0, y: 0 });
+  const [tiltLawyer, setTiltLawyer] = useState({ x: 0, y: 0 });
   const navigate = useNavigate();
   const location = useLocation();
   const proyectosRef = useRef(null);
@@ -586,8 +588,7 @@ const Inicio = (props) => {
                 />
               </div>
               <div className="nosotrosInicio-descripcion">
-                Ingeniero de software con más de 10 años de experiencia en desarrollo web y móvil. Su trayectoria incluye proyectos de alto impacto y una sólida formación internacional.
-                Especialista en arquitectura de software y diseño de soluciones escalables, lidera el corazon técnico de Forja de Código con una mezcla única de precisión, innovacion y visión a futuro.
+              Ingeniero de software con más de 10 años de experiencia en desarrollo web y móvil. Su trayectoria incluye proyectos de alto impacto y una sólida formación internacional. Especialista en arquitectura de software y diseño de soluciones escalables, lidera el corazón técnico de Forja de Código con una mezcla única de precisión, innovación y una visión estratégica a futuro.
               </div>
             </div>
           </div>
@@ -634,6 +635,52 @@ const Inicio = (props) => {
               </div>
               <div className="nosotrosInicio-descripcion">
               Con formación en desarrollo de software, es un desarrollador junior que transforma ideas en soluciones robustas y estéticas. Su habilidad para unir tecnología y creatividad es clave en cada proyecto. Siempre busca innovar y aprender, lo que facilita su adaptación a nuevas tecnologías y lo convierte en un miembro proactivo y valioso del equipo.
+              </div>
+            </div>
+          </div>
+
+          <div 
+            className="nosotrosInicio-equipo-container"
+            onMouseMove={(e) => handleMouseMove(e, setTiltLawyer)}
+            onMouseLeave={() => handleMouseLeave(setTiltLawyer)}
+            style={{
+              transform: `perspective(1000px) 
+                         rotateX(${tiltLawyer.x}deg) 
+                         rotateY(${tiltLawyer.y}deg) 
+                         ${tiltLawyer.x === 0 && tiltLawyer.y === 0 ? '' : 'scale(1.02) translateZ(30px)'}`,
+              transition: tiltLawyer.x === 0 && tiltLawyer.y === 0 
+                ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' 
+                : 'transform 0.1s ease-out'
+            }}
+          >
+            <div className="nosotrosInicio-fotos-container">
+              <div className="nosotrosInicio-foto-container">
+                <img 
+                  src="/FotoMiguel.jpg" 
+                  alt="Legal Advisor" 
+                  className="nosotrosInicio-foto-perfil"
+                />
+              </div>
+            </div>
+            <button 
+              className="nosotrosInicio-nombre-cargo"
+              onClick={() => {
+                console.log('Botón clickeado');
+              }}
+            >
+              <div className="nosotrosInicio-nombre">Miguel David Sanchez</div>
+              <div className="nosotrosInicio-cargo">Asesor Legal</div>
+            </button>
+            <div className="nosotrosInicio-info-container">
+              <div className="nosotrosInicio-loader-container">
+                <Miyagi
+                  size={45}
+                  speed={1.5}
+                  color="cyan"
+                />
+              </div>
+              <div className="nosotrosInicio-descripcion">
+              Abogado magister (M1) en Derecho Internacional y de la Unión Europea, con estudios en Colombia e Internacionales (Francia). Apasionado por el Derecho Privado y con conocimientos en múltiples áreas tales como "Economía", "Historia", "Politología". Se encarga de todos los asuntos jurídicos de Forja de Código, con profunda entrega y dedicación.
               </div>
             </div>
           </div>
