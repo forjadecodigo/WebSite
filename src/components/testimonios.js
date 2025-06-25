@@ -119,7 +119,7 @@ const Testimonios = (props) => {
                       <span className="testimonios-text35">
                         Muchas gracias Forja de código Estoy muy satisfecho con
                         el resultado de su trabajo innovador he intuitivo
-                        100% recomendados
+                        100% recomendados
                       </span>
                     </Fragment>
                   )}
@@ -133,7 +133,7 @@ const Testimonios = (props) => {
                 <div className="testimonios-container14">
                   <img
                     alt={props.author2Alt}
-                    src={props.author2Src}
+                    src="/ganando.jpg"
                     className="testimonios-image2"
                   />
                   <div className="testimonios-container15">
@@ -159,10 +159,10 @@ const Testimonios = (props) => {
                   {props.review2 ?? (
                     <Fragment>
                       <span className="testimonios-text41">
-                        I am impressed by the level of professionalism and
-                        creativity that Forja de Código brought to the table.
-                        They were able to turn our vision into a reality with a
-                        user-friendly and efficient web application.
+                        Estoy muy impresionado con el nivel de profesionalismo y
+                        creatividad que Forja de Código aportó al proyecto.
+                        Lograron convertir nuestra visión en realidad con una
+                        aplicación web eficiente y fácil de usar.
                       </span>
                     </Fragment>
                   )}
@@ -176,7 +176,7 @@ const Testimonios = (props) => {
                 <div className="testimonios-container16">
                   <img
                     alt={props.author3Alt}
-                    src={props.author3Src}
+                    src="/NataliLopez.png"
                     className="testimonios-image3"
                   />
                   <div className="testimonios-container17">
@@ -184,7 +184,7 @@ const Testimonios = (props) => {
                       {props.author3Name ?? (
                         <Fragment>
                           <span className="testimonios-text36">
-                            Yamile Hasbon
+                            Natalia Lopez
                           </span>
                         </Fragment>
                       )}
@@ -202,10 +202,11 @@ const Testimonios = (props) => {
                   {props.review3 ?? (
                     <Fragment>
                       <span className="testimonios-text37">
-                        The Forja de Código team has a unique ability to blend
-                        cutting-edge technology with a user-centric design
-                        approach. They delivered a custom software solution that
-                        not only met our requirements but exceeded them.
+                        El equipo de Forja de Código tiene una capacidad única
+                        para combinar tecnología de vanguardia con un enfoque
+                        centrado en el usuario. Entregaron una solución de software
+                        personalizada que no solo cumplió con nuestros requisitos,
+                        sino que los superó.
                       </span>
                     </Fragment>
                   )}
@@ -226,7 +227,7 @@ const Testimonios = (props) => {
                     <strong className="testimonios-text21 thq-body-large">
                       {props.author4Name ?? (
                         <Fragment>
-                          <span className="testimonios-text40">Sarah Lee</span>
+                          <span className="testimonios-text40">Juan Henao</span>
                         </Fragment>
                       )}
                     </strong>
@@ -234,7 +235,6 @@ const Testimonios = (props) => {
                       {props.author4Position ?? (
                         <Fragment>
                           <span className="testimonios-text33">
-                            Marketing Director, Global Corp
                           </span>
                         </Fragment>
                       )}
@@ -245,10 +245,12 @@ const Testimonios = (props) => {
                   {props.review4 ?? (
                     <Fragment>
                       <span className="testimonios-text34">
-                        Partnering with Forja de Código was a strategic decision
-                        for our company. Their attention to detail and
-                        commitment to delivering on time made the entire
-                        development process seamless and stress-free.
+                        La experiencia con Forja de Código en el desarrollo de
+                        mi videojuego ha sido excepcional. Su equipo entendió
+                        perfectamente mi visión y la convirtió en realidad.
+                        La jugabilidad, los gráficos y la optimización superaron
+                        todas mis expectativas. Estoy muy satisfecho con el
+                        resultado final.
                       </span>
                     </Fragment>
                   )}

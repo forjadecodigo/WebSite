@@ -337,4 +337,8 @@
   .etapas-container3 {
     margin: 0;
   }
+
+  .etapas-container4 {
+    display: none;
+  }
 }

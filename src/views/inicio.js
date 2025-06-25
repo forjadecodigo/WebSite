@@ -9,9 +9,11 @@ import PieDePagina from '../components/pie-de-pagina'
 import Etapas from '../components/etapas'
 import RecuadroFondoNegroVerdoso from '../components/recuadro-fondo-negro-verdoso'
 import Testimonios from '../components/testimonios'
-import { Trefoil, Quantum } from 'ldrs/react'
+import { Trefoil, Quantum, Helix, Miyagi } from 'ldrs/react'
 import 'ldrs/react/Trefoil.css'
 import 'ldrs/react/Quantum.css'
+import 'ldrs/react/Helix.css'
+import 'ldrs/react/Miyagi.css'
 import './inicio.css'
 
 const Inicio = (props) => {
@@ -19,6 +21,8 @@ const Inicio = (props) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [tiltCEO, setTiltCEO] = useState({ x: 0, y: 0 });
   const [tiltCTO, setTiltCTO] = useState({ x: 0, y: 0 });
+  const [tiltCMO, setTiltCMO] = useState({ x: 0, y: 0 });
+  const [tiltLawyer, setTiltLawyer] = useState({ x: 0, y: 0 });
   const navigate = useNavigate();
   const location = useLocation();
   const proyectosRef = useRef(null);
@@ -364,9 +368,9 @@ const Inicio = (props) => {
           className="inicio-video"
         ></video>
         <span className="inicio-text30">
-          <span className="Titulos inicio-text31">
+          <h1 className="Titulos inicio-text31 glow-title-blue-green">
             Donde la imaginación se transforma en software
-          </span>
+          </h1>
           <br className="Titulos"></br>
           <br></br>
           <span className="inicio-text34">
@@ -393,7 +397,7 @@ const Inicio = (props) => {
 
       <div className="serviciosInicio" id="serviciosInicio">
         <section className="serviciosInicio-hero">
-          <h1 className="serviciosInicio-hero-title">Tú lo imaginas, nosotros lo forjamos.</h1>
+          <h1 className="serviciosInicio-hero-title glow-title-blue-green">Tú lo imaginas, nosotros lo forjamos.</h1>
           <p className="serviciosInicio-hero-subtitle">
             Damos vida a tus ideas. ¿Listo para crear algo increíble?
           </p>
@@ -434,7 +438,7 @@ const Inicio = (props) => {
       >
         <div className="portafolioInicio-contenido">
           <div className="portafolioInicio-hero">
-            <h1>Nuestro Portafolio</h1>
+            <h1 className="glow-title-blue-green">Nuestro Portafolio</h1>
             <p>Forjando ideas en soluciones digitales innovadoras</p>
           </div>
 
@@ -507,12 +511,9 @@ const Inicio = (props) => {
 
       <div className="nosotrosInicio" id="nosotrosInicio">
         <div className="nosotrosInicio-hero">
-          <h1>Somos Forja de Código</h1>
+          <h1 className="glow-title-blue-green">Somos Forja de Código</h1>
           <p>
-            La unión perfecta entre la innovación técnica y la sensibilidad creativa.
-            Somos una empresa de desarrollo de software y diseño web que no solo crea soluciones digitales, sino que las moldea a la medida de cada cliente, con precisión técnica, visión estética y un enfoque humano.
-            
-            Nuestroequipo combina más de una década de experiencia en software, arquitectura escalable y formación internacional, con una dirección creativa centrada en entender, conectar y crear experiencias que realmente impactan.
+            La unión perfecta entre la innovación técnica y la sensibilidad creativa. Damos vida a soluciones digitales hechas a medida, con alma, propósito y detalle. Más de diez años de experiencia nos respaldan para crear experiencias que inspiran, conectan y transforman.
           </p>
         </div>
 
@@ -558,9 +559,8 @@ const Inicio = (props) => {
                 />
               </div>
               <div className="nosotrosInicio-descripcion">
-                Desarrollador de software y web, con formación en mercadeo y ventas, y actual CEO de Forja de Código. Su enfoque une la tecnología con la creatividad para crear soluciones funcionales, visualmente atractivas y alineadas con la visión de cada cliente.
-                Apasionado por descubrir lo que cada proyecto realmente necesita y transformarlo en una experiencia digital que conecte, emocione y funcione.
-                Si estás buscando a alguien que escuche con atención, proponga con propósito y construya contigo, estás en el lugar ideal.
+                Desarrollador de software y web con 20 años de experiencia en mercadeo y ventas. Su enfoque une la tecnología con la creatividad para crear soluciones funcionales y visualmente atractivas, alineadas con la visión de cada cliente.
+                Apasionado por descubrir lo que cada proyecto necesita y transformarlo en experiencias digitales que conecten y emocionen.
               </div>
             </div>
           </div>
@@ -609,8 +609,99 @@ const Inicio = (props) => {
                 />
               </div>
               <div className="nosotrosInicio-descripcion">
-                Ingeniero de software con más de 10 años de experiencia en el desarrollo de soluciones web y móviles. Su trayectoria incluye proyectos de alto impacto tanto a nivel nacional como internacional, y una sólida formación adquirida en el exterior, donde amplió su visión tecnológica y estratégica. 
-                Especialista en arquitectura de software y en el diseño de soluciones escalables, lidera el corazón técnico de Forja de Código con una mezcla única de precisión, innovación y visión a futuro.
+              Ingeniero de software con más de 10 años de experiencia en desarrollo web y móvil. Su trayectoria incluye proyectos de alto impacto y una sólida formación internacional. Especialista en arquitectura de software y diseño de soluciones escalables, lidera el corazón técnico de Forja de Código con una mezcla única de precisión, innovación y una visión estratégica a futuro.
+              </div>
+            </div>
+          </div>
+
+          <div 
+            className="nosotrosInicio-equipo-container"
+            onMouseMove={(e) => handleMouseMove(e, setTiltCMO)}
+            onMouseLeave={() => handleMouseLeave(setTiltCMO)}
+            style={{
+              transform: `perspective(1000px) 
+                         rotateX(${tiltCMO.x}deg) 
+                         rotateY(${tiltCMO.y}deg) 
+                         ${tiltCMO.x === 0 && tiltCMO.y === 0 ? '' : 'scale(1.02) translateZ(30px)'}`,
+              transition: tiltCMO.x === 0 && tiltCMO.y === 0 
+                ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' 
+                : 'transform 0.1s ease-out'
+            }}
+          >
+            <div className="nosotrosInicio-fotos-container">
+              <div className="nosotrosInicio-foto-container">
+                <img 
+                  src="/FotoDavid.jpg" 
+                  alt="Developer" 
+                  className="nosotrosInicio-foto-perfil"
+                />
+              </div>
+            </div>
+            <button 
+              className="nosotrosInicio-nombre-cargo"
+              onClick={() => {
+                console.log('Botón clickeado');
+              }}
+            >
+              <div className="nosotrosInicio-nombre">David Hasbon Palacios</div>
+              <div className="nosotrosInicio-cargo">Desarrollador de Software</div>
+            </button>
+            <div className="nosotrosInicio-info-container">
+              <div className="nosotrosInicio-loader-container">
+                <Helix
+                  size={45}
+                  speed={2.5}
+                  color="cyan"
+                />
+              </div>
+              <div className="nosotrosInicio-descripcion">
+              Con formación en desarrollo de software, es un desarrollador junior que transforma ideas en soluciones robustas y estéticas. Su habilidad para unir tecnología y creatividad es clave en cada proyecto. Siempre busca innovar y aprender, lo que facilita su adaptación a nuevas tecnologías y lo convierte en un miembro proactivo y valioso del equipo.
+              </div>
+            </div>
+          </div>
+
+          <div 
+            className="nosotrosInicio-equipo-container"
+            onMouseMove={(e) => handleMouseMove(e, setTiltLawyer)}
+            onMouseLeave={() => handleMouseLeave(setTiltLawyer)}
+            style={{
+              transform: `perspective(1000px) 
+                         rotateX(${tiltLawyer.x}deg) 
+                         rotateY(${tiltLawyer.y}deg) 
+                         ${tiltLawyer.x === 0 && tiltLawyer.y === 0 ? '' : 'scale(1.02) translateZ(30px)'}`,
+              transition: tiltLawyer.x === 0 && tiltLawyer.y === 0 
+                ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' 
+                : 'transform 0.1s ease-out'
+            }}
+          >
+            <div className="nosotrosInicio-fotos-container">
+              <div className="nosotrosInicio-foto-container">
+                <img 
+                  src="/FotoMiguel.jpg" 
+                  alt="Legal Advisor" 
+                  className="nosotrosInicio-foto-perfil"
+                />
+              </div>
+            </div>
+            <button 
+              className="nosotrosInicio-nombre-cargo"
+              onClick={() => {
+                console.log('Botón clickeado');
+              }}
+            >
+              <div className="nosotrosInicio-nombre">Miguel David Sanchez</div>
+              <div className="nosotrosInicio-cargo">Asesor Legal</div>
+            </button>
+            <div className="nosotrosInicio-info-container">
+              <div className="nosotrosInicio-loader-container">
+                <Miyagi
+                  size={45}
+                  speed={1.5}
+                  color="cyan"
+                />
+              </div>
+              <div className="nosotrosInicio-descripcion">
+              Abogado magister (M1) en Derecho Internacional y de la Unión Europea, con estudios en Colombia e Internacionales (Francia). Apasionado por el Derecho Privado y con conocimientos en múltiples áreas tales como "Economía", "Historia", "Politología". Se encarga de todos los asuntos jurídicos de Forja de Código, con profunda entrega y dedicación.
               </div>
             </div>
           </div>
