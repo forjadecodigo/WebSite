@@ -1,33 +1,82 @@
 import React, { Fragment } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { proyectos } from '../data/proyectos'
+import { useProjects } from '../hooks/useProjects'
+import { Trefoil } from 'ldrs/react'
+import 'ldrs/react/Trefoil.css'
 import './slider-proyectos.css'
 
 const SliderProyectos = (props) => {
   const navigate = useNavigate();
+  const { projects, loading, error } = useProjects();
 
-  const handleProjectClick = (projectId) => {
-    const proyecto = proyectos[`proyecto${projectId}`];
-    
+  const handleProjectClick = (project) => {
     // Guardar en localStorage
     localStorage.setItem('selectedProject', JSON.stringify({
-      id: projectId,
-      titulo: proyecto.titulo,
-      descripcion: proyecto.descripcion,
-      tecnologias: proyecto.tecnologias,
-      imagen: proyecto.imagen
+      id: project._id,
+      titulo: project.title,
+      descripcion: project.description,
+      tecnologias: project.technologies,
+      imagen: project.image || '/proyecto1.jpg' // fallback image
     }));
     
     // Navegar a la página principal y hacer scroll a portafolioInicio
     navigate('/', { 
       state: { 
-        selectedProject: projectId,
-        projectImage: proyecto.imagen,
+        selectedProject: project._id,
+        projectImage: project.image || '/proyecto1.jpg',
         scrollTo: 'portafolioInicio'
       } 
     });
   };
+
+  if (loading) {
+    return (
+      <div className={`slider-proyectos-gallery3 thq-section-padding ${props.rootClassName} `}>
+        <div className="slider-proyectos-max-width thq-section-max-width">
+          <div className="slider-proyectos-section-title">
+            <h2 className="slider-proyectos-text1">
+              {props.heading1 ?? (
+                <Fragment>
+                  <span className="slider-proyectos-text4">Nuestros Proyectos</span>
+                </Fragment>
+              )}
+            </h2>
+          </div>
+          <div className="slider-proyectos-container">
+            <div className="slider-proyectos-content" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
+              <Trefoil size="50" stroke="4" stroke-length="0.15" bg-opacity="0.1" speed="1.4" color="white" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={`slider-proyectos-gallery3 thq-section-padding ${props.rootClassName} `}>
+        <div className="slider-proyectos-max-width thq-section-max-width">
+          <div className="slider-proyectos-section-title">
+            <h2 className="slider-proyectos-text1">
+              {props.heading1 ?? (
+                <Fragment>
+                  <span className="slider-proyectos-text4">Nuestros Proyectos</span>
+                </Fragment>
+              )}
+            </h2>
+          </div>
+          <div className="slider-proyectos-container">
+            <div className="slider-proyectos-content" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
+              <p style={{ color: 'white', textAlign: 'center' }}>
+                Error al cargar los proyectos. Por favor, intenta de nuevo más tarde.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`slider-proyectos-gallery3 thq-section-padding ${props.rootClassName} `}>
@@ -52,22 +101,22 @@ const SliderProyectos = (props) => {
         </div>
         <div className="slider-proyectos-container">
           <div className="slider-proyectos-content">
-            {Object.entries(proyectos).map(([id, proyecto]) => (
+            {projects.map((proyecto) => (
               <div 
-                key={id}
+                key={proyecto._id}
                 className="proyecto-card"
-                onClick={() => handleProjectClick(proyecto.id)}
-                data-description={proyecto.descripcion}
-                data-titulo={proyecto.titulo}
-                data-tecnologias={JSON.stringify(proyecto.tecnologias)}
+                onClick={() => handleProjectClick(proyecto)}
+                data-description={proyecto.description}
+                data-titulo={proyecto.title}
+                data-tecnologias={JSON.stringify(proyecto.technologies)}
               >
                 <img
-                  alt={proyecto.titulo}
-                  src={proyecto.imagen}
-                  className={`slider-proyectos-image${proyecto.id}`}
+                  alt={proyecto.title}
+                  src={proyecto.image || '/proyecto1.jpg'}
+                  className={`slider-proyectos-image${proyecto._id}`}
                 />
                 <div className="proyecto-overlay">
-                  <h3>{proyecto.titulo}</h3>
+                  <h3>{proyecto.title}</h3>
                   <p>Ver detalles</p>
                 </div>
               </div>

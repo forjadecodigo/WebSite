@@ -6,11 +6,14 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/effect-fade'
 import PropTypes from 'prop-types'
-import { proyectos } from '../data/proyectos'
+import { useProjects } from '../hooks/useProjects'
+import { Trefoil } from 'ldrs/react'
+import 'ldrs/react/Trefoil.css'
 import './slider-animado.css'
 
 const SliderAnimado = (props) => {
   const navigate = useNavigate();
+  const { projects, loading, error } = useProjects();
   // Referencia a la instancia de Swiper
   const swiperRef = useRef(null);
 
@@ -64,10 +67,36 @@ const SliderAnimado = (props) => {
   };
 
   // Función para manejar el click en un proyecto
-  const handleProjectClick = (projectId) => {
-    const proyecto = proyectos[`proyecto${projectId}`];
-    navigate('/', { state: { selectedProject: projectId, scrollTo: 'portafolioInicio' } });
+  const handleProjectClick = (project) => {
+    navigate('/', { 
+      state: { 
+        selectedProject: project._id, 
+        scrollTo: 'portafolioInicio' 
+      } 
+    });
   };
+
+  if (loading) {
+    return (
+      <div className={`slider-animado-container10 ${props.rootClassName}`}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
+          <Trefoil size="50" stroke="4" stroke-length="0.15" bg-opacity="0.1" speed="1.4" color="white" />
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={`slider-animado-container10 ${props.rootClassName}`}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
+          <p style={{ color: 'white', textAlign: 'center' }}>
+            Error al cargar los proyectos. Por favor, intenta de nuevo más tarde.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -97,24 +126,24 @@ const SliderAnimado = (props) => {
         }}
       >
         {/* Slides de proyectos */}
-        {Object.entries(proyectos).map(([key, proyecto]) => (
-          <SwiperSlide key={key}>
+        {projects.map((proyecto) => (
+          <SwiperSlide key={proyecto._id}>
             <button 
               className="slider-animado-item"
-              onClick={() => handleProjectClick(proyecto.id)}
-              data-project-id={proyecto.id}
+              onClick={() => handleProjectClick(proyecto)}
+              data-project-id={proyecto._id}
             >
               <div className="proyecto-imagen-container">
                 <img
-                  alt={proyecto.titulo}
-                  src={proyecto.imagen}
-                  className={`slider-animado-image${proyecto.id}`}
+                  alt={proyecto.title}
+                  src={proyecto.image || '/proyecto1.jpg'}
+                  className={`slider-animado-image${proyecto._id}`}
                 />
               </div>
               <div className="slide-overlay">
                 <h3>
                   <span className="slider-animado-text">
-                    {proyecto.titulo}
+                    {proyecto.title}
                   </span>
                 </h3>
               </div>

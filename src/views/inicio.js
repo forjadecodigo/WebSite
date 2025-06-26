@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-import { proyectos } from '../data/proyectos'
+import { useProjects } from '../hooks/useProjects'
 import Menu from '../components/menu'
 import SliderAnimado from '../components/slider-animado'
 import BotonConResplandor from '../components/boton-con-resplandor'
@@ -40,6 +40,7 @@ const Inicio = (props) => {
   const contenidoRef = useRef(null);
   const [isPortafolioScrolling, setIsPortafolioScrolling] = useState(false);
   const portafolioRef = useRef(null);
+  const { projects, loading, error } = useProjects();
   let scrollTimeout;
   const [tarjetaSetIndex, setTarjetaSetIndex] = useState(0);
   const [expandedIndex, setExpandedIndex] = useState(null);
@@ -78,14 +79,22 @@ const Inicio = (props) => {
 
   useEffect(() => {
     let projectToShow = null;
-    if (location.state && location.state.selectedProject) {
+    if (location.state && location.state.selectedProject && projects.length > 0) {
       const id = location.state.selectedProject;
-      projectToShow = Object.values(proyectos).find(p => p.id === id);
+      projectToShow = projects.find(p => p._id === id);
       if (projectToShow) {
-        localStorage.setItem('selectedProject', JSON.stringify(projectToShow));
+        // Transform API data to match expected format
+        const transformedProject = {
+          id: projectToShow._id,
+          titulo: projectToShow.title,
+          descripcion: projectToShow.description,
+          tecnologias: projectToShow.technologies,
+          imagen: projectToShow.image || '/proyecto1.jpg'
+        };
+        localStorage.setItem('selectedProject', JSON.stringify(transformedProject));
+        setSelectedProject(transformedProject);
       }
     }
-    setSelectedProject(projectToShow);
 
     if (location.state && location.state.scrollTo && !window.performance.navigation.type) {
       setTimeout(() => {
@@ -102,7 +111,7 @@ const Inicio = (props) => {
         }
       }, 200);
     }
-  }, [location.state]);
+  }, [location.state, projects]);
 
   useEffect(() => {
     if (selectedProject && proyectosRef.current) {
@@ -497,26 +506,38 @@ const Inicio = (props) => {
             )}
             
             <div className="portafolioInicio-proyectos-grid">
-              {Object.entries(proyectos).map(([id, proyecto], index) => (
-                <div key={id} className="portafolioInicio-proyecto-card animate-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="portafolioInicio-proyecto-imagen-container">
-                    <img 
-                      src={proyecto.imagen} 
-                      alt={proyecto.titulo}
-                      className="portafolioInicio-proyecto-imagen zoom-in"
-                    />
-                  </div>
-                  <div className="portafolioInicio-proyecto-info">
-                    <h2>{proyecto.titulo}</h2>
-                    <p>{proyecto.descripcion.substring(0, 150)}...</p>
-                    <div className="portafolioInicio-tecnologias-tags">
-                      {proyecto.tecnologias.slice(0, 3).map((tech, index) => (
-                        <span key={index} className="portafolioInicio-tech-tag">{tech}</span>
-                      ))}
+              {loading ? (
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px', width: '100%' }}>
+                  <Trefoil size="50" stroke="4" stroke-length="0.15" bg-opacity="0.1" speed="1.4" color="white" />
+                </div>
+              ) : error ? (
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px', width: '100%' }}>
+                  <p style={{ color: 'white', textAlign: 'center' }}>
+                    Error al cargar los proyectos. Por favor, intenta de nuevo más tarde.
+                  </p>
+                </div>
+              ) : (
+                projects.map((project, index) => (
+                  <div key={project._id} className="portafolioInicio-proyecto-card animate-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="portafolioInicio-proyecto-imagen-container">
+                      <img 
+                        src={project.image || '/proyecto1.jpg'} 
+                        alt={project.title}
+                        className="portafolioInicio-proyecto-imagen zoom-in"
+                      />
+                    </div>
+                    <div className="portafolioInicio-proyecto-info">
+                      <h2>{project.title}</h2>
+                      <p>{project.description.substring(0, 150)}...</p>
+                      <div className="portafolioInicio-tecnologias-tags">
+                        {project.technologies.slice(0, 3).map((tech, index) => (
+                          <span key={index} className="portafolioInicio-tech-tag">{tech}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              )}
             </div>
           </div>
 
