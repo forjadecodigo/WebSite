@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  background-image: linear-gradient(0deg, rgba(189, 195, 199, 0) 9.00%,rgba(21, 67, 176, 0.82) 70.00%);
+  background-image: linear-gradient(0deg, rgba(189, 195, 199, 0) 9.00%,rgba(0, 0, 0, 0.82) 70.00%);
 }
 
 .menu-spacer {
@@ -60,7 +60,8 @@
 .botonInicio,
 .botonServicios,
 .botonPortafolio,
-.botonNosotros {
+.botonNosotros,
+.botonBlog {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +72,8 @@
 .botonInicio .button,
 .botonServicios .button,
 .botonPortafolio .button,
-.botonNosotros .button {
+.botonNosotros .button,
+.botonBlog .button {
   width: 100%;
   height: 100%;
   display: flex;
@@ -337,32 +339,11 @@
   .menu-mobile .menu-sub-menu {
     margin-top: 40px;
   }
-  .menu-mobile .botonInicio.button-container,
-  .menu-mobile .botonServicios.button-container,
-  .menu-mobile .botonPortafolio.button-container,
-  .menu-mobile .botonNosotros.button-container {
-    width: 90%;
-    min-width: 90%;
-    max-width: 90%;
-    height: 35px;
-    min-height: 35px;
-    max-height: 35px;
-    padding: 0;
-    margin: 0 auto;
-  }
-  .menu-mobile .menu-contactanos.button-container {
-    width: 90% !important;
-    min-width: 90% !important;
-    max-width: 90% !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: auto !important;
-    margin: 8px auto 0;
-  }
   .menu-mobile .botonInicio,
   .menu-mobile .botonServicios,
   .menu-mobile .botonPortafolio,
-  .menu-mobile .botonNosotros {
+  .menu-mobile .botonNosotros,
+  .menu-mobile .botonBlog {
     width: 100%;
     height: 100%;
     padding: 0;
@@ -370,7 +351,8 @@
   .menu-mobile .botonInicio .button,
   .menu-mobile .botonServicios .button,
   .menu-mobile .botonPortafolio .button,
-  .menu-mobile .botonNosotros .button {
+  .menu-mobile .botonNosotros .button,
+  .menu-mobile .botonBlog .button {
     width: 100%;
     height: 100%;
     padding: 0 15px;
@@ -394,7 +376,8 @@
   .menu-mobile .botonInicio .Botones,
   .menu-mobile .botonServicios .Botones,
   .menu-mobile .botonPortafolio .Botones,
-  .menu-mobile .botonNosotros .Botones {
+  .menu-mobile .botonNosotros .Botones,
+  .menu-mobile .botonBlog .Botones {
     font-size: 15px !important;
   }
   .menu-container1 .menu-hamburger {
@@ -440,7 +423,8 @@
   .botonInicio,
   .botonServicios,
   .botonPortafolio,
-  .botonNosotros {
+  .botonNosotros,
+  .botonBlog {
     padding: 1px;
     height: 30px;
     align-self: center;
@@ -451,7 +435,8 @@
   .botonInicio .button,
   .botonServicios .button,
   .botonPortafolio .button,
-  .botonNosotros .button {
+  .botonNosotros .button,
+  .botonBlog .button {
     padding: 0 10px;
     height: 30px;
     align-self: center;
@@ -462,7 +447,8 @@
   .botonInicio .Botones,
   .botonServicios .Botones,
   .botonPortafolio .Botones,
-  .botonNosotros .Botones {
+  .botonNosotros .Botones,
+  .botonBlog .Botones {
     font-size: 9.6px !important;
   }
   .menu-contactanos,
@@ -494,4 +480,40 @@
     height: 100%;
     font-size: 8px;
   }
+}
+
+.menu-mobile .menu-sub-menu {
+  margin-top: 40px;
+}
+.menu-mobile .botonInicio.button-container,
+.menu-mobile .botonServicios.button-container,
+.menu-mobile .botonPortafolio.button-container,
+.menu-mobile .botonNosotros.button-container,
+.menu-mobile .botonBlog.button-container {
+  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
+  height: 35px;
+  min-height: 35px;
+  max-height: 35px;
+  padding: 0;
+  margin: 0 auto;
+}
+.menu-mobile .menu-contactanos.button-container {
+  width: 90% !important;
+  min-width: 90% !important;
+  max-width: 90% !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: auto !important;
+  margin: 8px auto 0;
+}
+.menu-mobile .botonInicio,
+.menu-mobile .botonServicios,
+.menu-mobile .botonPortafolio,
+.menu-mobile .botonNosotros,
+.menu-mobile .botonBlog {
+  width: 100%;
+  height: 100%;
+  padding: 0;
 }

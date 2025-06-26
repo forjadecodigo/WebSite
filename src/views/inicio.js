@@ -15,6 +15,16 @@ import 'ldrs/react/Quantum.css'
 import 'ldrs/react/Helix.css'
 import 'ldrs/react/Miyagi.css'
 import './inicio.css'
+import BotonFlecha from '../components/botonflecha'
+import AnimacionBlog1 from '../components/animacionblog1'
+import AnimacionBlog2 from '../components/animacionblog2'
+import AnimacionBlog3 from '../components/animacionblog3'
+
+const tarjetasSets = [
+  [1,2,3,4],
+  [5,6,7,8],
+  [9,10,11,12]
+];
 
 const Inicio = (props) => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -31,6 +41,34 @@ const Inicio = (props) => {
   const [isPortafolioScrolling, setIsPortafolioScrolling] = useState(false);
   const portafolioRef = useRef(null);
   let scrollTimeout;
+  const [tarjetaSetIndex, setTarjetaSetIndex] = useState(0);
+  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Hook para detectar el tamaño de pantalla
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 991);
+    };
+
+    // Verificar al montar el componente
+    checkIsMobile();
+
+    // Agregar listener para cambios de tamaño
+    window.addEventListener('resize', checkIsMobile);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
+
+  // Resetear expandedIndex cuando cambie el tamaño de pantalla
+  useEffect(() => {
+    if (!isMobile) {
+      setExpandedIndex(null);
+    }
+  }, [isMobile]);
 
   useEffect(() => {
     localStorage.removeItem('selectedProject');
@@ -681,6 +719,78 @@ const Inicio = (props) => {
               </div>
               <div className="nosotrosInicio-descripcion">
               Abogado magister (M1) en Derecho Internacional y de la Unión Europea, con estudios en Colombia e Internacionales (Francia). Apasionado por el Derecho Privado y con conocimientos en múltiples áreas tales como "Economía", "Historia", "Politología". Se encarga de todos los asuntos jurídicos de Forja de Código, con profunda entrega y dedicación.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="blogInicio" id="blogInicio">
+        <div className="blogInicio-contenido">
+          <div className="blogInicio-articulo">
+            <h2 className="blogInicio-titulo">BLOG DE FORJA DE CÓDIGO</h2>
+            <p className="blogInicio-texto">
+            Muchos emprenden con entusiasmo, pero pronto se enfrentan a la saturación en redes sociales. Sin un sitio web propio, su marca compite por visibilidad en un espacio limitado. En Colombia, solo el 17% de pequeños negocios tiene web. Contar con un sitio profesional puede marcar la diferencia, destacar su talento y ofrecer un espacio propio para conectar con clientes más allá del algoritmo.
+            </p>
+           
+          </div>
+          <div className="blogInicio-multiarticulos-wrapper" style={{position: 'relative', width: '100%'}}>
+            <div className="blogInicio-multiarticulos">
+              {tarjetasSets[tarjetaSetIndex].map((i, idx) => {
+                let posClass = '';
+                if (idx === 0) posClass = 'top-left';
+                if (idx === 1) posClass = 'top-right';
+                if (idx === 2) posClass = 'bottom-left';
+                if (idx === 3) posClass = 'bottom-right';
+                const isExpanded = isMobile && expandedIndex === idx;
+                
+                return (
+                  <div 
+                    className={`blogInicio-tarjeta ${posClass} ${isExpanded ? 'expanded' : ''}`} 
+                    key={i}
+                    onClick={isMobile ? () => setExpandedIndex(expandedIndex === idx ? null : idx) : undefined}
+                    style={isMobile ? { cursor: 'pointer' } : {}}
+                  >
+                    <h3 className="blogInicio-tarjeta-titulo">Artículo {i}</h3>
+                    <h4 className="blogInicio-tarjeta-subtitulo">Subtítulo del artículo {i}</h4>
+                    <div className="blogInicio-tarjeta-contenido">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
+                      <p>Más contenido de ejemplo para hacer scroll. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
+                      <p>Incluso más texto para asegurar el scroll interno. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
+                    </div>
+                    {isMobile && (
+                      <button 
+                        className="blogInicio-tarjeta-flecha" 
+                        onClick={(e) => {
+                          e.stopPropagation(); // Evitar que se propague el clic al contenedor
+                          setExpandedIndex(expandedIndex === idx ? null : idx);
+                        }}
+                        aria-label={isExpanded ? "Contraer artículo" : "Expandir artículo"}
+                      >
+                        {isExpanded ? '▲' : '▼'}
+                      </button>
+                    )}
+                  </div>
+                );
+              })}
+              {tarjetaSetIndex === 2 ? (
+                <div className="blogInicio-circulo-central">
+                  <AnimacionBlog3 />
+                </div>
+              ) : tarjetaSetIndex === 1 ? (
+                <div className="blogInicio-circulo-central">
+                  <AnimacionBlog2 />
+                </div>
+              ) : (
+                <div className="blogInicio-circulo-central">
+                  <AnimacionBlog1 />
+                </div>
+              )}
+              <div style={{position: 'absolute', top: '50%', left: '-160px', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%'}}>
+                <BotonFlecha direction="left" onClick={() => setTarjetaSetIndex((prev) => prev === 0 ? tarjetasSets.length-1 : prev-1)} />
+              </div>
+              <div style={{position: 'absolute', top: '50%', right: '-160px', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%'}}>
+                <BotonFlecha direction="right" onClick={() => setTarjetaSetIndex((prev) => prev === tarjetasSets.length-1 ? 0 : prev+1)} />
               </div>
             </div>
           </div>

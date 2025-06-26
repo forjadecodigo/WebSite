@@ -94,6 +94,13 @@ const Menu = (props) => {
               </span>
             </button>
           </div>
+          <div className="botonBlog button-container">
+            <button onClick={() => scrollToSection('blogInicio')} className="button glow-btn">
+              <span className="Botones">
+                Blog
+              </span>
+            </button>
+          </div>
         </div>
         <div className="menu-contactanos button-container">
           <Link to="/contactanos" className="button glow-btn">
@@ -161,6 +168,13 @@ const Menu = (props) => {
                     Nosotros
                   </Fragment>
                 )}
+              </span>
+            </button>
+          </div>
+          <div className="botonBlog button-container">
+            <button onClick={() => scrollToSection('blogInicio')} className="button glow-btn">
+              <span className="Botones">
+                Blog
               </span>
             </button>
           </div>
