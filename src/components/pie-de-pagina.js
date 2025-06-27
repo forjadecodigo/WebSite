@@ -28,7 +28,7 @@ return (
     className={`pie-de-pagina-container1 thq-section-padding ${props.rootClassName} `}
   >
     <a
-      href="https://wa.me/573127379928"
+      href="https://wa.me/573127379928?text=Hola%20Forjadores%2C%20tengo%20una%20idea%20que%20quiero%20digitalizar%20y%20me%20gustaría%20hablar%20con%20ustedes"
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float"
