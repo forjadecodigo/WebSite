@@ -758,6 +758,11 @@ const Inicio = (props) => {
           <div className="blogInicio-multiarticulos-wrapper" style={{position: 'relative', width: '100%'}}>
             <div className="blogInicio-multiarticulos">
               {tarjetasSets[tarjetaSetIndex].map((i, idx) => {
+                // Ocultar artículos 5-12 que aún no están listos
+                if (i >= 5) {
+                  return null;
+                }
+                
                 let posClass = '';
                 if (idx === 0) posClass = 'top-left';
                 if (idx === 1) posClass = 'top-right';
@@ -871,12 +876,6 @@ const Inicio = (props) => {
                   <AnimacionBlog1 />
                 </div>
               )}
-              <div style={{position: 'absolute', top: '50%', left: '-160px', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%'}}>
-                <BotonFlecha direction="left" onClick={() => setTarjetaSetIndex((prev) => prev === 0 ? tarjetasSets.length-1 : prev-1)} />
-              </div>
-              <div style={{position: 'absolute', top: '50%', right: '-160px', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%'}}>
-                <BotonFlecha direction="right" onClick={() => setTarjetaSetIndex((prev) => prev === tarjetasSets.length-1 ? 0 : prev+1)} />
-              </div>
             </div>
           </div>
         </div>
