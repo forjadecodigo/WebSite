@@ -503,16 +503,32 @@
     max-width: 100%;
     margin: 0 auto;
     height: auto;
-    min-height: 90px;
+    min-height: 120px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     position: relative;
     cursor: pointer;
   }
   
+  .blogInicio-tarjeta .blogInicio-tarjeta-titulo {
+    font-size: 0.715rem;
+  }
+  
+  .blogInicio-tarjeta .blogInicio-tarjeta-subtitulo {
+    font-size: 0.6175rem;
+  }
+  
   .blogInicio-tarjeta:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 170, 255, 0.2);
+  }
+  
+  .blogInicio-tarjeta:hover .blogInicio-tarjeta-titulo {
+    font-size: 1.1rem;
+  }
+  
+  .blogInicio-tarjeta:hover .blogInicio-tarjeta-subtitulo {
+    font-size: 0.95rem;
   }
   
   .blogInicio-tarjeta:active {
@@ -529,7 +545,7 @@
   }
   
   .blogInicio-tarjeta:not(.expanded) {
-    max-height: 90px;
+    max-height: 80px;
     overflow: hidden;
   }
   
@@ -1873,7 +1889,7 @@
   align-items: center;
   justify-content: flex-start;
   padding: 120px 20px 60px;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
+  /*background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);*/
   position: relative;
   overflow: hidden;
 }
@@ -1959,7 +1975,7 @@
 }
 
 .blogInicio-texto {
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   line-height: 1.7;
   color: #ffffff;
   margin-bottom: 20px;
@@ -2019,6 +2035,7 @@
   font-weight: 700;
   margin: 16px 16px 6px 16px;
   color: #00aaff;
+  flex-shrink: 0;
 }
 
 .blogInicio-tarjeta-subtitulo {
@@ -2027,6 +2044,7 @@
   margin: 0 16px 8px 16px;
   color: #fff;
   opacity: 0.8;
+  flex-shrink: 0;
 }
 
 .blogInicio-tarjeta-contenido {
@@ -2038,6 +2056,7 @@
   line-height: 1.5;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  min-height: 0;
 }
 .blogInicio-tarjeta-contenido::-webkit-scrollbar {
   display: none;
@@ -2053,6 +2072,23 @@
     transform: scale(2);
     z-index: 99;
     box-shadow: 0 16px 48px rgba(0,170,255,0.22);
+  }
+  .blogInicio-tarjeta:hover .blogInicio-tarjeta-titulo {
+    font-size: 0.55rem;
+    margin: 8px 8px 3px 8px;
+    line-height: 1.2;
+  }
+  .blogInicio-tarjeta:hover .blogInicio-tarjeta-subtitulo {
+    font-size: 0.475rem;
+    margin: 0 8px 4px 8px;
+    line-height: 1.2;
+  }
+  .blogInicio-tarjeta:hover .blogInicio-tarjeta-contenido {
+    font-size: 0.325rem;
+    padding: 0 8px 6px 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    flex: 1;
   }
   .blogInicio-circulo-central {
     z-index: 10;
@@ -2148,7 +2184,7 @@
     max-width: 100%;
     margin: 0 auto;
     height: auto;
-    min-height: 90px;
+    min-height: 120px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     position: relative;
@@ -2174,7 +2210,7 @@
   }
   
   .blogInicio-tarjeta:not(.expanded) {
-    max-height: 90px;
+    max-height: 80px;
     overflow: hidden;
   }
   
