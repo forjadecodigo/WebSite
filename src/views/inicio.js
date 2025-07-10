@@ -89,7 +89,8 @@ const Inicio = (props) => {
           titulo: projectToShow.title,
           descripcion: projectToShow.description,
           tecnologias: projectToShow.technologies,
-          imagen: projectToShow.image || '/proyecto1.jpg'
+          imagen: projectToShow.image || '/proyecto1.jpg',
+          url: projectToShow.url
         };
         localStorage.setItem('selectedProject', JSON.stringify(transformedProject));
         setSelectedProject(transformedProject);
@@ -488,10 +489,25 @@ const Inicio = (props) => {
                     src={selectedProject.imagen} 
                     alt={selectedProject.titulo}
                     className="portafolioInicio-proyecto-imagen zoom-in"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => {
+                      if (selectedProject.url) {
+                        window.open(selectedProject.url, '_blank');
+                      }
+                    }}
                   />
                 </div>
                 <div className="portafolioInicio-proyecto-info">
-                  <h2>{selectedProject.titulo}</h2>
+                  <h2 
+                    style={{ cursor: selectedProject.url ? 'pointer' : 'default' }}
+                    onClick={() => {
+                      if (selectedProject.url) {
+                        window.open(selectedProject.url, '_blank');
+                      }
+                    }}
+                  >
+                    {selectedProject.titulo}
+                  </h2>
                   <p>{selectedProject.descripcion}</p>
                   <div className="portafolioInicio-tecnologias-container">
                     <h3>Tecnologías utilizadas:</h3>
@@ -518,7 +534,34 @@ const Inicio = (props) => {
                 </div>
               ) : (
                 projects.map((project, index) => (
-                  <div key={project._id} className="portafolioInicio-proyecto-card animate-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div 
+                    key={project._id} 
+                    className="portafolioInicio-proyecto-card animate-in" 
+                    style={{ animationDelay: `${index * 0.1}s`, cursor: 'pointer' }}
+                    onClick={() => {
+                      // Transform API data to match expected format
+                      const transformedProject = {
+                        id: project._id,
+                        titulo: project.title,
+                        descripcion: project.description,
+                        tecnologias: project.technologies,
+                        imagen: project.image || '/proyecto1.jpg',
+                        url: project.url
+                      };
+                      setSelectedProject(transformedProject);
+                      localStorage.setItem('selectedProject', JSON.stringify(transformedProject));
+                      
+                      // Scroll to the selected project
+                      setTimeout(() => {
+                        if (proyectosRef.current) {
+                          proyectosRef.current.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                          });
+                        }
+                      }, 100);
+                    }}
+                  >
                     <div className="portafolioInicio-proyecto-imagen-container">
                       <img 
                         src={project.image || '/proyecto1.jpg'} 
@@ -746,7 +789,7 @@ const Inicio = (props) => {
         </div>
       </div>
 
-      <div className="blogInicio" id="blogInicio">
+      <div className="blogInicio" id="blogInicio" style={{display: 'none'}}>
         <div className="blogInicio-contenido">
           <div className="blogInicio-articulo">
             <h2 className="blogInicio-titulo">BLOG DE FORJA DE CÓDIGO</h2>
