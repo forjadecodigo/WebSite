@@ -533,7 +533,7 @@ const Inicio = (props) => {
                   </p>
                 </div>
               ) : (
-                projects.map((project, index) => (
+                [...projects].reverse().map((project, index) => (
                   <div 
                     key={project._id} 
                     className="portafolioInicio-proyecto-card animate-in" 
