@@ -101,7 +101,7 @@ const SliderProyectos = (props) => {
         </div>
         <div className="slider-proyectos-container">
           <div className="slider-proyectos-content">
-            {projects.map((proyecto) => (
+            {[...projects].reverse().map((proyecto) => (
               <div 
                 key={proyecto._id}
                 className="proyecto-card"
