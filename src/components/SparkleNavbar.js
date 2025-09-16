@@ -192,6 +192,18 @@ const SparkleNavbar = ({ items, color = '#00fffc', onItemClick, initialIndex = 0
               </button>
             </li>
           ))}
+          <li>
+            <button
+              onClick={() => {
+                setIsOpen(false)
+                if (onItemClick) onItemClick(4, items[4])
+              }}
+              className="text-foreground"
+              style={{ marginTop: 12, background: 'rgba(255,255,255,0.12)', color: '#fff', fontWeight: 700 }}
+            >
+              ¡Tú idea aquí!
+            </button>
+          </li>
         </ul>
       </div>
     </>
