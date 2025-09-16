@@ -7,8 +7,8 @@
   --brand-glow: rgba(21, 67, 176, 0.2);
   --brand-border: rgba(21, 67, 176, 0.8);
   --border-color: rgba(31, 47, 87, 0.35);
-  /* Make background slightly transparent */
-  --background-dark: rgba(0, 19, 38, 0.6);
+  /* Make background slightly transparent (black) */
+  --background-dark: rgba(0, 0, 0, 0.6);
   color-scheme: light dark;
 }
 

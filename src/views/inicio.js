@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { useProjects } from '../hooks/useProjects'
-import Menu from '../components/menu'
+import SparkleNavbar from '../components/SparkleNavbar'
 import SliderAnimado from '../components/slider-animado'
 import BotonConResplandor from '../components/boton-con-resplandor'
 import PieDePagina from '../components/pie-de-pagina'
@@ -248,39 +248,29 @@ const Inicio = (props) => {
         <meta name="twitter:image" content="https://forjadecodigo.com/logo.png" />
         <link rel="canonical" href="https://forjadecodigo.com/" />
       </Helmet>
-      <Menu
-        button={
-          <Fragment>
-            <span className="inicio-text10 Botones">Botón con Resplandor</span>
-          </Fragment>
-        }
-        button1={
-          <Fragment>
-            <span className="inicio-text11">Nosotros</span>
-          </Fragment>
-        }
-        button2={
-          <Fragment>
-            <span className="inicio-text12">Portafolio</span>
-          </Fragment>
-        }
-        button3={
-          <Fragment>
-            <span className="inicio-text13">Servicios</span>
-          </Fragment>
-        }
-        button4={
-          <Fragment>
-            <span className="inicio-text14">Inicio</span>
-          </Fragment>
-        }
-        button11={
-          <Fragment>
-            <span className="inicio-text15">¡Tú idea aquí!</span>
-          </Fragment>
-        }
-        rootClassName="menuroot-class-name"
-      ></Menu>
+      <SparkleNavbar 
+        items={[ 'Inicio', 'Servicios', 'Portafolio', 'Nosotros', 'Contáctanos' ]}
+        color="#1543B0"
+        initialIndex={0}
+        onItemClick={(index) => {
+          if (index === 0) {
+            const el = document.getElementById('inicio-seccion1');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          } else if (index === 1) {
+            const el = document.getElementById('serviciosInicio');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          } else if (index === 2) {
+            const el = document.getElementById('portafolioInicio');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          } else if (index === 3) {
+            const el = document.getElementById('nosotrosInicio');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          } else if (index === 4) {
+            navigate('/contactanos');
+          }
+        }}
+      />
+      <div style={{ height: 76 }} />
       <div className="inicio-seccion1" id="inicio-seccion1">
         <div className="inicio-slogan">
           <span className="inicio-text16">

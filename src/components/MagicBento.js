@@ -478,7 +478,7 @@ const MagicBento = ({
           const baseClassName = `card ${enableBorderGlow ? 'card--border-glow' : ''}`
           const cardProps = {
             className: baseClassName,
-            style: { '--card-bg': 'rgba(0, 19, 38, 0.75)', '--glow-color': glowColor }
+            style: { '--card-bg': 'rgba(0, 0, 0, 0.75)', '--glow-color': glowColor }
           }
 
           if (enableStars) {

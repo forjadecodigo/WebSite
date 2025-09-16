@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, Fragment } from 'react'
 import { Helmet } from 'react-helmet'
 import emailjs from '@emailjs/browser'
-import Menu from '../components/menu'
+import SparkleNavbar from '../components/SparkleNavbar'
 import PieDePagina from '../components/pie-de-pagina'
 
 import './contactanos.css'
@@ -242,14 +242,25 @@ const Contactanos = (props) => {
         <meta name="twitter:image" content="https://forjadecodigo.com/logo.png" />
         <link rel="canonical" href="https://forjadecodigo.com/contactanos" />
       </Helmet>
-      <Menu 
-        rootClassName="menuroot-class-name9"
-        button11={
-          <Fragment>
-            <span onClick={scrollToTop}>¡Tú idea aquí!</span>
-          </Fragment>
-        }
+      <SparkleNavbar 
+        items={[ 'Inicio', 'Servicios', 'Portafolio', 'Nosotros', 'Contáctanos' ]}
+        color="#1543B0"
+        initialIndex={4}
+        onItemClick={(index) => {
+          if (index === 4) {
+            scrollToTop()
+          } else if (index === 0) {
+            window.location.href = '/' // volver a home y arriba
+          } else if (index === 1) {
+            window.location.href = '/#serviciosInicio'
+          } else if (index === 2) {
+            window.location.href = '/#portafolioInicio'
+          } else if (index === 3) {
+            window.location.href = '/#nosotrosInicio'
+          }
+        }}
       />
+      <div style={{ height: 76 }} />
       <div className="contactanos-form-container">
         <h1 className="contactanos-title">Contáctanos</h1>
         <p className="contactanos-subtitle">
