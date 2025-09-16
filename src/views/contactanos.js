@@ -221,7 +221,7 @@ const Contactanos = (props) => {
       <video
         ref={videoRef}
         className="background-video"
-        src="/herrerosonriente.mp4"
+        src="/herrerosonriente.webm"
         autoPlay
         loop
         muted

@@ -16,6 +16,10 @@ const PieDePagina = (props) => {
     localStorage.setItem('tempEmail', email);
     // Navegar a la página de contacto usando navigate
     navigate('/contactanos');
+    // Scroll suave al inicio de la página después de navegar
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
  // Función para manejar el clic en el botón de WhatsApp
