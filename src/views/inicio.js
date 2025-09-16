@@ -924,6 +924,27 @@ const Inicio = (props) => {
           rootClassName="pie-de-paginaroot-class-name"
         ></PieDePagina>
       </div>
+      {/* Floating CTA button */}
+      <button
+        onClick={handleContactClick}
+        aria-label="¡Tú idea aquí!"
+        style={{
+          position: 'fixed',
+          bottom: 20,
+          right: 40,
+          zIndex: 1100,
+          background: '#000000',
+          color: '#ffffff',
+          border: 'none',
+          borderRadius: 28,
+          padding: '12px 18px',
+          fontWeight: 700,
+          boxShadow: '0 8px 20px rgba(0,0,0,0.35)',
+          cursor: 'pointer'
+        }}
+      >
+        ¡Tú idea aquí!
+      </button>
     </div>
   )
 }

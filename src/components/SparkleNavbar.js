@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 
 const SparkleNavbar = ({ items, color = '#00fffc', onItemClick, initialIndex = 0 }) => {
   const [activeIndex, setActiveIndex] = useState(initialIndex)
+  const [isOpen, setIsOpen] = useState(false)
 
   const navRef = useRef(null)
   const activeElementRef = useRef(null)
@@ -103,14 +104,15 @@ const SparkleNavbar = ({ items, color = '#00fffc', onItemClick, initialIndex = 0
   return (
     <>
       <style>{`
-        .navigation-menu { position: fixed; top: 0; left: 0; width: 100%; z-index: 1001; backdrop-filter: blur(6px); background-image: linear-gradient(0deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.85) 70%); box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+        .navigation-menu { position: fixed; top: 0; left: 0; width: 100%; z-index: 1001; backdrop-filter: blur(8px); background-image: linear-gradient(0deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.75) 70%); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
         .navigation-menu-inner { max-width: 1400px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; }
         .navigation-menu .logo { width: 60px; height: 60px; min-width: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; background: rgba(255,255,255,0.06); }
         .navigation-menu .logo img { width: 100%; height: 100%; object-fit: cover; }
         .navigation-menu ul { margin: 0; padding: 0; list-style: none; display: flex; gap: 40px; align-items: center; justify-content: center; flex: 1; }
         .navigation-menu .logo-ghost { width: 60px; height: 60px; min-width: 60px; }
-        .navigation-menu ul li button { appearance: none; border: none; cursor: pointer; background-color: transparent; padding: 0; margin: 0; line-height: 28px; transition: color 0.25s; color: #ffffff; font-size: 20px; }
-        .navigation-menu ul li:not(.active):hover button { text-shadow: 0 0 10px ${color}, 0 0 20px ${color}; }
+        .navigation-menu ul li button { appearance: none; border: none; cursor: pointer; background-color: transparent; padding: 8px 14px; margin: 0; line-height: 28px; transition: color 0.25s, background-color 0.25s, box-shadow 0.25s; color: #ffffff !important; font-size: 20px; font-weight: 600; letter-spacing: 0.2px; border-radius: 9999px; }
+        .navigation-menu ul li:not(.active):hover button { background: rgba(255,255,255,0.08); box-shadow: 0 0 0 1px rgba(255,255,255,0.08) inset; }
+        .navigation-menu ul li.active button { background: rgba(21, 67, 176, 0.35); box-shadow: 0 0 0 1px rgba(21, 67, 176, 0.45) inset, 0 6px 16px rgba(21, 67, 176, 0.25); }
         .navigation-menu .active-element { --active-element-scale-x: 1; --active-element-scale-y: 1; --active-element-show: 0; --active-element-opacity: 0; --active-element-width: 0px; --active-element-strike-x: 0%; --active-element-mask-position: 0%; position: absolute; left: 0; top: 60px; height: 3px; width: 36px; border-radius: 2px; background-color: ${color}; opacity: var(--active-element-show); }
         .navigation-menu .active-element > svg, .navigation-menu .active-element .strike { position: absolute; right: 0; top: 50%; transform: translateY(-50%); opacity: var(--active-element-opacity); width: var(--active-element-width); mix-blend-mode: screen; }
         .navigation-menu .active-element > svg { display: block; overflow: visible; height: 5px; filter: blur(0.5px) drop-shadow(2px 0px 8px ${color}40) drop-shadow(1px 0px 2px ${color}80) drop-shadow(0px 0px 3px ${color}40) drop-shadow(2px 0px 8px ${color}45) drop-shadow(8px 0px 16px ${color}50); }
@@ -120,12 +122,28 @@ const SparkleNavbar = ({ items, color = '#00fffc', onItemClick, initialIndex = 0
         .navigation-menu .active-element .strike svg g path:nth-child(2) { filter: blur(2px); }
         .navigation-menu .active-element .strike svg g path:nth-child(3) { filter: blur(4px); }
         .navigation-menu.before .active-element { transform: rotateY(180deg); }
+        /* Mobile menu */
+        .mobile-toggle { display: none; margin-left: auto; width: 28px; height: 22px; position: relative; cursor: pointer; }
+        .mobile-toggle span { position: absolute; left: 0; right: 0; height: 3px; background: #fff; border-radius: 3px; transition: transform .25s, opacity .25s; }
+        .mobile-toggle span:nth-child(1) { top: 0; }
+        .mobile-toggle span:nth-child(2) { top: 9px; }
+        .mobile-toggle span:nth-child(3) { top: 18px; }
+        .mobile-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 70%; max-width: 360px; height: 100vh; background: rgba(0,0,0,0.82); backdrop-filter: blur(8px); box-shadow: -8px 0 20px rgba(0,0,0,0.35); padding: 80px 24px 24px; z-index: 1002; }
+        .mobile-menu ul { display: flex; flex-direction: column; gap: 12px; }
+        .mobile-menu ul li button { font-size: 18px; line-height: 24px; width: 100%; text-align: left; padding: 12px 16px; border-radius: 10px; color: #ffffff !important; }
+        .mobile-menu ul li:not(.active) button { background: rgba(255,255,255,0.06); }
+        .mobile-menu ul li.active button { background: rgba(21, 67, 176, 0.55); box-shadow: 0 0 0 1px rgba(21, 67, 176, 0.6) inset; }
+        .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1001; }
         @media (max-width: 767px) {
           .navigation-menu .logo { width: 45px; height: 45px; min-width: 45px; }
           .navigation-menu .logo-ghost { width: 45px; height: 45px; min-width: 45px; }
-          .navigation-menu ul { gap: 20px; }
-          .navigation-menu ul li button { font-size: 16px; line-height: 24px; }
-          .navigation-menu .active-element { top: 48px; }
+          .navigation-menu ul { display: none; }
+          .mobile-toggle { display: block; }
+          .navigation-menu .active-element { display: none; }
+          /* Mobile menu/overlay visibility controlled via inline styles */
         }
       `}</style>
 
@@ -148,9 +166,34 @@ const SparkleNavbar = ({ items, color = '#00fffc', onItemClick, initialIndex = 0
             ))}
           </ul>
           <div className="logo-ghost" />
+          <div className={`mobile-toggle ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
         <div className="active-element" ref={activeElementRef} />
       </nav>
+
+      {/* Mobile menu & overlay */}
+      <div className="mobile-overlay" onClick={() => setIsOpen(false)} style={{ display: isOpen ? 'block' : 'none' }} />
+      <div className="mobile-menu" role="menu" style={{ display: isOpen ? 'block' : 'none' }}>
+        <ul>
+          {items.map((item, index) => (
+            <li key={`m-${item}`} className={index === activeIndex ? 'active' : ''}>
+              <button
+                onClick={() => {
+                  setIsOpen(false)
+                  animateToIndex(index)
+                }}
+                className="text-foreground"
+              >
+                {item}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   )
 }
