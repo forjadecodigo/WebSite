@@ -90,7 +90,8 @@ const Inicio = (props) => {
           titulo: projectToShow.title,
           descripcion: projectToShow.description,
           tecnologias: projectToShow.technologies,
-          imagen: projectToShow.image || '/proyecto1.jpg'
+          imagen: projectToShow.image || '/proyecto1.jpg',
+          url: projectToShow.url
         };
         localStorage.setItem('selectedProject', JSON.stringify(transformedProject));
         setSelectedProject(transformedProject);
@@ -455,10 +456,25 @@ const Inicio = (props) => {
                     src={selectedProject.imagen} 
                     alt={selectedProject.titulo}
                     className="portafolioInicio-proyecto-imagen zoom-in"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => {
+                      if (selectedProject.url) {
+                        window.open(selectedProject.url, '_blank');
+                      }
+                    }}
                   />
                 </div>
                 <div className="portafolioInicio-proyecto-info">
-                  <h2>{selectedProject.titulo}</h2>
+                  <h2 
+                    style={{ cursor: selectedProject.url ? 'pointer' : 'default' }}
+                    onClick={() => {
+                      if (selectedProject.url) {
+                        window.open(selectedProject.url, '_blank');
+                      }
+                    }}
+                  >
+                    {selectedProject.titulo}
+                  </h2>
                   <p>{selectedProject.descripcion}</p>
                   <div className="portafolioInicio-tecnologias-container">
                     <h3>Tecnologías utilizadas:</h3>
@@ -484,8 +500,35 @@ const Inicio = (props) => {
                   </p>
                 </div>
               ) : (
-                projects.map((project, index) => (
-                  <div key={project._id} className="portafolioInicio-proyecto-card animate-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                [...projects].reverse().map((project, index) => (
+                  <div 
+                    key={project._id} 
+                    className="portafolioInicio-proyecto-card animate-in" 
+                    style={{ animationDelay: `${index * 0.1}s`, cursor: 'pointer' }}
+                    onClick={() => {
+                      // Transform API data to match expected format
+                      const transformedProject = {
+                        id: project._id,
+                        titulo: project.title,
+                        descripcion: project.description,
+                        tecnologias: project.technologies,
+                        imagen: project.image || '/proyecto1.jpg',
+                        url: project.url
+                      };
+                      setSelectedProject(transformedProject);
+                      localStorage.setItem('selectedProject', JSON.stringify(transformedProject));
+                      
+                      // Scroll to the selected project
+                      setTimeout(() => {
+                        if (proyectosRef.current) {
+                          proyectosRef.current.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                          });
+                        }
+                      }, 100);
+                    }}
+                  >
                     <div className="portafolioInicio-proyecto-imagen-container">
                       <img 
                         src={project.image || '/proyecto1.jpg'} 
@@ -713,7 +756,7 @@ const Inicio = (props) => {
         </div>
       </div>
 
-      <div className="blogInicio" id="blogInicio">
+      <div className="blogInicio" id="blogInicio" style={{display: 'none'}}>
         <div className="blogInicio-contenido">
           <div className="blogInicio-articulo">
             <h2 className="blogInicio-titulo">BLOG DE FORJA DE CÓDIGO</h2>
@@ -725,6 +768,11 @@ const Inicio = (props) => {
           <div className="blogInicio-multiarticulos-wrapper" style={{position: 'relative', width: '100%'}}>
             <div className="blogInicio-multiarticulos">
               {tarjetasSets[tarjetaSetIndex].map((i, idx) => {
+                // Ocultar artículos 5-12 que aún no están listos
+                if (i >= 5) {
+                  return null;
+                }
+                
                 let posClass = '';
                 if (idx === 0) posClass = 'top-left';
                 if (idx === 1) posClass = 'top-right';
@@ -739,12 +787,76 @@ const Inicio = (props) => {
                     onClick={isMobile ? () => setExpandedIndex(expandedIndex === idx ? null : idx) : undefined}
                     style={isMobile ? { cursor: 'pointer' } : {}}
                   >
-                    <h3 className="blogInicio-tarjeta-titulo">Artículo {i}</h3>
-                    <h4 className="blogInicio-tarjeta-subtitulo">Subtítulo del artículo {i}</h4>
+                    <h3 className="blogInicio-tarjeta-titulo">
+                      {i === 1 ? "De la idea al código: cómo convertir tu visión de negocio en una solución digital" : 
+                       i === 2 ? "La tecnología no reemplaza tu negocio, lo potencia: cómo elegir la solución digital adecuada" :
+                       i === 3 ? "Asesoría comercial para proyectos digitales: el paso que todos olvidan" :
+                       i === 4 ? "Creatividad + administración: el binomio que define los negocios del futuro" :
+                       `Artículo ${i}`}
+                    </h3>
+                    <h4 className="blogInicio-tarjeta-subtitulo">
+                      {i === 1 ? "Transformando visiones en realidades digitales" : 
+                       i === 2 ? "Amplificando el impacto de tu negocio" :
+                       i === 3 ? "Estrategia antes que diseño" :
+                       i === 4 ? "Equilibrio entre innovación y control" :
+                       `Subtítulo del artículo ${i}`}
+                    </h4>
                     <div className="blogInicio-tarjeta-contenido">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
-                      <p>Más contenido de ejemplo para hacer scroll. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
-                      <p>Incluso más texto para asegurar el scroll interno. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
+                      {i === 1 ? (
+                        <>
+                          <p>Muchos emprendedores tienen una idea en la cabeza: "quiero vender por internet", "necesito una app para mis clientes", "quiero que mi negocio se vea más profesional". Pero al intentar convertir esa idea en algo concreto, se enfrentan a un muro técnico. No saben qué pedir, cómo explicarlo o qué tecnología necesitan. En Forja de Código lo sabemos: el primer gran paso no es programar, es escuchar.</p>
+                          
+                          <p>Cada proyecto que llega a nuestras manos lo abordamos desde la empatía. Queremos entender no solo qué quieres hacer, sino por qué lo quieres hacer y para quién. Solo así podemos construir una solución que no solo funcione, sino que tenga sentido.</p>
+                          
+                          <p>Guiamos a nuestros clientes a aterrizar sus ideas. Les ayudamos a pensar en funcionalidades, en sus usuarios, en la experiencia que quieren brindar. De esa forma, la solución digital se convierte en una extensión de su negocio real.</p>
+                          
+                          <p>Hemos acompañado a tatuadores a llevar su arte a reservas digitales, a clínicas a organizar sus servicios con eficiencia, y a ganaderos a entender su información como una herramienta de crecimiento. Cada historia es distinta, pero todas nacen de una conversación honesta.</p>
+                          
+                          <p>Tu idea merece ser escuchada. Merece convertirse en algo real, funcional y tuyo. En Forja de Código, estamos listos para traducir tu visión en código.</p>
+                        </>
+                      ) : i === 2 ? (
+                        <>
+                          <p>Muchos negocios tradicionales dudan al dar el salto digital. Tienen temor a lo nuevo, a la inversión, o simplemente no saben por dónde empezar. En realidad, la tecnología no es un reemplazo de lo que haces: es una herramienta que amplifica tu impacto.</p>
+                          
+                          <p>No todas las empresas necesitan lo mismo. Una tienda local puede requerir un sistema de pedidos; un médico, una agenda automatizada; un artista, un portafolio impactante. El secreto está en entender dónde estás y a dónde quieres llegar.</p>
+                          
+                          <p>En Forja de Código evitamos el error de crear soluciones genéricas. Cada proyecto tiene identidad propia. La tecnología bien aplicada resuelve problemas reales, no crea procesos innecesarios.</p>
+                          
+                          <p>Nuestro trabajo no es solo entregar software, sino ayudarte a decidir cuál es el software adecuado. Te acompañamos para que tomes decisiones con visión y confianza.</p>
+                          
+                          <p><strong>Digitalizar tu negocio no es perder el control. Es multiplicar tus posibilidades.</strong></p>
+                        </>
+                      ) : i === 3 ? (
+                        <>
+                          <p>Es común encontrar emprendedores que invierten en diseño o desarrollo, pero no en estrategia. Crean una página o app bonita, pero sin una base comercial clara. Resultado: no hay tráfico, ni ventas, ni retorno.</p>
+                          
+                          <p>Una plataforma no solo debe verse bien, debe comunicar qué haces, para quién y por qué debería importar. Eso se construye desde la asesoría comercial, algo que en Forja de Código ofrecemos desde el día uno.</p>
+                          
+                          <p>Nuestro proceso incluye entender tu nicho, evaluar el mercado, analizar cómo comunicar y ayudarte a estructurar la propuesta digital para que sea viable y competitiva. No diseñamos solo plataformas: creamos estrategias digitales reales.</p>
+                          
+                          <p>Desde la definición del público objetivo hasta la propuesta de contenidos, planificación de lanzamientos y acompañamiento en redes, nuestros servicios integran la mirada comercial con la técnica.</p>
+                          
+                          <p><strong>La tecnología sola no vende. El diseño solo no convierte. Lo que hace crecer un negocio es la estrategia.</strong></p>
+                        </>
+                      ) : i === 4 ? (
+                        <>
+                          <p>Tradicionalmente, la creatividad y la gestión han estado separadas. Pero en el mundo digital, no solo pueden convivir: deben hacerlo. Un buen negocio necesita ideas frescas y procesos claros.</p>
+                          
+                          <p>Desde la forma en que gestionas tus clientes hasta cómo presentas tus productos, todo puede tener estructura sin perder originalidad. En Forja de Código diseñamos soluciones que combinan automatización, diseño inteligente y una estrategia alineada con tu personalidad.</p>
+                          
+                          <p>Muchos proyectos con ideas brillantes fracasan por falta de control. Otros, con excelente administración, mueren por no conectar. La clave está en el equilibrio.</p>
+                          
+                          <p>En cada desarrollo buscamos ese punto donde la visión del cliente se convierte en acción, sin ahogar la inspiración. Porque crear también es organizar.</p>
+                          
+                          <p><strong>Tu negocio no tiene que elegir entre ser creativo o ser eficiente. Puede ser ambas cosas, y ahí es donde empieza el verdadero crecimiento.</strong></p>
+                        </>
+                      ) : (
+                        <>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
+                          <p>Más contenido de ejemplo para hacer scroll. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
+                          <p>Incluso más texto para asegurar el scroll interno. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.</p>
+                        </>
+                      )}
                     </div>
                     {isMobile && (
                       <button 
@@ -774,12 +886,6 @@ const Inicio = (props) => {
                   <AnimacionBlog1 />
                 </div>
               )}
-              <div style={{position: 'absolute', top: '50%', left: '-160px', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%'}}>
-                <BotonFlecha direction="left" onClick={() => setTarjetaSetIndex((prev) => prev === 0 ? tarjetasSets.length-1 : prev-1)} />
-              </div>
-              <div style={{position: 'absolute', top: '50%', right: '-160px', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%'}}>
-                <BotonFlecha direction="right" onClick={() => setTarjetaSetIndex((prev) => prev === tarjetasSets.length-1 ? 0 : prev+1)} />
-              </div>
             </div>
           </div>
         </div>
