@@ -19,6 +19,7 @@ import BotonFlecha from '../components/botonflecha'
 import AnimacionBlog1 from '../components/animacionblog1'
 import AnimacionBlog2 from '../components/animacionblog2'
 import AnimacionBlog3 from '../components/animacionblog3'
+import MagicBento from '../components/MagicBento'
 
 const tarjetasSets = [
   [1,2,3,4],
@@ -219,33 +220,7 @@ const Inicio = (props) => {
     navigate('/contactanos');
   };
 
-  const services = [
-    {
-      icon: <i className="fas fa-code fa-3x"></i>,
-      title: 'Desarrollo Web',
-      description: 'Creamos sitios web modernos y responsivos que destacan tu marca y mejoran la experiencia de tus usuarios.'
-    },
-    {
-      icon: <i className="fas fa-qrcode fa-3x"></i>,
-      title: 'QR Personalizados',
-      description: 'Diseñamos códigos QR únicos con tu logo, colores y estilo personalizado para destacar tu marca.'
-    },
-    {
-      icon: <i className="fas fa-laptop-code fa-3x"></i>,
-      title: 'Software Empresarial',
-      description: 'Soluciones personalizadas que optimizan tus procesos y aumentan la eficiencia de tu negocio.'
-    },
-    {
-      icon: <i className="fas fa-cloud fa-3x"></i>,
-      title: 'Servicios en la Nube',
-      description: 'Implementación y gestión de soluciones cloud que garantizan alta disponibilidad y rendimiento.'
-    },
-    {
-      icon: <i className="fas fa-headset fa-3x"></i>,
-      title: 'Consultoría IT',
-      description: 'Asesoramiento experto para ayudarte a tomar las mejores decisiones tecnológicas para tu empresa.'
-    }
-  ]
+  
 
   return (
     <div className="inicio-container1">
@@ -450,15 +425,7 @@ const Inicio = (props) => {
         </div>
 
         <section className="serviciosInicio-services">
-          {services.map((service, index) => (
-            <div key={index} className="serviciosInicio-service-card">
-              <div className="serviciosInicio-service-icon">
-                {service.icon}
-              </div>
-              <h3 className="serviciosInicio-service-title">{service.title}</h3>
-              <p className="serviciosInicio-service-description">{service.description}</p>
-            </div>
-          ))}
+          <MagicBento />
         </section>
 
         <div className="serviciosInicio-cta-container">
