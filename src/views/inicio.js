@@ -20,6 +20,7 @@ import AnimacionBlog1 from '../components/animacionblog1'
 import AnimacionBlog2 from '../components/animacionblog2'
 import AnimacionBlog3 from '../components/animacionblog3'
 import MagicBento from '../components/MagicBento'
+import SeasonalHoverCards from '../components/SeasonalHoverCards'
 
 const tarjetasSets = [
   [1,2,3,4],
@@ -474,7 +475,7 @@ const Inicio = (props) => {
               </div>
             )}
             
-            <div className="portafolioInicio-proyectos-grid">
+            <div className="portafolioInicio-proyectos-grid" style={{ display: 'block' }}>
               {loading ? (
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px', width: '100%' }}>
                   <Trefoil size="50" stroke="4" stroke-length="0.15" bg-opacity="0.1" speed="1.4" color="white" />
@@ -486,53 +487,17 @@ const Inicio = (props) => {
                   </p>
                 </div>
               ) : (
-                [...projects].reverse().map((project, index) => (
-                  <div 
-                    key={project._id} 
-                    className="portafolioInicio-proyecto-card animate-in" 
-                    style={{ animationDelay: `${index * 0.1}s`, cursor: 'pointer' }}
-                    onClick={() => {
-                      // Transform API data to match expected format
-                      const transformedProject = {
-                        id: project._id,
-                        titulo: project.title,
-                        descripcion: project.description,
-                        tecnologias: project.technologies,
-                        imagen: project.image || '/proyecto1.jpg',
-                        url: project.url
-                      };
-                      setSelectedProject(transformedProject);
-                      localStorage.setItem('selectedProject', JSON.stringify(transformedProject));
-                      
-                      // Scroll to the selected project
-                      setTimeout(() => {
-                        if (proyectosRef.current) {
-                          proyectosRef.current.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                          });
-                        }
-                      }, 100);
-                    }}
-                  >
-                    <div className="portafolioInicio-proyecto-imagen-container">
-                      <img 
-                        src={project.image || '/proyecto1.jpg'} 
-                        alt={project.title}
-                        className="portafolioInicio-proyecto-imagen zoom-in"
-                      />
-                    </div>
-                    <div className="portafolioInicio-proyecto-info">
-                      <h2>{project.title}</h2>
-                      <p>{project.description.substring(0, 150)}...</p>
-                      <div className="portafolioInicio-tecnologias-tags">
-                        {project.technologies.slice(0, 3).map((tech, index) => (
-                          <span key={index} className="portafolioInicio-tech-tag">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))
+                <SeasonalHoverCards
+                  cards={
+                    [...projects].reverse().map((project) => ({
+                      title: project.title,
+                      subtitle: (project.technologies && project.technologies.slice(0,3).join(' • ')) || '',
+                      description: project.description,
+                      imageSrc: project.image || '/proyecto1.jpg',
+                      imageAlt: project.title
+                    }))
+                  }
+                />
               )}
             </div>
           </div>
