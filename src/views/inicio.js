@@ -222,6 +222,24 @@ const Inicio = (props) => {
     navigate('/contactanos');
   };
 
+  const handleServiceCardClick = (serviceName) => {
+    console.log('handleServiceCardClick called', serviceName);
+    
+    // Mapear los títulos de las tarjetas a las rutas correspondientes
+    const serviceRoutes = {
+      'Desarrollo Web': '/desarrollo-web',
+      'QR Personalizado': '/qr-personalizado', 
+      'Software Empresarial': '/software-empresarial',
+      'Servicio en la Nube': '/servicio-nube',
+      'Consultorio IT': '/consultorio-it'
+    };
+    
+    const route = serviceRoutes[serviceName];
+    if (route) {
+      navigate(route);
+    }
+  };
+
   
 
   return (
@@ -413,7 +431,7 @@ const Inicio = (props) => {
         </div>
 
         <section className="serviciosInicio-services">
-          <MagicBento />
+          <MagicBento onCardClick={handleServiceCardClick} />
         </section>
 
         <div className="serviciosInicio-cta-container">
@@ -423,6 +441,7 @@ const Inicio = (props) => {
           />
         </div>
       </div>
+
 
       <div 
         className={`portafolioInicio ${isPortafolioScrolling ? 'scrolling' : ''}`} 

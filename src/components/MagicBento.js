@@ -95,7 +95,8 @@ const ParticleCard = ({
   enableTilt = true,
   clickEffect = false,
   enableMagnetism = false,
-  alwaysAnimate = false
+  alwaysAnimate = false,
+  onCardClick
 }) => {
   const cardRef = useRef(null)
   const particlesRef = useRef([])
@@ -258,6 +259,14 @@ const ParticleCard = ({
     }
 
     const handleClick = e => {
+      // Llamar a la función de clic personalizada si existe
+      if (onCardClick) {
+        console.log('MagicBento handleClick called');
+        // Obtener el título del servicio desde el DOM
+        const cardTitle = element.querySelector('.card__title')?.textContent;
+        onCardClick(cardTitle);
+      }
+
       if (!clickEffect) return
 
       const rect = element.getBoundingClientRect()
@@ -424,7 +433,7 @@ const GlobalSpotlight = ({
 }
 
 const BentoCardGrid = ({ children, gridRef }) => (
-  <div className="card-grid bento-section" ref={gridRef}>
+  <div className="card-grid bento-section" id="servicios-cards-container" ref={gridRef}>
     {children}
   </div>
 )
@@ -455,7 +464,8 @@ const MagicBento = ({
   enableTilt = false,
   glowColor = DEFAULT_GLOW_COLOR,
   clickEffect = true,
-  enableMagnetism = true
+  enableMagnetism = true,
+  onCardClick
 }) => {
   const gridRef = useRef(null)
   const isMobile = useMobileDetection()
@@ -493,6 +503,7 @@ const MagicBento = ({
                 clickEffect={clickEffect}
                 enableMagnetism={enableMagnetism}
                 alwaysAnimate={isMobile}
+                onCardClick={onCardClick}
               >
                 <div className="card__content">
                   <h2 className="card__title">{card.title}</h2>
@@ -549,6 +560,12 @@ const MagicBento = ({
                 }
 
                 const handleClick = e => {
+                  // Llamar a la función de clic personalizada si existe
+                  if (onCardClick) {
+                    console.log('MagicBento main handleClick called');
+                    onCardClick(card.title);
+                  }
+
                   if (!clickEffect || shouldDisableAnimations) return
 
                   const rect = el.getBoundingClientRect()

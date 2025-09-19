@@ -8,10 +8,11 @@ export const SeasonCard = ({
   description,
   imageSrc,
   imageAlt,
-  className
+  className,
+  onClick
 }) => {
   return (
-    <div className={cx('season-card group', className)}>
+    <div className={cx('season-card group', className)} onClick={onClick}>
       <img src={imageSrc} alt={imageAlt || title} className="season-card-bg" />
       <div className="season-card-overlay" />
       <div className="season-card-header">
@@ -44,11 +45,17 @@ export const SeasonCard = ({
   )
 }
 
-export const SeasonalHoverCards = ({ cards, className }) => {
+export const SeasonalHoverCards = ({ cards, className, onCardClick }) => {
   const rows = []
   for (let i = 0; i < (cards?.length || 0); i += 3) {
     rows.push(cards.slice(i, i + 3))
   }
+
+  const handleCardClick = (card) => {
+    if (onCardClick) {
+      onCardClick(card);
+    }
+  };
 
   return (
     <div className={cx('season-cards-wrapper', className)}>
@@ -57,7 +64,7 @@ export const SeasonalHoverCards = ({ cards, className }) => {
         <div className="season-track">
           {[...(cards || []), ...(cards || []), ...(cards || [])].map((card, idx) => (
             <div key={`m-${idx}`} className="season-mobile-item">
-              <SeasonCard {...card} />
+              <SeasonCard {...card} onClick={() => handleCardClick(card)} />
             </div>
           ))}
         </div>
@@ -67,7 +74,7 @@ export const SeasonalHoverCards = ({ cards, className }) => {
       {rows.map((row, rIdx) => (
         <div key={rIdx} className="season-row">
           {row.map((card, idx) => (
-            <SeasonCard key={`${rIdx}-${idx}`} {...card} />
+            <SeasonCard key={`${rIdx}-${idx}`} {...card} onClick={() => handleCardClick(card)} />
           ))}
         </div>
       ))}
