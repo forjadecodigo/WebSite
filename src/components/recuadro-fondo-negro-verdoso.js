@@ -10,6 +10,10 @@ const RecuadroFondoNegroVerdoso = (props) => {
 
   const handleContactClick = () => {
     navigate('/contactanos');
+    // Scroll suave al inicio de la página después de navegar
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   return (

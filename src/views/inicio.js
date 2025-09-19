@@ -220,6 +220,10 @@ const Inicio = (props) => {
 
   const handleContactClick = () => {
     navigate('/contactanos');
+    // Scroll suave al inicio de la página después de navegar
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   const handleServiceCardClick = (serviceName) => {
@@ -250,7 +254,7 @@ const Inicio = (props) => {
         muted
         playsInline
         className="inicio-background-video"
-        src="/roboforjaazul.mp4"
+        src="/roboforjaazul.webm"
       />
       <Helmet>
         <title>Forja de Código - Desarrollo de Software y Web a la Medida</title>
@@ -384,7 +388,7 @@ const Inicio = (props) => {
       <div className="inicio-contenido" ref={contenidoRef}>
         <video
           ref={videoRef}
-          src="/manotomandofuego.mp4"
+          src="/manotomandofuego.webm"
           muted="true"
           loop="true"
           playsInline

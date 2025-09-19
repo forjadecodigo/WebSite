@@ -103,7 +103,10 @@ const Menu = (props) => {
           </div>
         </div>
         <div className="menu-contactanos button-container">
-          <Link to="/contactanos" className="button glow-btn">
+          <button onClick={() => {
+            setIsMenuOpen(false);
+            navigate('/contactanos');
+          }} className="button glow-btn">
             <span className="Botones">
               {props.button11 ?? (
                 <Fragment>
@@ -111,7 +114,7 @@ const Menu = (props) => {
                 </Fragment>
               )}
             </span>
-          </Link>
+          </button>
         </div>
         <button className={`menu-hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
           <span></span>
@@ -180,7 +183,10 @@ const Menu = (props) => {
           </div>
         </div>
         <div className="menu-contactanos button-container">
-          <Link to="/contactanos" className="button glow-btn">
+          <button onClick={() => {
+            setIsMenuOpen(false);
+            navigate('/contactanos');
+          }} className="button glow-btn">
             <span className="Botones">
               {props.button11 ?? (
                 <Fragment>
@@ -188,7 +194,7 @@ const Menu = (props) => {
                 </Fragment>
               )}
             </span>
-          </Link>
+          </button>
         </div>
       </div>
     </>
