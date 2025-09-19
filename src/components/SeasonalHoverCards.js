@@ -9,10 +9,19 @@ export const SeasonCard = ({
   imageSrc,
   imageAlt,
   className,
-  onClick
+  onClick,
+  url
 }) => {
+  const handleClick = () => {
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer')
+    } else if (onClick) {
+      onClick()
+    }
+  }
+
   return (
-    <div className={cx('season-card group', className)} onClick={onClick}>
+    <div className={cx('season-card group', className)} onClick={handleClick}>
       <img src={imageSrc} alt={imageAlt || title} className="season-card-bg" />
       <div className="season-card-overlay" />
       <div className="season-card-header">
@@ -64,7 +73,7 @@ export const SeasonalHoverCards = ({ cards, className, onCardClick }) => {
         <div className="season-track">
           {[...(cards || []), ...(cards || []), ...(cards || [])].map((card, idx) => (
             <div key={`m-${idx}`} className="season-mobile-item">
-              <SeasonCard {...card} onClick={() => handleCardClick(card)} />
+              <SeasonCard {...card} url={card.url} onClick={() => handleCardClick(card)} />
             </div>
           ))}
         </div>
@@ -74,7 +83,7 @@ export const SeasonalHoverCards = ({ cards, className, onCardClick }) => {
       {rows.map((row, rIdx) => (
         <div key={rIdx} className="season-row">
           {row.map((card, idx) => (
-            <SeasonCard key={`${rIdx}-${idx}`} {...card} onClick={() => handleCardClick(card)} />
+            <SeasonCard key={`${rIdx}-${idx}`} {...card} url={card.url} onClick={() => handleCardClick(card)} />
           ))}
         </div>
       ))}

@@ -517,7 +517,8 @@ const Inicio = (props) => {
                       subtitle: (project.technologies && project.technologies.slice(0,3).join(' • ')) || '',
                       description: project.description,
                       imageSrc: project.image || '/proyecto1.jpg',
-                      imageAlt: project.title
+                      imageAlt: project.title,
+                      url: project.url
                     }))
                   }
                 />
