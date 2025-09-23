@@ -1059,6 +1059,15 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+.serviciosInicio-grid-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  opacity: 0.9;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+
 .serviciosInicio-service-card {
   padding: 30px;
   display: flex;

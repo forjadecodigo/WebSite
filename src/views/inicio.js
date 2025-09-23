@@ -434,7 +434,10 @@ const Inicio = (props) => {
           <ScrollTimeline />
         </div>
 
-        <section className="serviciosInicio-services">
+        <div className="serviciosInicio-grid-title" style={{ textAlign: 'center', opacity: 0.9, fontSize: 18, marginBottom: 12 }}>
+          Selecciona el servicio que te interese
+        </div>
+        <section className="serviciosInicio-services" style={{ marginTop: 6 }}>
           <MagicBento onCardClick={handleServiceCardClick} />
         </section>
 
