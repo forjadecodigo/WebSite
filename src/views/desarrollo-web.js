@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import SparkleNavbar from '../components/SparkleNavbar'
 import FloatingBackButton from '../components/FloatingBackButton'
 import './desarrollo-web.css'
 
 const DesarrolloWeb = () => {
+  const location = useLocation()
+
+  useEffect(() => {
+    // Siempre resetear al tope para evitar restauraciones del navegador
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+
+    const applyAnchor = () => {
+      const id = (location.hash && location.hash.slice(1)) || 'desarrollo-web-hero'
+      const el = document.getElementById(id)
+      if (!el) return
+      const top = el.getBoundingClientRect().top + window.scrollY
+      window.scrollTo({ top, left: 0, behavior: 'auto' })
+    }
+
+    // Aplicar inmediatamente y después de un tick por si hay reflow
+    applyAnchor()
+    const t = setTimeout(applyAnchor, 50)
+    return () => clearTimeout(t)
+  }, [location.hash])
   return (
     <div className="desarrollo-web-container">
       <Helmet>
@@ -35,7 +55,7 @@ const DesarrolloWeb = () => {
       
       <FloatingBackButton />
       
-      <div className="desarrollo-web-hero">
+      <div className="desarrollo-web-hero" id="desarrollo-web-hero" style={{ scrollMarginTop: '76px' }}>
         <h1 className="glow-title-blue-green">Desarrollo Web</h1>
         <p className="desarrollo-web-subtitle">
           Creamos sitios web modernos y responsivos que destacan tu marca y mejoran la experiencia de tus usuarios.

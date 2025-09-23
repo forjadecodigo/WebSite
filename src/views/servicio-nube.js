@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import SparkleNavbar from '../components/SparkleNavbar'
 import FloatingBackButton from '../components/FloatingBackButton'
 import './servicio-nube.css'
 
 const ServicioNube = () => {
+  const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+
+    const applyAnchor = () => {
+      const id = (location.hash && location.hash.slice(1)) || 'servicio-nube-hero'
+      const el = document.getElementById(id)
+      if (!el) return
+      const top = el.getBoundingClientRect().top + window.scrollY
+      window.scrollTo({ top, left: 0, behavior: 'auto' })
+    }
+
+    applyAnchor()
+    const t = setTimeout(applyAnchor, 50)
+    return () => clearTimeout(t)
+  }, [location.hash])
   return (
     <div className="servicio-nube-container">
       <Helmet>
@@ -35,7 +53,7 @@ const ServicioNube = () => {
       
       <FloatingBackButton />
       
-      <div className="servicio-nube-hero">
+      <div className="servicio-nube-hero" id="servicio-nube-hero" style={{ scrollMarginTop: '76px' }}>
         <h1 className="glow-title-blue-green">Servicio en la Nube</h1>
         <p className="servicio-nube-subtitle">
           Implementación y gestión de soluciones cloud que garantizan alta disponibilidad y rendimiento.

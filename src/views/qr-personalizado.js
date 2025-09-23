@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import SparkleNavbar from '../components/SparkleNavbar'
 import FloatingBackButton from '../components/FloatingBackButton'
 import './qr-personalizado.css'
 
 const QRPersonalizado = () => {
+  const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+
+    const applyAnchor = () => {
+      const id = (location.hash && location.hash.slice(1)) || 'qr-personalizado-hero'
+      const el = document.getElementById(id)
+      if (!el) return
+      const top = el.getBoundingClientRect().top + window.scrollY
+      window.scrollTo({ top, left: 0, behavior: 'auto' })
+    }
+
+    applyAnchor()
+    const t = setTimeout(applyAnchor, 50)
+    return () => clearTimeout(t)
+  }, [location.hash])
   return (
     <div className="qr-personalizado-container">
       <Helmet>
@@ -35,7 +53,7 @@ const QRPersonalizado = () => {
       
       <FloatingBackButton />
       
-      <div className="qr-personalizado-hero">
+      <div className="qr-personalizado-hero" id="qr-personalizado-hero" style={{ scrollMarginTop: '76px' }}>
         <h1 className="glow-title-blue-green">QR Personalizado</h1>
         <p className="qr-personalizado-subtitle">
           Diseñamos códigos QR únicos con tu logo, colores y estilo personalizado para destacar tu marca.

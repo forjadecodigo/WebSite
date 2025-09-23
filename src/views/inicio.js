@@ -228,16 +228,16 @@ const Inicio = (props) => {
 
   const handleServiceCardClick = (serviceName) => {
     console.log('handleServiceCardClick called', serviceName);
-    
+
     // Mapear los títulos de las tarjetas a las rutas correspondientes
     const serviceRoutes = {
-      'Desarrollo Web': '/desarrollo-web',
-      'QR Personalizado': '/qr-personalizado', 
-      'Software Empresarial': '/software-empresarial',
-      'Servicio en la Nube': '/servicio-nube',
-      'Consultorio IT': '/consultorio-it'
+      'Desarrollo Web': { pathname: '/desarrollo-web', hash: '#desarrollo-web-hero' },
+      'QR Personalizado': { pathname: '/qr-personalizado', hash: '#qr-personalizado-hero' }, 
+      'Software Empresarial': { pathname: '/software-empresarial', hash: '#software-empresarial-hero' },
+      'Servicio en la Nube': { pathname: '/servicio-nube', hash: '#servicio-nube-hero' },
+      'Consultorio IT': { pathname: '/consultorio-it', hash: '#consultorio-it-hero' }
     };
-    
+
     const route = serviceRoutes[serviceName];
     if (route) {
       navigate(route);

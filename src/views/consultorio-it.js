@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import SparkleNavbar from '../components/SparkleNavbar'
 import FloatingBackButton from '../components/FloatingBackButton'
 import './consultorio-it.css'
 
 const ConsultorioIT = () => {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '')
+      const el = document.getElementById(id)
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'auto', block: 'start' })
+        }, 0)
+      }
+    }
+  }, [location.hash])
   return (
     <div className="consultorio-it-container">
       <Helmet>
@@ -35,7 +49,7 @@ const ConsultorioIT = () => {
       
       <FloatingBackButton />
       
-      <div className="consultorio-it-hero">
+      <div className="consultorio-it-hero" id="consultorio-it-hero" style={{ scrollMarginTop: '76px' }}>
         <h1 className="glow-title-blue-green">Consultorio IT</h1>
         <p className="consultorio-it-subtitle">
           Asesoramiento experto para ayudarte a tomar las mejores decisiones tecnológicas para tu empresa.
