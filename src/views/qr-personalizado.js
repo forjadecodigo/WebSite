@@ -11,17 +11,22 @@ const QRPersonalizado = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
 
-    const applyAnchor = () => {
-      const id = (location.hash && location.hash.slice(1)) || 'qr-personalizado-hero'
-      const el = document.getElementById(id)
-      if (!el) return
-      const top = el.getBoundingClientRect().top + window.scrollY
-      window.scrollTo({ top, left: 0, behavior: 'auto' })
+    const targetId = (location.hash && location.hash.slice(1)) || 'qr-personalizado-hero'
+    let attempts = 0
+    const maxAttempts = 12
+
+    const tryScroll = () => {
+      const el = document.getElementById(targetId)
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY
+        window.scrollTo({ top, left: 0, behavior: 'auto' })
+      }
+      attempts += 1
+      if (attempts < maxAttempts) setTimeout(tryScroll, 50)
     }
 
-    applyAnchor()
-    const t = setTimeout(applyAnchor, 50)
-    return () => clearTimeout(t)
+    tryScroll()
+    return () => { attempts = maxAttempts }
   }, [location.hash])
   return (
     <div className="qr-personalizado-container">

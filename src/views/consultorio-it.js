@@ -9,15 +9,25 @@ const ConsultorioIT = () => {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace('#', '')
-      const el = document.getElementById(id)
+    // Reset al tope y forzar anclaje al hero con reintentos
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+
+    const targetId = (location.hash && location.hash.slice(1)) || 'consultorio-it-hero'
+    let attempts = 0
+    const maxAttempts = 12
+
+    const tryScroll = () => {
+      const el = document.getElementById(targetId)
       if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'auto', block: 'start' })
-        }, 0)
+        const top = el.getBoundingClientRect().top + window.scrollY
+        window.scrollTo({ top, left: 0, behavior: 'auto' })
       }
+      attempts += 1
+      if (attempts < maxAttempts) setTimeout(tryScroll, 50)
     }
+
+    tryScroll()
+    return () => { attempts = maxAttempts }
   }, [location.hash])
   return (
     <div className="consultorio-it-container">
@@ -45,11 +55,9 @@ const ConsultorioIT = () => {
         }}
       />
       
-      <div style={{ height: 76 }} />
-      
       <FloatingBackButton />
       
-      <div className="consultorio-it-hero" id="consultorio-it-hero" style={{ scrollMarginTop: '76px' }}>
+      <div className="consultorio-it-hero" id="consultorio-it-hero" style={{ scrollMarginTop: '76px', paddingTop: '76px' }}>
         <h1 className="glow-title-blue-green">Consultorio IT</h1>
         <p className="consultorio-it-subtitle">
           Asesoramiento experto para ayudarte a tomar las mejores decisiones tecnológicas para tu empresa.

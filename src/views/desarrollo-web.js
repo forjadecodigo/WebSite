@@ -12,18 +12,30 @@ const DesarrolloWeb = () => {
     // Siempre resetear al tope para evitar restauraciones del navegador
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
 
-    const applyAnchor = () => {
-      const id = (location.hash && location.hash.slice(1)) || 'desarrollo-web-hero'
-      const el = document.getElementById(id)
-      if (!el) return
-      const top = el.getBoundingClientRect().top + window.scrollY
-      window.scrollTo({ top, left: 0, behavior: 'auto' })
+    const targetId = (location.hash && location.hash.slice(1)) || 'desarrollo-web-hero'
+
+    // Reintentos para vencer reflows/recálculos tardíos
+    let attempts = 0
+    const maxAttempts = 12 // ~12 * 50ms = 600ms
+
+    const tryScroll = () => {
+      const el = document.getElementById(targetId)
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY
+        window.scrollTo({ top, left: 0, behavior: 'auto' })
+      }
+      attempts += 1
+      if (attempts < maxAttempts) {
+        setTimeout(tryScroll, 50)
+      }
     }
 
-    // Aplicar inmediatamente y después de un tick por si hay reflow
-    applyAnchor()
-    const t = setTimeout(applyAnchor, 50)
-    return () => clearTimeout(t)
+    // Primer intento inmediato
+    tryScroll()
+
+    return () => {
+      attempts = maxAttempts
+    }
   }, [location.hash])
   return (
     <div className="desarrollo-web-container">
@@ -51,11 +63,9 @@ const DesarrolloWeb = () => {
         }}
       />
       
-      <div style={{ height: 76 }} />
-      
       <FloatingBackButton />
       
-      <div className="desarrollo-web-hero" id="desarrollo-web-hero" style={{ scrollMarginTop: '76px' }}>
+      <div className="desarrollo-web-hero" id="desarrollo-web-hero" style={{ scrollMarginTop: '76px', paddingTop: '76px' }}>
         <h1 className="glow-title-blue-green">Desarrollo Web</h1>
         <p className="desarrollo-web-subtitle">
           Creamos sitios web modernos y responsivos que destacan tu marca y mejoran la experiencia de tus usuarios.

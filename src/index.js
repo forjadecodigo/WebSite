@@ -5,6 +5,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from 'react-router-dom'
 
 import './style.css'
@@ -17,9 +18,27 @@ import SoftwareEmpresarial from './views/software-empresarial'
 import ServicioNube from './views/servicio-nube'
 import ConsultorioIT from './views/consultorio-it'
 
+const ScrollManager = () => {
+  const location = useLocation()
+
+  React.useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+
+    // Si no hay hash, resetea al tope; los anclajes específicos se manejan en cada vista
+    if (!location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    }
+  }, [location])
+
+  return null
+}
+
 const App = () => {
   return (
     <Router>
+      <ScrollManager />
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/contactanos" element={<Contactanos />} />
