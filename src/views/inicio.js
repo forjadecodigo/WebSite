@@ -434,7 +434,7 @@ const Inicio = (props) => {
           <ScrollTimeline />
         </div>
 
-        <div className="serviciosInicio-grid-title" style={{ textAlign: 'center', opacity: 0.9, fontSize: 18, marginBottom: 12 }}>
+        <div className="serviciosInicio-grid-title" style={{ textAlign: 'center', opacity: 0.9, fontSize: 20, marginBottom: 20 }}>
           Selecciona el servicio que te interese
         </div>
         <section className="serviciosInicio-services" style={{ marginTop: 6 }}>
