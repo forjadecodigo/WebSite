@@ -517,7 +517,7 @@ const Inicio = (props) => {
                   cards={
                     [...projects].reverse().map((project) => ({
                       title: project.title,
-                      subtitle: (project.technologies && project.technologies.slice(0,3).join(' • ')) || '',
+                      subtitle: (Array.isArray(project.technologies) && project.technologies.join(' • ')) || '',
                       description: project.description,
                       imageSrc: project.image || '/proyecto1.jpg',
                       imageAlt: project.title,
