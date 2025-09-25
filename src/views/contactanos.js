@@ -14,6 +14,7 @@ const Contactanos = (props) => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [imagePreviews, setImagePreviews] = useState([]);
   const [isGlowing, setIsGlowing] = useState(false);
+  const [initialEmail, setInitialEmail] = useState('');
   const fileInputRef = useRef(null);
   const emailInputRef = useRef(null);
 
@@ -26,10 +27,23 @@ const Contactanos = (props) => {
         });
       }
     }
+    
+    // Recuperar el email del localStorage
     const tempEmail = localStorage.getItem('tempEmail');
-    if (tempEmail && emailInputRef.current) {
-      emailInputRef.current.value = tempEmail;
+    if (tempEmail) {
+      console.log('Email recuperado del localStorage:', tempEmail);
+      setInitialEmail(tempEmail);
       localStorage.removeItem('tempEmail');
+      
+      // Hacer scroll al formulario después de un breve delay
+      setTimeout(() => {
+        const formElement = document.querySelector('.contactanos-form-container');
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      console.log('No se encontró email en localStorage');
     }
   }, []);
 
@@ -290,6 +304,8 @@ const Contactanos = (props) => {
               name="user_email"
               required
               placeholder="tu@email.com"
+              value={initialEmail}
+              onChange={(e) => setInitialEmail(e.target.value)}
             />
           </div>
 

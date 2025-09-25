@@ -32,7 +32,7 @@ const ConsultorioIT = () => {
   return (
     <div className="consultorio-it-container">
       <Helmet>
-        <title>Consultorio IT - Forja de Código</title>
+        <title>Consultoría IT - Forja de Código</title>
         <meta name="description" content="Asesoramiento experto para ayudarte a tomar las mejores decisiones tecnológicas para tu empresa." />
       </Helmet>
       
@@ -58,7 +58,7 @@ const ConsultorioIT = () => {
       <FloatingBackButton />
       
       <div className="consultorio-it-hero" id="consultorio-it-hero" style={{ scrollMarginTop: '76px', paddingTop: '76px' }}>
-        <h1 className="glow-title-blue-green">Consultorio IT</h1>
+        <h1 className="glow-title-blue-green">Consultoría IT</h1>
         <p className="consultorio-it-subtitle">
           Asesoramiento experto para ayudarte a tomar las mejores decisiones tecnológicas para tu empresa.
         </p>
@@ -66,7 +66,7 @@ const ConsultorioIT = () => {
 
       <div className="consultorio-it-content">
         <div className="consultorio-it-section">
-          <h2>¿Qué incluye nuestro Consultorio IT?</h2>
+          <h2>¿Qué incluye nuestro Consultoría IT?</h2>
           <ul>
             <li>Auditoría tecnológica de tu empresa</li>
             <li>Estrategia de transformación digital</li>

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -9,17 +9,52 @@ import './pie-de-pagina.css'
 const PieDePagina = (props) => {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
+    
+    // Validar que el email no esté vacío
+    if (!email.trim()) {
+      alert('Por favor ingresa tu email antes de continuar');
+      return;
+    }
+    
+    // Validar formato de email básico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      alert('Por favor ingresa un email válido');
+      return;
+    }
+    
     // Guardar el email en localStorage para recuperarlo en la página de contacto
-    localStorage.setItem('tempEmail', email);
-    // Navegar a la página de contacto usando navigate
-    navigate('/contactanos');
-    // Scroll suave al inicio de la página después de navegar
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 100);
+    localStorage.setItem('tempEmail', email.trim());
+    console.log('Email guardado en localStorage:', email.trim());
+    
+    // Si ya estamos en la página de contacto, solo hacer scroll al formulario
+    if (location.pathname === '/contactanos') {
+      // Buscar el formulario y hacer scroll hacia él
+      const formElement = document.querySelector('.contactanos-form-container');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Si no encuentra el formulario, hacer scroll al inicio
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      
+      // Recargar la página para aplicar el email guardado
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+    } else {
+      // Si no estamos en contacto, navegar normalmente
+      navigate('/contactanos');
+      
+      // Scroll suave al inicio de la página después de navegar
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    }
   };
 
  // Función para manejar el clic en el botón de WhatsApp

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react'
+import React, { Fragment, useState, useEffect, useRef, Suspense, lazy } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { useProjects } from '../hooks/useProjects'
@@ -9,18 +9,29 @@ import PieDePagina from '../components/pie-de-pagina'
 import ScrollTimeline from '../components/ScrollTimeline'
 import RecuadroFondoNegroVerdoso from '../components/recuadro-fondo-negro-verdoso'
 import Testimonios from '../components/testimonios'
+import LazyImage from '../components/LazyImage'
+import LazyVideo from '../components/LazyVideo'
+import LazySection from '../components/LazySection'
+import LazyYouTubeVideo from '../components/LazyYouTubeVideo'
 import { Trefoil, Quantum, Helix, Miyagi } from 'ldrs/react'
 import 'ldrs/react/Trefoil.css'
 import 'ldrs/react/Quantum.css'
 import 'ldrs/react/Helix.css'
 import 'ldrs/react/Miyagi.css'
 import './inicio.css'
+import { preloadCriticalResources } from '../utils/lazyConfig'
 import BotonFlecha from '../components/botonflecha'
 import AnimacionBlog1 from '../components/animacionblog1'
 import AnimacionBlog2 from '../components/animacionblog2'
 import AnimacionBlog3 from '../components/animacionblog3'
 import MagicBento from '../components/MagicBento'
 import SeasonalHoverCards from '../components/SeasonalHoverCards'
+
+// Lazy load components
+const LazyTestimonios = lazy(() => import('../components/testimonios'))
+const LazyScrollTimeline = lazy(() => import('../components/ScrollTimeline'))
+const LazyMagicBento = lazy(() => import('../components/MagicBento'))
+const LazySeasonalHoverCards = lazy(() => import('../components/SeasonalHoverCards'))
 
 const tarjetasSets = [
   [1,2,3,4],
@@ -77,6 +88,9 @@ const Inicio = (props) => {
     localStorage.removeItem('selectedProject');
     setSelectedProject(null);
     window.scrollTo(0, 0);
+    
+    // Precargar recursos críticos
+    preloadCriticalResources();
   }, []);
 
   useEffect(() => {
@@ -248,14 +262,6 @@ const Inicio = (props) => {
 
   return (
     <div className="inicio-container1">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="inicio-background-video"
-        src="/roboforjaazul.webm"
-      />
       <Helmet>
         <title>Forja de Código - Desarrollo de Software y Web a la Medida</title>
         <meta name="description" content="Transformamos ideas en soluciones digitales innovadoras. Desarrollo de software y web personalizado para tu negocio. ¡Convierte tu visión en realidad!" />
@@ -295,6 +301,14 @@ const Inicio = (props) => {
       />
       <div style={{ height: 76 }} />
       <div className="inicio-seccion1" id="inicio-seccion1">
+        <LazyVideo
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="background-video-matrix"
+          src="/roboforjaazul.webm"
+        />
         <div className="inicio-slogan">
           <span className="inicio-text16">
             <span>En Forja de Código vamos de la chispa de una idea,</span>
@@ -316,7 +330,7 @@ const Inicio = (props) => {
               : 'transform 0.1s ease-out'
           }}
         >
-          <img alt="image" src="/hb3d3.0-1500w.png" className="inicio-image" />
+          <LazyImage alt="image" src="/hb3d3.0-1500w.png" className="inicio-image" />
         </div>
         <div className="inicio-container2">
           <SliderAnimado
@@ -385,67 +399,69 @@ const Inicio = (props) => {
           ></SliderAnimado>
         </div>
       </div>
-      <div className="inicio-contenido" ref={contenidoRef}>
-        <video
-          ref={videoRef}
-          src="/manotomandofuego.webm"
-          muted="true"
-          loop="true"
-          playsInline
-          className="inicio-video"
-        ></video>
-        <span className="inicio-text30">
-          <h1 className="Titulos inicio-text31 glow-title-blue-green">
-            Donde la imaginación se transforma en software
-          </h1>
-          <br className="Titulos"></br>
-          <br></br>
-          <span className="inicio-text34">
-            Cada idea tiene el potencial de convertirse en una solución
-            innovadora. En nuestra empresa, combinamos creatividad y tecnología
-            para desarrollar aplicaciones y sitios web personalizados que se
-            adaptan a las necesidades de cada cliente. Desde pequeños
-            emprendimientos hasta grandes empresas.  Convertimos tu visión, en
-            software funcional, eficiente y escalable. Si puedes imaginarlo,
-            nosotros podemos crearlo.
-          </span>
-          <div className="inicio-boton-container">
-            <BotonConResplandor
-              button={
-                <Fragment>
-                  <span className="inicio-text35 Botones" onClick={handleContactClick}>Comienza aquí</span>
-                </Fragment>
-              }
-              rootClassName="boton-con-resplandorroot-class-name"
-            ></BotonConResplandor>
-          </div>
-        </span>
-      </div>
-
-      <div className="serviciosInicio" id="serviciosInicio">
-        <section className="serviciosInicio-hero">
-          <h1 className="serviciosInicio-hero-title glow-title-blue-green">Tú lo imaginas, nosotros lo forjamos.</h1>
-          <p className="serviciosInicio-hero-subtitle">
-            Damos vida a tus ideas. ¿Listo para crear algo increíble?
-          </p>
-        </section>
-
-        <div className="serviciosInicio-etapas-container thq-section-padding">
-          <ScrollTimeline />
-        </div>
-
-        <div className="serviciosInicio-grid-title" style={{ textAlign: 'center', opacity: 0.9, fontSize: 20, marginBottom: 20 }}>
-          Selecciona el servicio que te interese
-        </div>
-        <section className="serviciosInicio-services" style={{ marginTop: 6 }}>
-          <MagicBento onCardClick={handleServiceCardClick} />
-        </section>
-
-        <div className="serviciosInicio-cta-container">
-          <RecuadroFondoNegroVerdoso
-            heading1="¿Listo para dar el siguiente paso?"
-            content1="Escríbenos y veamos cómo podemos transformar tu idea en una solución de software o web que realmente funcione para ti."
+      <div className="inicio-contenido-wrapper">
+        <div className="inicio-contenido" ref={contenidoRef}>
+          <LazyYouTubeVideo
+            videoId="h5ALDIC2Kl4"
+            className="inicio-video"
           />
+          <span className="inicio-text30">
+            <h1 className="Titulos inicio-text31 glow-title-blue-green">
+              Donde la imaginación se transforma en software
+            </h1>
+            <br className="Titulos"></br>
+            <br></br>
+            <span className="inicio-text34">
+              Cada idea tiene el potencial de convertirse en una solución
+              innovadora. En nuestra empresa, combinamos creatividad y tecnología
+              para desarrollar aplicaciones y sitios web personalizados que se
+              adaptan a las necesidades de cada cliente. Desde pequeños
+              emprendimientos hasta grandes empresas.  Convertimos tu visión, en
+              software funcional, eficiente y escalable. Si puedes imaginarlo,
+              nosotros podemos crearlo.
+            </span>
+            <div className="inicio-boton-container">
+              <BotonConResplandor
+                button={
+                  <Fragment>
+                    <span className="inicio-text35 Botones" onClick={handleContactClick}>Comienza aquí</span>
+                  </Fragment>
+                }
+                rootClassName="boton-con-resplandorroot-class-name"
+              ></BotonConResplandor>
+            </div>
+          </span>
+        </div>
+
+        <div className="serviciosInicio" id="serviciosInicio">
+          <section className="serviciosInicio-hero">
+            <h1 className="serviciosInicio-hero-title glow-title-blue-green">Tú lo imaginas, nosotros lo forjamos.</h1>
+            <p className="serviciosInicio-hero-subtitle">
+              Damos vida a tus ideas. ¿Listo para crear algo increíble?
+            </p>
+          </section>
+
+          <LazySection className="serviciosInicio-etapas-container thq-section-padding">
+            <Suspense fallback={<div style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Trefoil size="30" stroke="4" stroke-length="0.15" bg-opacity="0.1" speed="1.4" color="white" /></div>}>
+              <LazyScrollTimeline />
+            </Suspense>
+          </LazySection>
+
+          <div className="serviciosInicio-grid-title" style={{ textAlign: 'center', opacity: 0.9, fontSize: 20, marginBottom: 20 }}>
+            Selecciona el servicio que te interese
+          </div>
+          <LazySection className="serviciosInicio-services" style={{ marginTop: 6 }}>
+            <Suspense fallback={<div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Trefoil size="30" stroke="4" stroke-length="0.15" bg-opacity="0.1" speed="1.4" color="white" /></div>}>
+              <LazyMagicBento onCardClick={handleServiceCardClick} />
+            </Suspense>
+          </LazySection>
+
+          <div className="serviciosInicio-cta-container">
+            <RecuadroFondoNegroVerdoso
+              heading1="¿Listo para dar el siguiente paso?"
+              content1="Escríbenos y veamos cómo podemos transformar tu idea en una solución de software o web que realmente funcione para ti."
+            />
+          </div>
         </div>
       </div>
 
@@ -465,7 +481,7 @@ const Inicio = (props) => {
             {selectedProject && (
               <div className="portafolioInicio-proyecto-detalle animate-in">
                 <div className="portafolioInicio-proyecto-imagen-container">
-                  <img 
+                  <LazyImage 
                     src={selectedProject.imagen} 
                     alt={selectedProject.titulo}
                     className="portafolioInicio-proyecto-imagen zoom-in"
@@ -513,25 +529,29 @@ const Inicio = (props) => {
                   </p>
                 </div>
               ) : (
-                <SeasonalHoverCards
-                  cards={
-                    [...projects].reverse().map((project) => ({
-                      title: project.title,
-                      subtitle: (project.technologies && project.technologies.slice(0,3).join(' • ')) || '',
-                      description: project.description,
-                      imageSrc: project.image || '/proyecto1.jpg',
-                      imageAlt: project.title,
-                      url: project.url
-                    }))
-                  }
-                />
+                <Suspense fallback={<div style={{ height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Trefoil size="40" stroke="4" stroke-length="0.15" bg-opacity="0.1" speed="1.4" color="white" /></div>}>
+                  <LazySeasonalHoverCards
+                    cards={
+                      [...projects].reverse().map((project) => ({
+                        title: project.title,
+                        subtitle: (project.technologies && project.technologies.slice(0,3).join(' • ')) || '',
+                        description: project.description,
+                        imageSrc: project.image || '/proyecto1.jpg',
+                        imageAlt: project.title,
+                        url: project.url
+                      }))
+                    }
+                  />
+                </Suspense>
               )}
             </div>
           </div>
 
-          <div className="portafolioInicio-testimonios">
-            <Testimonios />
-          </div>
+          <LazySection className="portafolioInicio-testimonios">
+            <Suspense fallback={<div style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Trefoil size="30" stroke="4" stroke-length="0.15" bg-opacity="0.1" speed="1.4" color="white" /></div>}>
+              <LazyTestimonios />
+            </Suspense>
+          </LazySection>
         </div>
       </div>
 
@@ -560,7 +580,7 @@ const Inicio = (props) => {
           >
             <div className="nosotrosInicio-fotos-container">
               <div className="nosotrosInicio-foto-container">
-                <img 
+                <LazyImage 
                   src="/FotoHasbon.jpg" 
                   alt="CEO" 
                   className="nosotrosInicio-foto-perfil"
@@ -607,7 +627,7 @@ const Inicio = (props) => {
           >
             <div className="nosotrosInicio-fotos-container">
               <div className="nosotrosInicio-foto-container">
-                <img 
+                <LazyImage 
                   src="/FotoBernal.png" 
                   alt="CTO" 
                   className="nosotrosInicio-foto-perfil"
@@ -656,7 +676,7 @@ const Inicio = (props) => {
           >
             <div className="nosotrosInicio-fotos-container">
               <div className="nosotrosInicio-foto-container">
-                <img 
+                <LazyImage 
                   src="/FotoDavid.jpg" 
                   alt="Developer" 
                   className="nosotrosInicio-foto-perfil"
@@ -702,7 +722,7 @@ const Inicio = (props) => {
           >
             <div className="nosotrosInicio-fotos-container">
               <div className="nosotrosInicio-foto-container">
-                <img 
+                <LazyImage 
                   src="/FotoMiguel.jpg" 
                   alt="Legal Advisor" 
                   className="nosotrosInicio-foto-perfil"
