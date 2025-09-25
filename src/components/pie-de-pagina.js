@@ -24,9 +24,9 @@ const PieDePagina = ({
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     
-    // Validar que el email no esté vacío
+    // Si no hay email, abrir WhatsApp con mensaje predeterminado
     if (!email.trim()) {
-      alert('Por favor ingresa tu email antes de continuar');
+      window.open('https://wa.me/573127379928?text=Hola%20Forjadores%2C%20tengo%20una%20idea%20que%20quiero%20digitalizar%20y%20me%20gustaría%20hablar%20con%20ustedes', '_blank');
       return;
     }
     
