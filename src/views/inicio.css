@@ -420,14 +420,17 @@
   display: flex;
   align-self: stretch;
   align-items: flex-start;
+  background: linear-gradient(0deg, rgba(4, 4, 4, 0) 0.00%, rgb(16, 16, 16) 100.00%);
 }
  
 .inicio-text36 {
   display: inline-block;
+  color: white;
 }
  
 .inicio-text37 {
   display: inline-block;
+  color: white;
 }
  
 .inicio-text38 {
@@ -1797,8 +1800,7 @@
   }
 
   .portafolioInicio-testimonios {
-    margin-top: 30px;
-    padding: 20px 0;
+    display: none;
   }
 
   .portafolioInicio-hero h1 {

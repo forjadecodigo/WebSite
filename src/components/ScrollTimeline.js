@@ -80,12 +80,15 @@ export const ScrollTimeline = ({
       // Lógica del bombillo basada en scroll
       if (visualRef.current) {
         const visualRect = visualRef.current.getBoundingClientRect()
-        const isVisible = visualRect.top < window.innerHeight && visualRect.bottom > 0
-        const isInViewport = visualRect.top < window.innerHeight * 0.7 && visualRect.bottom > window.innerHeight * 0.3
+        const screenCenter = window.innerHeight * 0.5
+        const elementCenter = visualRect.top + (visualRect.height * 0.5)
         
-        if (scrollDirection.current === 'down' && isInViewport) {
+        // Se enciende cuando el centro del elemento está en la mitad de la pantalla
+        const isInCenter = elementCenter >= screenCenter * 0.8 && elementCenter <= screenCenter * 1.2
+        
+        if (scrollDirection.current === 'down' && isInCenter) {
           visualRef.current.classList.add('encendido')
-        } else if (scrollDirection.current === 'up' && !isVisible) {
+        } else if (scrollDirection.current === 'up' && !isInCenter) {
           visualRef.current.classList.remove('encendido')
         }
       }

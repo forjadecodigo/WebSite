@@ -388,55 +388,9 @@
   }
 }
 
-@media(max-width: 479px) {
+@media(max-width: 767px) {
   .testimonios-max-width {
     display: none;
-  }
-  
-  .testimonios-container10 {
-    max-width: 250px;
-    margin-bottom: var(--dl-space-space-unit);
-    gap: var(--dl-space-space-halfunit);
-  }
-  
-  .thq-grid-2 {
-    gap: var(--dl-space-space-unit);
-  }
-  
-  .testimonios-image1,
-  .testimonios-image2,
-  .testimonios-image3,
-  .testimonios-image4 {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .testimonios-text10 {
-    font-size: 25px;
-  }
-  
-  .testimonios-text11 {
-    font-size: 0.8rem;
-  }
-  
-  .testimonios-text12,
-  .testimonios-text13,
-  .testimonios-text14,
-  .testimonios-text17,
-  .testimonios-text20,
-  .testimonios-text21,
-  .testimonios-text22,
-  .testimonios-text23 {
-    font-size: 0.9rem;
-  }
-
-  .thq-card {
-    padding: var(--dl-space-space-unit);
-    transition: transform 0.3s ease;
-  }
-
-  .thq-card:hover {
-    transform: translateY(-5px);
   }
 }
 
