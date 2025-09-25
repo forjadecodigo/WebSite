@@ -931,6 +931,7 @@ const Inicio = (props) => {
               </span>
             </Fragment>
           }
+          logoSrc="LogoForjaVectorBlanco.webp"
           rootClassName="pie-de-paginaroot-class-name"
         ></PieDePagina>
       </div>

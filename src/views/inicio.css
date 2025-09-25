@@ -432,6 +432,15 @@
   display: inline-block;
   color: white;
 }
+
+/* Cambiar color de texto en pie-de-pagina-credits1 solo en inicio */
+.inicio-end-page .pie-de-pagina-credits1 {
+  color: white;
+}
+
+.inicio-end-page .pie-de-pagina-credits1 * {
+  color: white;
+}
  
 .inicio-text38 {
   display: inline-block;
