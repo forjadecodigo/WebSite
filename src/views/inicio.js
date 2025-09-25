@@ -330,7 +330,7 @@ const Inicio = (props) => {
               : 'transform 0.1s ease-out'
           }}
         >
-          <LazyImage alt="image" src="/hb3d3.0-1500w.png" className="inicio-image" />
+          <LazyImage alt="image" src="/hb3d3.0-1500w.webp" className="inicio-image" />
         </div>
         <div className="inicio-container2">
           <SliderAnimado
@@ -394,7 +394,7 @@ const Inicio = (props) => {
                 <span className="inicio-text29">Título 4</span>
               </Fragment>
             }
-            imageSrc3="/fondomatrixazul-700h.png"
+            imageSrc3="/fondomatrixazul-700h.webp"
             rootClassName="slider-animadoroot-class-name1"
           ></SliderAnimado>
         </div>
@@ -582,7 +582,7 @@ const Inicio = (props) => {
             <div className="nosotrosInicio-fotos-container">
               <div className="nosotrosInicio-foto-container">
                 <LazyImage 
-                  src="/FotoHasbon.jpg" 
+                  src="/FotoHasbon.webp" 
                   alt="CEO" 
                   className="nosotrosInicio-foto-perfil"
                 />
@@ -629,7 +629,7 @@ const Inicio = (props) => {
             <div className="nosotrosInicio-fotos-container">
               <div className="nosotrosInicio-foto-container">
                 <LazyImage 
-                  src="/FotoBernal.png" 
+                  src="/FotoBernal.webp" 
                   alt="CTO" 
                   className="nosotrosInicio-foto-perfil"
                 />
@@ -678,7 +678,7 @@ const Inicio = (props) => {
             <div className="nosotrosInicio-fotos-container">
               <div className="nosotrosInicio-foto-container">
                 <LazyImage 
-                  src="/FotoDavid.jpg" 
+                  src="/FotoDavid.webp" 
                   alt="Developer" 
                   className="nosotrosInicio-foto-perfil"
                 />
@@ -724,7 +724,7 @@ const Inicio = (props) => {
             <div className="nosotrosInicio-fotos-container">
               <div className="nosotrosInicio-foto-container">
                 <LazyImage 
-                  src="/FotoMiguel.jpg" 
+                  src="/FotoMiguel.webp" 
                   alt="Legal Advisor" 
                   className="nosotrosInicio-foto-perfil"
                 />

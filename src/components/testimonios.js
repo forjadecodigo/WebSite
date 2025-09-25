@@ -133,8 +133,8 @@ const Testimonios = ({
               {
                 id: 't3',
                 name: (author3Name ? '' : 'Natalia Lopez') || undefined,
-                role: (author3Position ? '' : 'Psicologa') || undefined,
-                image: '/NataliLopez.png',
+                role: (author3Position ? '' : 'Psicóloga') || undefined,
+                image: '/NataliLopez.webp',
                 bio: (review3 ? '' : '“El equipo de Forja de Código tiene una capacidad única...”') || undefined,
               },
               {

@@ -310,25 +310,25 @@ const TeamCarousel = ({
 				.tc-overlay-title { margin: 0; font-size: 18px; font-weight: 700; }
 				.tc-overlay-role { margin: 4px 0 0; font-size: 14px; opacity: 0.9; }
 				.tc-bottom-info { text-align: center; margin-top: 24px; transform: none; }
-				.tc-name { font-size: 32px; font-weight: 800; margin: 0 0 8px; position: relative; display: inline-block; transform: none; }
+				.tc-name { font-size: 40px; font-weight: 800; margin: 0 0 8px; position: relative; display: inline-block; transform: none; }
 				.tc-name-short { transform: translateX(140%); }
 				.tc-name-medium { transform: translateX(120%); }
 				.tc-name-long { transform: translateX(70%); }
 				.tc-underline { position: absolute; left: 0; right: 0; height: 2px; bottom: -6px; }
-				.tc-role { font-size: 18px; font-weight: 600; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 0; transform: translateX(54%); }
-				.tc-bio { font-size: 16px; margin: 12px auto 0; max-width: 900px; line-height: 1.6; color: #E6F3FF; background: rgba(0,0,0,0.35); padding: 12px 16px; border-radius: 10px; transform: translateX(54%); }
+				.tc-role { font-size: 25px; font-weight: 600; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 0; transform: translateX(54%); }
+				.tc-bio { font-size: 22px; margin: 12px auto 0; max-width: 900px; line-height: 1.6; color: #E6F3FF; background: rgba(0,0,0,0.35); padding: 12px 16px; border-radius: 10px; transform: translateX(54%); }
 				.tc-dots { width: 100%; display: flex; justify-content: center; gap: 12px; margin: 20px auto 0; transform: translateX(54%); }
 				.tc-dot { width: 10px; height: 10px; border-radius: 999px; background: rgba(8,42,123,0.4); border: 0; cursor: pointer; }
 				.tc-dot.active { background: rgb(8,42,123); transform: scale(1.1); }
 				@media (max-width: 1024px) and (min-width: 768px) {
 					.tc-stage { max-width: 85%; transform: translateX(0%); }
 					.tc-card { width: 280px !important; height: 350px !important; }
-					.tc-name { transform: none; }
+					.tc-name { transform: none; font-size: 32px; }
 					.tc-name-short { transform: none; }
 					.tc-name-medium { transform: none; }
 					.tc-name-long { transform: none; }
-					.tc-role { transform: none; }
-					.tc-bio { transform: none; max-width: 85%; }
+					.tc-role { transform: none; font-size: 20px; }
+					.tc-bio { transform: none; max-width: 85%; font-size: 18px; }
 					.tc-dots { transform: none; }
 					.tc-arrow { width: 36px; height: 36px; }
 					.tc-left { left: 15px; }
@@ -336,12 +336,12 @@ const TeamCarousel = ({
 				}
 				@media (max-width: 767px) { 
 					.tc-stage { max-width: 95%; transform: translateX(0%); }
-					.tc-name { transform: none; }
+					.tc-name { transform: none; font-size: 28px; }
 					.tc-name-short { transform: none; }
 					.tc-name-medium { transform: none; }
 					.tc-name-long { transform: none; }
-					.tc-role { transform: none; }
-					.tc-bio { transform: none; max-width: 90%; }
+					.tc-role { transform: none; font-size: 18px; }
+					.tc-bio { transform: none; max-width: 90%; font-size: 16px; }
 					.tc-dots { transform: none; }
 					.tc-arrow { width: 32px; height: 32px; }
 					.tc-left { left: 10px; }
