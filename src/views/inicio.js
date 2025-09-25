@@ -310,7 +310,7 @@ const Inicio = (props) => {
           src="/roboforjaazul.webm"
         />
         <div className="inicio-slogan">
-          <span className="inicio-text16">
+          <span className="inicio-text16 glow-title-blue-green">
             <span>En Forja de Código vamos de la chispa de una idea,</span>
             <br></br>
             <span> a la solidez de una aplicación.</span>
@@ -466,11 +466,12 @@ const Inicio = (props) => {
       </div>
 
 
-      <div 
-        className={`portafolioInicio ${isPortafolioScrolling ? 'scrolling' : ''}`} 
-        id="portafolioInicio"
-        ref={portafolioRef}
-      >
+      <div className="portafolio-testimonios-nosotros-wrapper">
+        <div 
+          className={`portafolioInicio ${isPortafolioScrolling ? 'scrolling' : ''}`} 
+          id="portafolioInicio"
+          ref={portafolioRef}
+        >
         <div className="portafolioInicio-contenido">
           <div className="portafolioInicio-hero">
             <h1 className="glow-title-blue-green">Nuestro Portafolio</h1>
@@ -752,6 +753,7 @@ const Inicio = (props) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <div className="blogInicio" id="blogInicio" style={{display: 'none'}}>

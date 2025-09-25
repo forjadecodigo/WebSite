@@ -24,7 +24,7 @@
 .inicio-contenido-wrapper {
   width: 100%;
   position: relative;
-  background-image: url('/BombilloBack.webp');
+  background-image: url('/Fondo1.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,6 +43,33 @@
 }
 
 .inicio-contenido-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Contenedor parallax para Portafolio, Testimonios y Nosotros */
+.portafolio-testimonios-nosotros-wrapper {
+  width: 100%;
+  position: relative;
+  background-image: url('/Fondo12.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.portafolio-testimonios-nosotros-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.portafolio-testimonios-nosotros-wrapper > * {
   position: relative;
   z-index: 1;
 }
@@ -122,7 +149,7 @@
 }
  
 .inicio-text16 {
-  font-size: 1.2rem;
+  font-size: 40px !important;
   line-height: 1.6;
   fill: var(--dl-color-theme-neutral-light);
   color: var(--dl-color-theme-neutral-light);
@@ -451,10 +478,12 @@
 }
 
 .glow-title-blue-green {
-  background: linear-gradient(135deg, #00aaff, #0303ff);
+  background: linear-gradient(135deg, #00fff8, #fafafa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
- }
+  font-size: inherit;
+  font-family: 'Orbitron', monospace !important;
+}
 
 
 .Titulos.inicio-text31 {
@@ -931,7 +960,7 @@
   }
   
   .inicio-text16 {
-    font-size: 1rem;
+    font-size: 32px !important;
   }
   
   .inicio-video {
@@ -992,6 +1021,19 @@
   .serviciosInicio-hero-subtitle {
     font-size: 0.95rem;
   }
+  
+  /* Reducción de tamaños de texto para tablet */
+  h1 {
+    font-size: 32px !important;
+  }
+  
+  h2 {
+    font-size: 24px !important;
+  }
+  
+  p {
+    font-size: 20px !important;
+  }
 }
 
 @media(max-width: 479px) {
@@ -1011,8 +1053,21 @@
   }
   
   .inicio-text16 {
-    font-size: 16px;
+    font-size: 26px !important;
     line-height: 1.5;
+  }
+  
+  /* Reducción de tamaños de texto para móvil */
+  h1 {
+    font-size: 26px !important;
+  }
+  
+  h2 {
+    font-size: 20px !important;
+  }
+  
+  p {
+    font-size: 18px !important;
   }
   
   .inicio-video {

@@ -56,24 +56,20 @@ const Testimonios = (props) => {
           </div>
         )}
         <div className="testimonios-container10">
-          <h2 className="testimonios-text10 thq-heading-2">
+          <h1 className="testimonios-text10 thq-heading-2 glow-title-blue-green">
             {props.heading1 ?? (
               <Fragment>
-                <span className="testimonios-text38">Testimonios</span>
+                <span className="testimonios-text38">Ecos del futuro que ya construimos</span>
               </Fragment>
             )}
-          </h2>
+          </h1>
           <span className="testimonios-text11 thq-body-small">
             {props.content1 ?? (
               <Fragment>
                 <span className="testimonios-text24">
+                  
                   <span>
-                    Lo que dicen quienes ya forjaron su idea con nosotros
-                  </span>
-                  <br></br>
-                  <span>
-                    Cada proyecto tiene una historia. Estas son algunas de las
-                    nuestras, contadas por quienes confiaron en Forja de Código.
+                  En Forja de Código convertimos ideas en realidades digitales. Así nos cuentan nuestros clientes cómo ha sido dar forma a su visión con nosotros.
                   </span>
                   <br></br>
                   <br></br>
