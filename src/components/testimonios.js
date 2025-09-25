@@ -3,6 +3,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import './testimonios.css'
+import TeamCarousel from './TeamCarousel'
 
 const Testimonios = ({ 
   content1,
@@ -102,181 +103,56 @@ const Testimonios = ({
           </span>
         </div>
         <div className="thq-grid-2">
-          <div className="testimonios-accent2-bg1 thq-animated-card-bg-2">
-            <div className="testimonios-accent1-bg1 thq-animated-card-bg-1">
-              <div data-animated="true" className="thq-card testimonios-card1">
-                <div className="testimonios-container12">
-                  <img
-                    alt={author1Alt}
-                    src={author1Src}
-                    className="testimonios-image1"
-                  />
-                  <div className="testimonios-container13">
-                    <strong className="testimonios-text12 thq-body-large">
-                      {author1Name ?? (
-                        <Fragment>
-                          <span className="testimonios-text31">
-                            Julio Lenis
-                          </span>
-                        </Fragment>
-                      )}
-                    </strong>
-                    <span className="testimonios-text13 thq-body-small">
-                      {author1Position ?? (
-                        <Fragment>
-                          <span className="testimonios-text39">
-                            Tatuador (Raven Tatto Studios Pereira)
-                          </span>
-                        </Fragment>
-                      )}
-                    </span>
-                  </div>
-                </div>
-                <span className="testimonios-text14 thq-body-small">
-                  {review1 ?? (
-                    <Fragment>
-                      <span className="testimonios-text35">
-                        Muchas gracias Forja de código Estoy muy satisfecho con
-                        el resultado de su trabajo innovador he intuitivo
-                        100% recomendados
-                      </span>
-                    </Fragment>
-                  )}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="testimonios-accent2-bg2 thq-animated-card-bg-2">
-            <div className="testimonios-accent1-bg2 thq-animated-card-bg-1">
-              <div data-animated="true" className="thq-card testimonios-card2">
-                <div className="testimonios-container14">
-                  <img
-                    alt={author2Alt}
-                    src="/ganando.jpg"
-                    className="testimonios-image2"
-                  />
-                  <div className="testimonios-container15">
-                    <strong className="thq-body-large">
-                      {author2Name ?? (
-                        <Fragment>
-                          <span className="testimonios-text32">
-                            Julio Arango
-                          </span>
-                        </Fragment>
-                      )}
-                    </strong>
-                    <span className="thq-body-small">
-                      {author2Position ?? (
-                        <Fragment>
-                          <span className="testimonios-text42">Ganadero</span>
-                        </Fragment>
-                      )}
-                    </span>
-                  </div>
-                </div>
-                <span className="testimonios-text17 thq-body-small">
-                  {review2 ?? (
-                    <Fragment>
-                      <span className="testimonios-text41">
-                        Estoy muy impresionado con el nivel de profesionalismo y
-                        creatividad que Forja de Código aportó al proyecto.
-                        Lograron convertir nuestra visión en realidad con una
-                        aplicación web eficiente y fácil de usar.
-                      </span>
-                    </Fragment>
-                  )}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="testimonios-accent2-bg3 thq-animated-card-bg-2">
-            <div className="testimonios-accent1-bg3 thq-animated-card-bg-1">
-              <div data-animated="true" className="thq-card testimonios-card3">
-                <div className="testimonios-container16">
-                  <img
-                    alt={author3Alt}
-                    src="/NataliLopez.png"
-                    className="testimonios-image3"
-                  />
-                  <div className="testimonios-container17">
-                    <strong className="thq-body-large">
-                      {author3Name ?? (
-                        <Fragment>
-                          <span className="testimonios-text36">
-                            Natalia Lopez
-                          </span>
-                        </Fragment>
-                      )}
-                    </strong>
-                    <span className="thq-body-small">
-                      {author3Position ?? (
-                        <Fragment>
-                          <span className="testimonios-text30">Psicologa</span>
-                        </Fragment>
-                      )}
-                    </span>
-                  </div>
-                </div>
-                <span className="testimonios-text20 thq-body-small">
-                  {review3 ?? (
-                    <Fragment>
-                      <span className="testimonios-text37">
-                        El equipo de Forja de Código tiene una capacidad única
-                        para combinar tecnología de vanguardia con un enfoque
-                        centrado en el usuario. Entregaron una solución de software
-                        personalizada que no solo cumplió con nuestros requisitos,
-                        sino que los superó.
-                      </span>
-                    </Fragment>
-                  )}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="testimonios-accent2-bg4 thq-animated-card-bg-2">
-            <div className="testimonios-accent1-bg4 thq-animated-card-bg-1">
-              <div data-animated="true" className="thq-card testimonios-card4">
-                <div className="testimonios-container18">
-                  <img
-                    alt={author4Alt}
-                    src={author4Src}
-                    className="testimonios-image4"
-                  />
-                  <div className="testimonios-container19">
-                    <strong className="testimonios-text21 thq-body-large">
-                      {author4Name ?? (
-                        <Fragment>
-                          <span className="testimonios-text40">Juan Henao</span>
-                        </Fragment>
-                      )}
-                    </strong>
-                    <span className="testimonios-text22 thq-body-small">
-                      {author4Position ?? (
-                        <Fragment>
-                          <span className="testimonios-text33">
-                          </span>
-                        </Fragment>
-                      )}
-                    </span>
-                  </div>
-                </div>
-                <span className="testimonios-text23 thq-body-small">
-                  {review4 ?? (
-                    <Fragment>
-                      <span className="testimonios-text34">
-                        La experiencia con Forja de Código en el desarrollo de
-                        mi videojuego ha sido excepcional. Su equipo entendió
-                        perfectamente mi visión y la convirtió en realidad.
-                        La jugabilidad, los gráficos y la optimización superaron
-                        todas mis expectativas. Estoy muy satisfecho con el
-                        resultado final.
-                      </span>
-                    </Fragment>
-                  )}
-                </span>
-              </div>
-            </div>
-          </div>
+          <TeamCarousel
+            title="TESTIMONIOS"
+            titleColor="rgba(0, 170, 255, 1)"
+            infoTextColor="#E6F3FF"
+            showArrows
+            showDots
+            visibleCards={2}
+            sideCardScale={0.85}
+            sideCardOpacity={0.7}
+            infoPosition="bottom"
+            cardWidth={300}
+            cardHeight={350}
+            members={[
+              {
+                id: 't1',
+                name: (author1Name ? '' : 'Julio Lenis') || undefined,
+                role: (author1Position ? '' : 'Tatuador (Raven Tatto Studios Pereira)') || undefined,
+                image: author1Src,
+                bio: (review1 ? '' : '“Muchas gracias Forja de código... 100% recomendados.”') || undefined,
+              },
+              {
+                id: 't2',
+                name: (author2Name ? '' : 'Julio Arango') || undefined,
+                role: (author2Position ? '' : 'Ganadero') || undefined,
+                image: '/ganando.jpg',
+                bio: (review2 ? '' : '“Estoy muy impresionado con el nivel de profesionalismo...”') || undefined,
+              },
+              {
+                id: 't3',
+                name: (author3Name ? '' : 'Natalia Lopez') || undefined,
+                role: (author3Position ? '' : 'Psicologa') || undefined,
+                image: '/NataliLopez.png',
+                bio: (review3 ? '' : '“El equipo de Forja de Código tiene una capacidad única...”') || undefined,
+              },
+              {
+                id: 't4',
+                name: (author4Name ? '' : 'Juan Henao') || undefined,
+                role: (author4Position ? '' : 'Desarrollador de Videojuegos') || undefined,
+                image: author4Src,
+                bio: (review4 ? '' : '“La experiencia con Forja de Código en el desarrollo de mi videojuego ha sido excepcional.”') || undefined,
+              },
+              {
+                id: 't5',
+                name: 'Blanca Ofir Rodriguez',
+                role: 'Propietaria Spa Blanca',
+                image: '/blanca.jpg',
+                bio: 'Una excelente experiencia, brindando un servicio espectacular dando valor humano y una calidad genial.',
+              },
+            ]}
+          />
         </div>
       </div>
     </div>

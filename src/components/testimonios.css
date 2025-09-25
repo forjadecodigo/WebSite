@@ -351,13 +351,36 @@
 
 @media(max-width: 767px) {
   .testimonios-max-width {
-    max-width: 400px;
+    max-width: 100%;
     padding: 0 var(--dl-space-space-unit);
+    display: flex !important;
   }
   
   .testimonios-container10 {
     max-width: 300px;
     margin-bottom: var(--dl-layout-space-oneandhalfunits);
+  }
+  
+  .thq-grid-2 {
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  /* Asegurar que TeamCarousel sea visible en móvil */
+  .tc-container {
+    min-height: 50vh !important;
+    display: flex !important;
+  }
+  
+  .tc-stage {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+  
+  .tc-card {
+    width: 250px !important;
+    height: 350px !important;
   }
   
   .testimonios-image1,
@@ -388,11 +411,6 @@
   }
 }
 
-@media(max-width: 767px) {
-  .testimonios-max-width {
-    display: none;
-  }
-}
 
 /* Estilos para el EfectoYunque */
 .efecto-yunque-container {

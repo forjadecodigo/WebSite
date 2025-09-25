@@ -1809,7 +1809,7 @@
   }
 
   .portafolioInicio-testimonios {
-    display: none;
+    display: block;
   }
 
   .portafolioInicio-hero h1 {
