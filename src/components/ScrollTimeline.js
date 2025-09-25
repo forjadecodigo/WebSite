@@ -41,11 +41,23 @@ export const ScrollTimeline = ({
   const visualRef = useRef(null)
   const visualImgRef = useRef(null)
   const tiltRef = useRef({ x: 0, y: 0 })
+  const lastScrollY = useRef(0)
+  const scrollDirection = useRef('down')
 
   useEffect(() => {
     const el = containerRef.current
     const onScroll = () => {
       if (!el || !progressRef.current || !cometRef.current) return
+      
+      // Detectar dirección del scroll
+      const currentScrollY = window.scrollY
+      if (currentScrollY > lastScrollY.current) {
+        scrollDirection.current = 'down'
+      } else if (currentScrollY < lastScrollY.current) {
+        scrollDirection.current = 'up'
+      }
+      lastScrollY.current = currentScrollY
+
       const rect = el.getBoundingClientRect()
       const total = rect.height
       const startOffset = window.innerHeight * 0.5
@@ -64,10 +76,24 @@ export const ScrollTimeline = ({
         const trigger = window.innerHeight * 0.5 // revelar a mitad de pantalla
         if (r.top < trigger) { card.classList.add('is-visible') } else { card.classList.remove('is-visible') }
       })
+
+      // Lógica del bombillo basada en scroll
+      if (visualRef.current) {
+        const visualRect = visualRef.current.getBoundingClientRect()
+        const isVisible = visualRect.top < window.innerHeight && visualRect.bottom > 0
+        const isInViewport = visualRect.top < window.innerHeight * 0.7 && visualRect.bottom > window.innerHeight * 0.3
+        
+        if (scrollDirection.current === 'down' && isInViewport) {
+          visualRef.current.classList.add('encendido')
+        } else if (scrollDirection.current === 'up' && !isVisible) {
+          visualRef.current.classList.remove('encendido')
+        }
+      }
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll)
+    // Efecto de movimiento 3D al hacer hover
     const onMouseMove = (e) => {
       if (!visualRef.current) return
       const rect = visualRef.current.getBoundingClientRect()
@@ -82,28 +108,25 @@ export const ScrollTimeline = ({
         visualImgRef.current.style.transform = `translate(${tx}px, ${ty}px)`
       }
     }
-    const onEnter = () => {
-      if (visualRef.current) visualRef.current.classList.add('encendido')
-    }
-    const onLeave = () => {
-      if (visualRef.current) {
-        visualRef.current.classList.remove('encendido')
-        if (visualImgRef.current) visualImgRef.current.style.transform = ''
+    
+    const onMouseLeave = () => {
+      if (visualImgRef.current) {
+        visualImgRef.current.style.transform = ''
       }
     }
+    
     const vr = visualRef.current
     if (vr) {
       vr.addEventListener('mousemove', onMouseMove)
-      vr.addEventListener('mouseenter', onEnter)
-      vr.addEventListener('mouseleave', onLeave)
+      vr.addEventListener('mouseleave', onMouseLeave)
     }
+    
     return () => {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
       if (vr) {
         vr.removeEventListener('mousemove', onMouseMove)
-        vr.removeEventListener('mouseenter', onEnter)
-        vr.removeEventListener('mouseleave', onLeave)
+        vr.removeEventListener('mouseleave', onMouseLeave)
       }
     }
   }, [events.length, activeIndex])
@@ -135,9 +158,9 @@ export const ScrollTimeline = ({
         /* Right visual (recrea etapas-image con brillo) */
         .st-visual { position:absolute; right:-430px; top:830px; width:260px; height:760px; display:none; align-items:center; justify-content:center; pointer-events:auto; z-index:50; cursor:pointer; }
         .st-visual::before { content:""; position:absolute; inset:-40px; border-radius:9999px; background: radial-gradient(circle, rgba(255,217,0,0.35) 0%, rgba(255,217,0,0.12) 40%, transparent 70%); filter: blur(10px); animation: st-glow 2.2s ease-in-out infinite; transition: all .25s ease; }
-        .st-visual.encendido::before, .st-visual:hover::before { background: radial-gradient(circle, rgba(255,217,0,0.8) 0%, rgba(255,217,0,0.35) 40%, transparent 70%); filter: blur(14px); }
-        .st-visual img { width:100%; height:100%; object-fit: contain; filter: brightness(1) drop-shadow(0 0 0px rgba(255,217,0,0)); transition: transform .25s ease, filter .25s ease; }
-        .st-visual.encendido img, .st-visual:hover img { filter: brightness(1.7) drop-shadow(0 0 40px rgba(255,217,0,0.8)); }
+        .st-visual.encendido::before { background: radial-gradient(circle, rgba(255,217,0,0.8) 0%, rgba(255,217,0,0.35) 40%, transparent 70%); filter: blur(14px); }
+        .st-visual img { width:100%; height:100%; object-fit: contain; filter: brightness(1) drop-shadow(0 0 0px rgba(255,217,0,0)); transition: transform .15s ease-out, filter .25s ease; }
+        .st-visual.encendido img { filter: brightness(1.7) drop-shadow(0 0 40px rgba(255,217,0,0.8)); }
         .st-visual-text { position:absolute; right:-520px; top:120px; width:420px; color:#fff; display:none; z-index:51; }
         .st-visual-text .box { background: rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.15); border-radius:14px; backdrop-filter: blur(6px); padding:16px 18px; }
         .st-visual-text h3 { margin:0 0 8px; font-size:20px; font-weight:800; }

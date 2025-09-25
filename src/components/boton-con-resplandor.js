@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 
 import './boton-con-resplandor.css'
 
-const BotonConResplandor = (props) => {
+const BotonConResplandor = ({ button, rootClassName = '' }) => {
   return (
-    <div className={`boton-con-resplandor-container1 ${props.rootClassName} `}>
+    <div className={`boton-con-resplandor-container1 ${rootClassName} `}>
       <div className="button-container">
         <button className="button glow-btn">
           <span>
-            {props.button ?? (
+            {button ?? (
               <Fragment>
                 <span className="boton-con-resplandor-text2 Botones">
                   Botón con Resplandor
@@ -24,10 +24,6 @@ const BotonConResplandor = (props) => {
   )
 }
 
-BotonConResplandor.defaultProps = {
-  button: undefined,
-  rootClassName: '',
-}
 
 BotonConResplandor.propTypes = {
   button: PropTypes.element,

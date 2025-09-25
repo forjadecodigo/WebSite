@@ -6,7 +6,17 @@ import PropTypes from 'prop-types'
 import BotonConResplandor from './boton-con-resplandor'
 import './pie-de-pagina.css'
 
-const PieDePagina = (props) => {
+const PieDePagina = ({ 
+  privacyLink, 
+  termsLink, 
+  rootClassName = '', 
+  logoAlt = 'Forja de Código Logo', 
+  cookiesLink, 
+  content1, 
+  content2, 
+  logoSrc = 'forjalogovector-1500h.png', 
+  copyright 
+}) => {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
@@ -64,7 +74,7 @@ const PieDePagina = (props) => {
 
 return (
   <footer
-    className={`pie-de-pagina-container1 thq-section-padding ${props.rootClassName} `}
+    className={`pie-de-pagina-container1 thq-section-padding ${rootClassName} `}
   >
     <a
       href="https://wa.me/573127379928?text=Hola%20Forjadores%2C%20tengo%20una%20idea%20que%20quiero%20digitalizar%20y%20me%20gustaría%20hablar%20con%20ustedes"
@@ -86,7 +96,7 @@ return (
           <div className="pie-de-pagina-actions1">
             <div className="pie-de-pagina-newsletter">
               <span className="Content thq-body-small">
-                {props.content1 ?? (
+                {content1 ?? (
                   <Fragment>
                     <span className="pie-de-pagina-text5 Botones">
                       Desarrollo de Software y Web a la medida
@@ -120,7 +130,7 @@ return (
                   </div>
                 </div>
                 <span className="Content">
-                  {props.content2 ?? (
+                  {content2 ?? (
                     <Fragment>
                       <span className="pie-de-pagina-text6">
                         Transformando ideas en soluciones
@@ -133,8 +143,8 @@ return (
             <div className="pie-de-pagina-media">
               <div className="pie-de-pagina-container3">
                 <img
-                  alt={props.logoAlt}
-                  src={props.logoSrc}
+                  alt={logoAlt}
+                  src={logoSrc}
                   className="pie-de-pagina-image1"
                 />
                 <div className="pie-de-pagina-social-links">
@@ -174,7 +184,7 @@ return (
           <div className="pie-de-pagina-row">
             <div className="pie-de-pagina-credits2">
               <span className="pie-de-pagina-link11">
-                {props.privacyLink ?? (
+                {privacyLink ?? (
                   <Fragment>
                     <span className="pie-de-pagina-text2">
                       Correo: forjadecodigo@gmail.com
@@ -183,7 +193,7 @@ return (
                 )}
               </span>
               <span className="pie-de-pagina-link12">
-                {props.termsLink ?? (
+                {termsLink ?? (
                   <Fragment>
                     <span className="pie-de-pagina-text3">
                       Terminos de servicio
@@ -192,7 +202,7 @@ return (
                 )}
               </span>
               <span className="pie-de-pagina-link13">
-                {props.cookiesLink ?? (
+                {cookiesLink ?? (
                   <Fragment>
                     <span className="pie-de-pagina-text4">Cookies</span>
                   </Fragment>
@@ -201,7 +211,7 @@ return (
             </div>
           </div>
           <span className="pie-de-pagina-content3">
-            {props.copyright ?? (
+            {copyright ?? (
               <Fragment>
                 <span className="pie-de-pagina-text7">
                   © 2024 Forja de Código. Derechos Reservados.
@@ -215,17 +225,6 @@ return (
   )
 }
 
-PieDePagina.defaultProps = {
-  privacyLink: undefined,
-  termsLink: undefined,
-  rootClassName: '',
-  logoAlt: 'Forja de Código Logo',
-  cookiesLink: undefined,
-  content1: undefined,
-  content2: undefined,
-  logoSrc: 'forjalogovector-1500h.png',
-  copyright: undefined,
-}
 
 PieDePagina.propTypes = {
   privacyLink: PropTypes.element,

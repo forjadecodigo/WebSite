@@ -12,18 +12,18 @@
 }
  
 .pie-de-pagina-content {
-  gap: var(--dl-layout-space-twounits);
+  gap: calc(var(--dl-layout-space-twounits) * 1.3);
   width: 100%;
   display: flex;
   align-self: stretch;
   align-items: flex-start;
   flex-shrink: 0;
-  padding-top: var(--dl-layout-space-twounits);
+  padding-top: calc(var(--dl-layout-space-twounits) * 1.3);
   padding-left: 0px;
   border-radius: var(--dl-layout-radius-radius4);
   padding-right: 0px;
   flex-direction: column;
-  padding-bottom: var(--dl-layout-space-twounits);
+  padding-bottom: calc(var(--dl-layout-space-twounits) * 1.3);
   justify-content: flex-start;
 }
  
@@ -111,7 +111,7 @@
 }
  
 .pie-de-pagina-credits1 {
-  gap: var(--dl-layout-space-oneandhalfunits);
+  gap: calc(var(--dl-layout-space-oneandhalfunits) * 1.3);
   width: auto;
   display: flex;
   align-self: stretch;
@@ -206,30 +206,61 @@
 @media(max-width: 991px) {
   .pie-de-pagina-content {
     flex-direction: row;
+    text-align: center;
   }
   .pie-de-pagina-newsletter {
     width: 50%;
+    text-align: center;
   }
   .pie-de-pagina-form {
     width: 100%;
     flex-direction: column;
+    align-items: center;
   }
   .pie-de-pagina-container2 {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
   .pie-de-pagina-media {
     width: 50%;
+    align-items: center;
   }
   .pie-de-pagina-image1 {
     height: 4rem;
   }
   .pie-de-pagina-credits1 {
     flex-direction: column;
+    text-align: center;
   }
   .pie-de-pagina-row {
     align-items: center;
     flex-direction: row;
     justify-content: center;
+  }
+  
+  /* Centrar específicamente la clase Content en tablets */
+  .Content {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .thq-body-small {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Centrar específicamente la combinación de clases en tablets */
+  .Content.thq-body-small {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
   }
 }
  
@@ -239,22 +270,27 @@
     width: auto;
     align-self: stretch;
     flex-direction: column;
+    text-align: center;
   }
   .pie-de-pagina-actions1 {
     width: 100%;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
   .pie-de-pagina-newsletter {
     width: 100%;
+    text-align: center;
   }
   .pie-de-pagina-form {
     width: 100%;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .pie-de-pagina-container2 {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
   .pie-de-pagina-media {
     width: 100%;
@@ -262,38 +298,49 @@
   }
   .pie-de-pagina-credits1 {
     flex-direction: column;
+    text-align: center;
   }
   .pie-de-pagina-row {
     padding: 0px;
     padding-right: 0px;
     flex-direction: column;
+    align-items: center;
   }
   .pie-de-pagina-credits2 {
     width: auto;
-    align-self: stretch;
-    justify-content: space-between;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--dl-layout-space-unit);
   }
 }
  
 @media(max-width: 479px) {
   .pie-de-pagina-content {
     gap: var(--dl-layout-space-twounits);
+    text-align: center;
   }
   .pie-de-pagina-newsletter {
     width: 100%;
+    text-align: center;
   }
   .pie-de-pagina-actions2 {
     width: 100%;
+    align-items: center;
   }
   .pie-de-pagina-form {
     width: 100%;
     flex-direction: column;
+    align-items: center;
   }
   .pie-de-pagina-container2 {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
   .pie-de-pagina-media {
     width: 100%;
+    align-items: center;
   }
   .pie-de-pagina-image1 {
     height: 3rem;
@@ -309,12 +356,82 @@
   .pie-de-pagina-credits2 {
     gap: var(--dl-layout-space-oneandhalfunits);
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Centrar específicamente la clase Content en pantallas pequeñas */
+  .Content {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .thq-body-small {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Centrar específicamente la combinación de clases en pantallas pequeñas */
+  .Content.thq-body-small {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
   }
 }
 
 .pie-de-pagina-text52 {
   margin-bottom: var(--dl-space-space-halfunit);
+}
+
+/* Estilos adicionales para centrado en móvil */
+@media(max-width: 767px) {
+  .pie-de-pagina-text5,
+  .pie-de-pagina-text6,
+  .pie-de-pagina-text1,
+  .pie-de-pagina-text2,
+  .pie-de-pagina-text3,
+  .pie-de-pagina-text4,
+  .pie-de-pagina-text7 {
+    text-align: center;
+  }
+  
+  .pie-de-pagina-text-input {
+    text-align: center;
+  }
+  
+  .pie-de-pagina-social-links {
+    justify-content: center;
+  }
+  
+  /* Centrar específicamente la clase Content */
+  .Content {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .thq-body-small {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Centrar específicamente la combinación de clases */
+  .Content.thq-body-small {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
 }
 
 /* WhatsApp float */

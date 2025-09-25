@@ -4,7 +4,30 @@ import PropTypes from 'prop-types'
 
 import './testimonios.css'
 
-const Testimonios = (props) => {
+const Testimonios = ({ 
+  content1,
+  author4Src = 'https://images.unsplash.com/photo-1636041282523-1add6c493ebc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NDA1MjQ2M3w&ixlib=rb-4.0.3&q=80&w=1080',
+  author3Position,
+  author1Name,
+  author4Alt = 'Image of Sarah Lee',
+  author2Src = '/imagen%20de%20whatsapp%202025-02-25%20a%20las%2016.50.28_4a5e1e9c-200h.jpg',
+  author2Name,
+  author4Position,
+  author1Src = '/captura%20de%20pantalla%202025-04-09%20110746-200w.png',
+  review4,
+  author3Src = 'https://images.unsplash.com/photo-1501432377862-3d0432b87a14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NDA1MjQ2M3w&ixlib=rb-4.0.3&q=80&w=1080',
+  review1,
+  author3Name,
+  review3,
+  author2Alt = 'Image of Jane Smith',
+  author3Alt = 'Image of Michael Johnson',
+  heading1,
+  author1Alt = 'Image of John Doe',
+  author1Position,
+  author4Name,
+  review2,
+  author2Position
+}) => {
   const [showYunque, setShowYunque] = useState(false);
   const testimoniosRef = useRef(null);
   const hasAnimatedRef = useRef(false);
@@ -57,14 +80,14 @@ const Testimonios = (props) => {
         )}
         <div className="testimonios-container10">
           <h1 className="testimonios-text10 thq-heading-2 glow-title-blue-green">
-            {props.heading1 ?? (
+            {heading1 ?? (
               <Fragment>
                 <span className="testimonios-text38">Ecos del futuro que ya construimos</span>
               </Fragment>
             )}
           </h1>
           <span className="testimonios-text11 thq-body-small">
-            {props.content1 ?? (
+            {content1 ?? (
               <Fragment>
                 <span className="testimonios-text24">
                   
@@ -84,13 +107,13 @@ const Testimonios = (props) => {
               <div data-animated="true" className="thq-card testimonios-card1">
                 <div className="testimonios-container12">
                   <img
-                    alt={props.author1Alt}
-                    src={props.author1Src}
+                    alt={author1Alt}
+                    src={author1Src}
                     className="testimonios-image1"
                   />
                   <div className="testimonios-container13">
                     <strong className="testimonios-text12 thq-body-large">
-                      {props.author1Name ?? (
+                      {author1Name ?? (
                         <Fragment>
                           <span className="testimonios-text31">
                             Julio Lenis
@@ -99,7 +122,7 @@ const Testimonios = (props) => {
                       )}
                     </strong>
                     <span className="testimonios-text13 thq-body-small">
-                      {props.author1Position ?? (
+                      {author1Position ?? (
                         <Fragment>
                           <span className="testimonios-text39">
                             Tatuador (Raven Tatto Studios Pereira)
@@ -110,7 +133,7 @@ const Testimonios = (props) => {
                   </div>
                 </div>
                 <span className="testimonios-text14 thq-body-small">
-                  {props.review1 ?? (
+                  {review1 ?? (
                     <Fragment>
                       <span className="testimonios-text35">
                         Muchas gracias Forja de código Estoy muy satisfecho con
@@ -128,13 +151,13 @@ const Testimonios = (props) => {
               <div data-animated="true" className="thq-card testimonios-card2">
                 <div className="testimonios-container14">
                   <img
-                    alt={props.author2Alt}
+                    alt={author2Alt}
                     src="/ganando.jpg"
                     className="testimonios-image2"
                   />
                   <div className="testimonios-container15">
                     <strong className="thq-body-large">
-                      {props.author2Name ?? (
+                      {author2Name ?? (
                         <Fragment>
                           <span className="testimonios-text32">
                             Julio Arango
@@ -143,7 +166,7 @@ const Testimonios = (props) => {
                       )}
                     </strong>
                     <span className="thq-body-small">
-                      {props.author2Position ?? (
+                      {author2Position ?? (
                         <Fragment>
                           <span className="testimonios-text42">Ganadero</span>
                         </Fragment>
@@ -152,7 +175,7 @@ const Testimonios = (props) => {
                   </div>
                 </div>
                 <span className="testimonios-text17 thq-body-small">
-                  {props.review2 ?? (
+                  {review2 ?? (
                     <Fragment>
                       <span className="testimonios-text41">
                         Estoy muy impresionado con el nivel de profesionalismo y
@@ -171,13 +194,13 @@ const Testimonios = (props) => {
               <div data-animated="true" className="thq-card testimonios-card3">
                 <div className="testimonios-container16">
                   <img
-                    alt={props.author3Alt}
+                    alt={author3Alt}
                     src="/NataliLopez.png"
                     className="testimonios-image3"
                   />
                   <div className="testimonios-container17">
                     <strong className="thq-body-large">
-                      {props.author3Name ?? (
+                      {author3Name ?? (
                         <Fragment>
                           <span className="testimonios-text36">
                             Natalia Lopez
@@ -186,7 +209,7 @@ const Testimonios = (props) => {
                       )}
                     </strong>
                     <span className="thq-body-small">
-                      {props.author3Position ?? (
+                      {author3Position ?? (
                         <Fragment>
                           <span className="testimonios-text30">Psicologa</span>
                         </Fragment>
@@ -195,7 +218,7 @@ const Testimonios = (props) => {
                   </div>
                 </div>
                 <span className="testimonios-text20 thq-body-small">
-                  {props.review3 ?? (
+                  {review3 ?? (
                     <Fragment>
                       <span className="testimonios-text37">
                         El equipo de Forja de Código tiene una capacidad única
@@ -215,20 +238,20 @@ const Testimonios = (props) => {
               <div data-animated="true" className="thq-card testimonios-card4">
                 <div className="testimonios-container18">
                   <img
-                    alt={props.author4Alt}
-                    src={props.author4Src}
+                    alt={author4Alt}
+                    src={author4Src}
                     className="testimonios-image4"
                   />
                   <div className="testimonios-container19">
                     <strong className="testimonios-text21 thq-body-large">
-                      {props.author4Name ?? (
+                      {author4Name ?? (
                         <Fragment>
                           <span className="testimonios-text40">Juan Henao</span>
                         </Fragment>
                       )}
                     </strong>
                     <span className="testimonios-text22 thq-body-small">
-                      {props.author4Position ?? (
+                      {author4Position ?? (
                         <Fragment>
                           <span className="testimonios-text33">
                           </span>
@@ -238,7 +261,7 @@ const Testimonios = (props) => {
                   </div>
                 </div>
                 <span className="testimonios-text23 thq-body-small">
-                  {props.review4 ?? (
+                  {review4 ?? (
                     <Fragment>
                       <span className="testimonios-text34">
                         La experiencia con Forja de Código en el desarrollo de
@@ -260,33 +283,6 @@ const Testimonios = (props) => {
   )
 }
 
-Testimonios.defaultProps = {
-  content1: undefined,
-  author4Src:
-    'https://images.unsplash.com/photo-1636041282523-1add6c493ebc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NDA1MjQ2M3w&ixlib=rb-4.0.3&q=80&w=1080',
-  author3Position: undefined,
-  author1Name: undefined,
-  author4Alt: 'Image of Sarah Lee',
-  author2Src:
-    '/imagen%20de%20whatsapp%202025-02-25%20a%20las%2016.50.28_4a5e1e9c-200h.jpg',
-  author2Name: undefined,
-  author4Position: undefined,
-  author1Src: '/captura%20de%20pantalla%202025-04-09%20110746-200w.png',
-  review4: undefined,
-  author3Src:
-    'https://images.unsplash.com/photo-1501432377862-3d0432b87a14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NDA1MjQ2M3w&ixlib=rb-4.0.3&q=80&w=1080',
-  review1: undefined,
-  author3Name: undefined,
-  review3: undefined,
-  author2Alt: 'Image of Jane Smith',
-  author3Alt: 'Image of Michael Johnson',
-  heading1: undefined,
-  author1Alt: 'Image of John Doe',
-  author1Position: undefined,
-  author4Name: undefined,
-  review2: undefined,
-  author2Position: undefined,
-}
 
 Testimonios.propTypes = {
   content1: PropTypes.element,

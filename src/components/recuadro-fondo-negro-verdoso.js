@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import BotonConResplandor from './boton-con-resplandor'
 import './recuadro-fondo-negro-verdoso.css'
 
-const RecuadroFondoNegroVerdoso = (props) => {
+const RecuadroFondoNegroVerdoso = ({ heading1, content1, rootClassName = '' }) => {
   const navigate = useNavigate();
 
   const handleContactClick = () => {
@@ -18,7 +18,7 @@ const RecuadroFondoNegroVerdoso = (props) => {
 
   return (
     <div
-      className={`recuadro-fondo-negro-verdoso-container1 thq-section-padding ${props.rootClassName} `}
+      className={`recuadro-fondo-negro-verdoso-container1 thq-section-padding ${rootClassName} `}
     >
       <div className="thq-section-max-width">
         <div className="recuadro-fondo-negro-verdoso-accent2-bg">
@@ -26,7 +26,13 @@ const RecuadroFondoNegroVerdoso = (props) => {
             <div className="recuadro-fondo-negro-verdoso-container2">
               <div className="recuadro-fondo-negro-verdoso-content">
                 <span className="recuadro-fondo-negro-verdoso-text1 thq-heading-2">
-                  {props.heading1 ?? (
+                  {heading1 ? (
+                    typeof heading1 === 'string' ? (
+                      <span className="recuadro-fondo-negro-verdoso-text4">
+                        {heading1}
+                      </span>
+                    ) : heading1
+                  ) : (
                     <Fragment>
                       <span className="recuadro-fondo-negro-verdoso-text4">
                          Tu idea merece algo único.
@@ -35,7 +41,13 @@ const RecuadroFondoNegroVerdoso = (props) => {
                   )}
                 </span>
                 <p className="recuadro-fondo-negro-verdoso-text2 thq-body-large">
-                  {props.content1 ?? (
+                  {content1 ? (
+                    typeof content1 === 'string' ? (
+                      <span className="recuadro-fondo-negro-verdoso-text5">
+                        {content1}
+                      </span>
+                    ) : content1
+                  ) : (
                     <Fragment>
                       <span className="recuadro-fondo-negro-verdoso-text5">
                         Escríbenos y veamos cómo podemos transformarla en una
@@ -66,16 +78,11 @@ const RecuadroFondoNegroVerdoso = (props) => {
   )
 }
 
-RecuadroFondoNegroVerdoso.defaultProps = {
-  rootClassName: '',
-  heading1: undefined,
-  content1: undefined,
-}
 
 RecuadroFondoNegroVerdoso.propTypes = {
   rootClassName: PropTypes.string,
-  heading1: PropTypes.element,
-  content1: PropTypes.element,
+  heading1: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  content1: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 }
 
 export default RecuadroFondoNegroVerdoso

@@ -51,22 +51,14 @@
 .portafolio-testimonios-nosotros-wrapper {
   width: 100%;
   position: relative;
-  background-image: url('/Fondo12.webp');
-  background-size: cover;
+  background: 
+    url('/BombilloBack.webp'),
+    #101010;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-.portafolio-testimonios-nosotros-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 0;
+  overflow: hidden;
 }
 
 .portafolio-testimonios-nosotros-wrapper > * {
