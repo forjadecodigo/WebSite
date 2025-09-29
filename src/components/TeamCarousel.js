@@ -311,9 +311,9 @@ const TeamCarousel = ({
 				.tc-overlay-role { margin: 4px 0 0; font-size: 14px; opacity: 0.9; }
 				.tc-bottom-info { text-align: center; margin-top: 24px; transform: none; }
 				.tc-name { font-size: 40px; font-weight: 800; margin: 0 0 8px; position: relative; display: inline-block; transform: none; }
-				.tc-name-short { transform: translateX(140%); }
-				.tc-name-medium { transform: translateX(120%); }
-				.tc-name-long { transform: translateX(70%); }
+				.tc-name-short { transform: translateX(108%); }
+				.tc-name-medium { transform: translateX(100%); }
+				.tc-name-long { transform: translateX(60%); }
 				.tc-underline { position: absolute; left: 0; right: 0; height: 2px; bottom: -6px; }
 				.tc-role { font-size: 25px; font-weight: 600; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 0; transform: translateX(54%); }
 				.tc-bio { font-size: 22px; margin: 12px auto 0; max-width: 900px; line-height: 1.6; color: #E6F3FF; background: rgba(0,0,0,0.35); padding: 12px 16px; border-radius: 10px; transform: translateX(54%); }
